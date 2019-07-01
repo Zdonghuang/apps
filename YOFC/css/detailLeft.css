@@ -1,0 +1,534 @@
+#detailLeft {
+	width: 848px;
+	padding: 20px 0 20px 20px;
+	float: left;
+	box-sizing: border-box;
+}
+
+#detailLeft .left_top {
+	width: 810px;
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+#detailLeft .left_top .date {
+	float: left;
+	margin-right: 20px;
+}
+
+#detailLeft .left_top .date .date_top {
+	width: 315px;
+	height: 140px;
+	text-align: center;
+	line-height: 140px;
+	font-size: 120px;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+
+#detailLeft .left_top .date .date_bottom {
+	width: 315px;
+	height: 35px;
+	text-align: center;
+}
+
+#detailLeft .left_top .date .date_bottom span {
+	color: #fff;
+	line-height: 42px;
+	font-size: 28px;
+}
+
+#detailLeft .left_top .weather {
+	float: left;
+	width: 136px;
+}
+
+#detailLeft .left_top .weather .p_one {
+	width: 136px;
+	height: 130px;
+	background: url(../img/icon/ic_wthr_shower.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 20px;
+}
+
+#detailLeft .left_top .weather .p_two {
+	font-family: Roboto-Bold;
+	font-size: 30px;
+	color: #ffffff;
+}
+
+#detailLeft .left_top .weather .p_two span {
+	font-family: Roboto-Bold;
+	font-size: 30px;
+	color: #ffffff;
+	line-height: 42px;
+}
+
+#detailLeft .left_top .equipment_num .p_one {
+	width: 315px;
+	height: 220px;
+	float: left;
+	background: url(../img/icon/header0.jpg) no-repeat;
+	background-size: contain;
+	background-position-x: 0px;
+}
+
+#detailLeft .left_center {
+	overflow: hidden;
+	width: 770px;
+	height: 400px;
+	padding: 0 20px;
+	background-image: linear-gradient(45deg, rgba(232, 255, 193, 0) 0%, rgba(255, 243, 200, 0.4) 100%);
+	margin-bottom: 20px;
+}
+
+#detailLeft .left_center .title {
+	margin-top: 6px;
+	margin-bottom: 11px;
+	height: 33px;
+	font-size: 24px;
+	color: #fff3c8;
+}
+
+#detailLeft .left_center .electric,
+#detailLeft .left_center .load {
+	float: left;
+	margin-right: 42px;
+	margin-bottom: 20px;
+	width: 360px;
+	height: 155px;
+	border: 2px solid #ffc800;
+	background: #0b0b0d;
+	box-sizing: border-box;
+}
+
+#detailLeft .left_center .electric_change {
+	margin-right: 0px;
+}
+
+#detailLeft .left_center .electric .p_one,
+#detailLeft .left_center .load .p_one {
+	display: flex;
+	justify-content: space-between;
+}
+
+#detailLeft .left_center .electric .p_one span,
+#detailLeft .left_center .load .p_one span {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(../img/icon/ic_volt_load0.png) no-repeat;
+	background-size: 100%;
+	margin-top: 21px;
+	margin-left: 20px;
+}
+
+#detailLeft .left_center .electric .p_one i,
+#detailLeft .left_center .load .p_one i {
+	display: block;
+	margin-top: 21px;
+	height: 42px;
+	color: #fff3c8;
+	text-align: center;
+	line-height: 42px;
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+#detailLeft .left_center .electric .p_two,
+#detailLeft .left_center .load .p_two {
+	display: flex;
+	justify-content: space-between;
+}
+
+#detailLeft .left_center .electric .p_two span,
+#detailLeft .left_center .load .p_two span {
+	display: block;
+	width: 186px;
+	height: 58px;
+	color: #fff;
+	font-size: 50px;
+	margin-left: 20px;
+	margin-top: 14px;
+}
+
+#detailLeft .left_center .electric .p_two i,
+#detailLeft .left_center .load .p_two i {
+	display: block;
+	margin-top: 21px;
+	height: 35px;
+	color: #fff3c8;
+	text-align: center;
+	line-height: 42px;
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+#detailLeft .left_center .costs,
+#detailLeft .left_center .energy {
+	float: left;
+	margin-right: 20px;
+	width: 360px;
+	height: 155px;
+	border: 2px solid #ffc800;
+	background: #0b0b0d;
+}
+
+#detailLeft .left_center .costs .costs_one,
+#detailLeft .left_center .energy .costs_one {
+	float: left;
+	margin-left: 20px;
+}
+
+#detailLeft .left_center .costs .costs_one .p_one,
+#detailLeft .left_center .energy .costs_one .p_one {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-size: contain;
+	margin-top: 21px;
+}
+
+#detailLeft .left_center .costs .costs_one .p_two,
+#detailLeft .left_center .energy .costs_one .p_two {
+	width: 109px;
+	height: 25px;
+	margin-top: 12px;
+	color: #ffc800;
+	font-size: 18px;
+}
+
+#detailLeft .left_center .costs .costs_one .p_three,
+#detailLeft .left_center .energy .costs_one .p_three {
+	height: 42px;
+	font-size: 30px;
+	color: #fff3c8;
+}
+
+#detailLeft .left_center .costs .costs_two,
+#detailLeft .left_center .energy .costs_two {
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+	width: 114px;
+	height: 114px;
+	position: relative;
+	color: #fff;
+}
+
+#detailLeft .left_center .load .p_one span {
+	background: url(../img/icon/ic_volt_usage0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_center .costs .costs_one .p_one {
+	background: url(../img/icon/ic_volt_exp0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_center .energy .costs_one .p_one {
+	background: url(../img/icon/ic_volt_device0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_bottom {
+	overflow: hidden;
+	width: 770px;
+	height: 400px;
+	padding: 0 20px;
+	background-image: linear-gradient(45deg, rgba(188, 244, 255, 0) 0%, rgba(204, 226, 255, 0.4) 100%);
+}
+
+#detailLeft .left_bottom .title {
+	margin-top: 6px;
+	margin-bottom: 11px;
+	height: 33px;
+	font-size: 24px;
+	color: #cce2ff;
+}
+
+#detailLeft .left_bottom .water_temperature,
+#detailLeft .left_bottom .water_gage,
+#detailLeft .left_bottom .Tsp_water_gage,
+#detailLeft .left_bottom .Total_amount {
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 20px;
+	width: 360px;
+	height: 155px;
+	border: 2px solid #539fff;
+	background: #0b0b0d;
+}
+
+#detailLeft .left_bottom .water_gage,
+#detailLeft .left_bottom .Total_amount {
+	margin-right: 0px;
+}
+
+#detailLeft .left_bottom .water_temperature .p_one,
+#detailLeft .left_bottom .water_gage .p_one,
+#detailLeft .left_bottom .Tsp_water_gage .p_one,
+#detailLeft .left_bottom .Total_amount .p_one {
+	display: flex;
+	justify-content: space-between;
+}
+
+#detailLeft .left_bottom .water_temperature .p_one span,
+#detailLeft .left_bottom .water_gage .p_one span,
+#detailLeft .left_bottom .Tsp_water_gage .p_one span,
+#detailLeft .left_bottom .Total_amount .p_one span {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-size: contain;
+	margin-top: 21px;
+	margin-left: 20px;
+}
+
+#detailLeft .left_bottom .water_temperature .p_one i,
+#detailLeft .left_bottom .water_gage .p_one i,
+#detailLeft .left_bottom .Tsp_water_gage .p_one i,
+#detailLeft .left_bottom .Total_amount .p_one i {
+	display: block;
+	margin-top: 21px;
+	height: 42px;
+	color: #cce2ff;
+	text-align: center;
+	line-height: 42px;
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+#detailLeft .left_bottom .water_temperature .p_two,
+#detailLeft .left_bottom .water_gage .p_two,
+#detailLeft .left_bottom .Tsp_water_gage .p_two,
+#detailLeft .left_bottom .Total_amount .p_two {
+	display: flex;
+	justify-content: space-between;
+}
+
+#detailLeft .left_bottom .water_temperature .p_two span,
+#detailLeft .left_bottom .water_gage .p_two span,
+#detailLeft .left_bottom .Tsp_water_gage .p_two span,
+#detailLeft .left_bottom .Total_amount .p_two span {
+	display: block;
+	width: 186px;
+	height: 58px;
+	color: #fff;
+	font-size: 50px;
+	margin-left: 20px;
+	margin-top: 14px;
+}
+
+#detailLeft .left_bottom .water_temperature .p_two i,
+#detailLeft .left_bottom .water_gage .p_two i,
+#detailLeft .left_bottom .Tsp_water_gage .p_two i,
+#detailLeft .left_bottom .Total_amount .p_two i {
+	display: block;
+	margin-top: 21px;
+	width: 72px;
+	height: 35px;
+	color: #fff3c8;
+	text-align: center;
+	line-height: 42px;
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+#detailLeft .left_bottom .water_temperature .p_one span {
+	background: url(../img/icon/ic_water_tempo0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_bottom .water_gage .p_one span {
+	background: url(../img/icon/ic_water_press0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_bottom .Tsp_water_gage .p_one span {
+	background: url(../img/icon/ic_water_tap0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .left_bottom .Total_amount .p_one span {
+	background: url(../img/icon/ic_water_usage0.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#detailLeft .equipment_num,
+.people {
+	width: 315px;
+	height: 80px;
+	border-radius: 40px 0 0 40px;
+	border: 1px solid #3E5E7E;
+	background-image: linear-gradient(90deg, rgba(62, 94, 126, 0.00) 0%, #3E5E7E 100%);
+	border-radius: 50px 0 0 50px;
+	float: right;
+	color: #fff;
+}
+
+#detailLeft .equipment_center,
+.people_center {
+	float: left;
+	width: 102px;
+	height: 70px;
+	margin-top: 5px;
+	font-family: Roboto-Regular;
+	font-size: 60px;
+	color: #EEFEFF;
+}
+
+#detailLeft .equipment_left,
+.people_left {
+	width: 60px;
+	height: 60px;
+	margin-top: 10px;
+	margin-right: 10px;
+	float: left;
+	background-image: url(../img/icon/ic_perc_device.png);
+	background-size: contain;
+}
+
+#detailLeft .equipment_right,
+.people_right {
+	margin-left: 15px;
+	float: left;
+	width: 110px;
+	height: 70px;
+	margin-top: 5px;
+	font-family: PingFangSC-Light;
+	font-size: 18px;
+	color: #EEFEFF;
+	text-align: right;
+	line-height: 30px;
+}
+
+#detailLeft .people {
+	margin-top: 20px;
+	background-image: linear-gradient(90deg, rgba(71, 68, 51, 0.00) 0%, #474433 97%);
+	border-radius: 50px 0 0 50px;
+	border: 1px solid #FFE8A6;
+}
+
+#detailLeft .people_left {
+	background-image: url(../img/icon/ic_perc_crew.png);
+	background-size: contain;
+}
+
+#detailLeft .electric_change {
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 20px;
+	width: 360px;
+	height: 155px;
+	/*border: 1px solid #ffc800;*/
+	background: #0b0b0d;
+	position: relative;
+}
+
+#detailLeft .costs_change,
+.energy_change {
+	float: left;
+	margin-right: 40px;
+	width: 360px;
+	height: 155px;
+	border: 1px solid #ffc800;
+	background: #0b0b0d;
+	position: relative;
+}
+
+#detailLeft .energy_change {
+	margin-right: 0px;
+}
+
+#detailLeft .electric_echarts,
+.costs_echarts,
+.energy_echarts {
+	width: 360px;
+	height: 155px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #FFF3C8;
+	;
+	z-index: 8;
+	/* display: none; */
+}
+
+#detailLeft .electric_echarts .span_one,
+.costs_echarts .span_one,
+.energy_echarts .span_one {
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	background-image: url(../img/icon/ic_volt_load1.png);
+	background-size: contain;
+	z-index: 999;
+}
+
+#detailLeft .costs_echarts .span_one {
+	background-image: url(../img/icon/ic_volt_exp.png);
+}
+
+#detailLeft .energy_echarts .span_one {
+	background-image: url(../img/icon/ic_volt_device1.png);
+}
+
+#detailLeft .left_center .costs_echarts .costEcharts {
+	background: #FFF3C8;
+}
+
+.costEchartsData {
+	padding: 7px 0 7px 80px;
+	box-sizing: border-box;
+	width: 93%;
+}
+
+.costEchartsData li {
+	list-style: none;
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #000000;
+	font-size: 18px;
+	color: #0B0B0D;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.costEchartsData li:last-child {
+	border-bottom: none;
+}
+
+.costs_echarts .costEchartsData li span {
+	float: left;
+}
+
+.costEchartsData li i {
+	float: right;
+}
+
+#electric_c {
+	position: absolute;
+	top: 50px;
+	left: 40px;
+	z-index: 999;
+}
+
+#electric_z {
+	position: absolute;
+	top: 50px;
+	left: 43px;
+	z-index: 99999;
+}
+.I_span_nine{
+	display:block;
+	width:30px;
+	height:30px;
+	position: absolute;
+	left:11px;
+	top:112px;
+	z-index:9999999
+}

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>金融风险分析-货前筛选</title>
+
+	<meta name = "keywords" content = "" />
+	<meta name = "description" content = "" />
+	<meta name="viewport" content="">
+
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script	src="js/lib/jquery-1.11.1.min.js" type="text/javascript" ></script>
+	<script	src="js/lib/echarts.min.js" type="text/javascript" ></script>
+
+</head>
+<body>
+	<div class="wrap ">
+		<div class="subMenu" >
+			<sapn class="subNavBtn">金融大数据风控管理平台</sapn>
+			<div class="inner">
+				<a href="pre_screening.html" class="subNavBtn active">货前筛选<i></i></a>
+				<a href="potential_customer.html" class="subNavBtn ">潜客触达</a>
+				<a href="track.html" class="subNavBtn">货后追踪</a>
+				<a href="online_channel.html" class="subNavBtn ">线上渠道分析</a>
+			</div>
+		</div>
+
+		<div class="section pres1">
+			<div class="tracks1_left">
+				<img src="image/pre01.png" />
+			</div>
+			<div class="tracks1_left">
+				<img src="image/pre02.png" />
+			</div>
+			<div class="tracks1_left">
+				<img src="image/pre03.png" />
+			</div>
+		</div>
+
+		<div class="section tracks2">
+			<div class="pre_content_ta tracks2_left">
+				<h4>省份用户来源分析</h4>
+				<dl class="pre_dl">
+					<dd class="tracks2_title_color">
+						<span>省份</span>
+						<span>黑名单拦截数</span>
+						<span>欺诈拦截数</span>
+						<span>正常用户</span>
+					</dd>
+					<dt>
+						<span>广西</span>
+						<span>121</span>
+						<span>543</span>
+						<span>43643</span>
+					</dt>
+					<dd>
+						<span>山东</span>
+						<span>421</span>
+						<span>214</span>
+						<span>7665</span>
+					</dd>
+					<dt>
+						<span>陕西</span>
+						<span>324</span>
+						<span>523</span>
+						<span>4543</span>
+					</dt>
+				</dl>
+			</div>
+			<div class="pre_content_tb tracks2_left">
+				<h4>近一个月日变化情况</h4>
+				<div id="daily_variation"></div>
+				<script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('daily_variation'));
+                    option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {type: 'cross'}
+                        },
+
+                        legend: {
+                            data:['黑名单拦截数','疑似欺诈拦截数','正常用户'],
+                            left: '35%',
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+                        grid: {
+                            top:'28%',
+                            left: '1%',
+                            right: '1%',
+                            bottom: '1%',
+                            containLabel: true
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['1','3','5','7','9','11','13','15','17','19','21','23','25','27','29'],
+                                axisLabel: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '正常用户',
+                                min: 0,
+                                max: 3000,
+                                interval: 500,
+                                axisLabel: {
+                                    formatter: '{value} w',
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            },
+                            {
+                                type: 'value',
+                                name: '异常用户',
+                                min: 0,
+                                max: 120,
+                                interval: 20,
+                                axisLabel: {
+                                    formatter: '{value} w',
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '黑名单拦截数',
+                                type:'line',
+                                data:[2131, 2231, 2024, 2005, 2124, 2362, 2703, 2094, 2340, 1905, 2410, 2292,2005, 2124, 2362,]
+                            },{
+                                name: '疑似欺诈拦截数',
+                                type:'line',
+                                data:[1531, 1731, 2024, 2305, 2624, 2162, 2203, 2394, 2040, 1705, 2710, 2192,2305, 2424, 2562,]
+                            },{
+                                name: '正常用户',
+                                type:'line',
+                                data:[2531, 2731, 2124, 2505, 2724, 2562, 2403, 2294, 2140, 2705, 2710, 2392,2405, 2224, 2862,]
+                            }
+
+
+                        ]
+                    };
+                    myChart.setOption(option);
+				</script>
+			</div>
+			<div class="pre_content_tc tracks2_left">
+				<h4>正常用户分析</h4>
+				<div id="normal_user"></div>
+				<script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('normal_user'));
+                    option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: 'left',
+                            data:['正常用户','黑名单拦截数','欺诈拦截'],
+                            left:'70%',
+                            top:'5%',
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+                        series: [
+                            {
+                                type:'pie',
+                                selectedMode: 'single',
+                                radius: [0, '30%'],
+
+                                label: {
+                                    normal: {
+                                        position: 'inner'
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+
+                            },
+                            {
+                                type:'pie',
+                                radius: ['30%', '45%'],
+                                data:[
+                                    {value:735, name:'正常用户'},
+                                    {value:110, name:'黑名单拦截数'},
+                                    {value:134, name:'欺诈拦截'},
+                                ]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option);
+				</script>
+			</div>
+		</div>
+
+
+		<div class="section pre3">
+			<div class="inter_left">
+				<h4>拦截用户明细对比</h4>
+				<div id="intercept_user"></div>
+			</div>
+			<script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('intercept_user'));
+                option = {
+                    color: ['#3398DB'],
+                    tooltip : {
+                        trigger: 'axis',
+                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ['1号', '2号', '3号', '4号', '5号', '6号', '7号', '8号', '9号', '10号'],
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLabel: {
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'直接访问',
+                            type:'bar',
+                            barWidth: '60%',
+                            data:[781, 752, 600, 534, 500, 430, 420,384, 290, 100]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+			</script>
+
+			<div  class="inter_right">
+				<h4>月对比分析</h4>
+				<div  id="month_comparison"></div>
+			</div>
+			<script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('month_comparison'));
+                option = {
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['黑名单拦截数','欺诈拦截','正常用户'],
+                        top:'2%',
+                        textStyle: {
+                            color: '#fff',
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : ['周一','周二','周三','周四','周五','周六','周日'],
+                            axisLabel: {
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'黑名单拦截数',
+                            type:'line',
+                            stack: '总量',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
+                            areaStyle: {normal: {}},
+                            data:[820, 932, 901, 934, 1290, 1330, 1320]
+                        },
+                        {
+                            name:'欺诈拦截',
+                            type:'line',
+                            stack: '总量',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
+                            areaStyle: {normal: {}},
+                            data:[820, 932, 901, 934, 1290, 1330, 1320]
+                        },
+                        {
+                            name:'正常用户',
+                            type:'line',
+                            stack: '总量',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
+                            areaStyle: {normal: {}},
+                            data:[820, 932, 901, 934, 1290, 1330, 1320]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+			</script>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

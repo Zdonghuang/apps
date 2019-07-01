@@ -1,0 +1,404 @@
+#detailLeft {
+    width: 848px;
+    padding: 20px 0 20px 20px;
+    float: left;
+    box-sizing:border-box;
+  }
+ 
+  #detailLeft .left_center {
+    overflow:hidden;
+    width: 770px;
+    height: 225px;
+    padding: 0 20px;
+    background-image: linear-gradient(45deg, rgba(232, 255, 193, 0) 0%, rgba(255, 243, 200, 0.4) 100%);
+    margin-bottom: 20px;
+  }
+  #detailLeft .left_center .title {
+    margin-top: 6px;
+    margin-bottom: 11px;
+    height: 33px;
+    font-size: 24px;
+    color: #fff3c8;
+  }
+  #detailLeft .left_center .electric,
+  #detailLeft .left_center .load {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 360px;
+    height: 155px;
+    border: 1px solid #ffc800;
+    background: #0b0b0d;
+  }
+  #detailLeft .left_center .load{
+    margin-right: 0px;
+  }
+  #detailLeft .left_center .electric .p_one,
+  #detailLeft .left_center .load .p_one {
+    display: flex;
+    justify-content: space-between;
+  }
+  #detailLeft .left_center .electric .p_one span,
+  #detailLeft .left_center .load .p_one span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/icon/ic_volt_usage0.png);
+    background-size: contain;
+    margin-top: 21px;
+    margin-left: 20px;
+  }
+  #detailLeft .left_center .electric .p_one i,
+  #detailLeft .left_center .load .p_one i {
+    display: block;
+    margin-top: 21px;
+    height: 42px;
+    color: #fff3c8;
+    text-align: center;
+    line-height: 42px;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+  #detailLeft .left_center .electric .p_two,
+  #detailLeft .left_center .load .p_two {
+    display: flex;
+    justify-content: space-between;
+  }
+  #detailLeft .left_center .electric .p_two span,
+  #detailLeft .left_center .load .p_two span {
+    display: block;
+    width: 186px;
+    height: 58px;
+    color: #fff;
+    font-size: 50px;
+    margin-left: 20px;
+  }
+  #detailLeft .left_center .electric .p_two i,
+  #detailLeft .left_center .load .p_two i {
+    display: block;
+    margin-top: 21px;
+    height: 35px;
+    color: #fff3c8;
+    text-align: center;
+    line-height: 42px;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+  #detailLeft .left_center .costs,
+  #detailLeft .left_center .energy {
+    float: left;
+    margin-right: 20px;
+    width: 360px;
+    height: 155px;
+    border: 2px solid #ffc800;
+    background: #0b0b0d;
+  }
+  #detailLeft .left_center .costs .costs_one,
+  #detailLeft .left_center .energy .costs_one {
+    float: left;
+    margin-left: 20px;
+  }
+  #detailLeft .left_center .costs .costs_one .p_one,
+  #detailLeft .left_center .energy .costs_one .p_one {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    margin-top: 21px;
+  }
+  #detailLeft .left_center .costs .costs_one .p_two,
+  #detailLeft .left_center .energy .costs_one .p_two {
+    width: 109px;
+    height: 25px;
+    margin-top: 12px;
+    color: #ffc800;
+    font-size: 18px;
+  }
+  #detailLeft .left_center .costs .costs_one .p_three,
+  #detailLeft .left_center .energy .costs_one .p_three {
+    height: 42px;
+    font-size: 30px;
+    color: #fff3c8;
+  }
+  #detailLeft .left_center .costs .costs_two,
+  #detailLeft .left_center .energy .costs_two {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 114px;
+    height: 114px;
+    /* background: red; */
+    color: #fff;
+  }
+  #detailLeft .left_center .load .p_one span {
+    background-image: url(../img/icon/ic_volt_load0.png);
+  }
+  #detailLeft .left_center .costs .costs_one .p_one {
+    background-image: url(../img/icon/ic_volt_exp0.png);
+  }
+  #detailLeft .left_center .energy .costs_one .p_one {
+    background-image: url(../img/icon/ic_volt_device0.png);
+  }
+  #detailLeft .left_bottom {
+    overflow: hidden;
+    width: 770px;
+    height: 400px;
+    padding: 0 20px;
+    background-image: linear-gradient(45deg, rgba(232,255,193,0.00) 0%, rgba(255,243,200,0.40) 100%);
+  }
+  #detailLeft .left_bottom .title {
+    margin-top: 6px;
+    margin-bottom: 11px;
+    height: 33px;
+    font-size: 24px;
+    color:#FFF3C8;
+  }
+  #detailLeft .left_bottom .power{
+    width:762px;
+    height:155px;
+    border: 2px solid #FFC800;
+    float: left;
+    background: #0B0B0D;
+  }
+  #detailLeft .left_bottom .water_temperature,
+  #detailLeft .left_bottom .water_gage,
+  #detailLeft .left_bottom .Tsp_water_gage,
+  #detailLeft .left_bottom .Total_amount {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 360px;
+    height: 155px;
+    background: #0B0B0D;
+    border: 2px solid #FFC800;
+  }
+  #detailLeft .left_bottom .Total_amount{
+    width:350px;
+    height:145px;
+    margin-right:0px;
+    z-index:999999;
+    border:0px;
+  }
+  .Total_amount{
+    margin-right:20px;
+  }
+  /* 右边处理 */
+  #detailLeft .left_bottom .water_gage {
+    margin-right: 0px;
+  }
+  /* 边框处理 */
+  #detailLeft .left_bottom .Tsp_water_gage{
+    border: 0px ;
+    height:153px;
+    
+   }
+  #detailLeft .left_bottom .water_temperature .p_one,
+  #detailLeft .left_bottom .water_gage .p_one,
+  #detailLeft .left_bottom .Tsp_water_gage .p_one,
+  #detailLeft .left_bottom .Total_amount .p_one {
+    display: flex;
+    justify-content: space-between;
+  }
+  #detailLeft .left_bottom .water_temperature .p_one span,
+  #detailLeft .left_bottom .water_gage .p_one span,
+  #detailLeft .left_bottom .Tsp_water_gage .p_one span,
+  #detailLeft .left_bottom .Total_amount .p_one span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    margin-top: 21px;
+    margin-left: 20px;
+  }
+  #detailLeft .left_bottom .water_temperature .p_one i,
+  #detailLeft .left_bottom .water_gage .p_one i,
+  #detailLeft .left_bottom .Tsp_water_gage .p_one i,
+  #detailLeft .left_bottom .Total_amount .p_one i {
+    display: block;
+    margin-top: 21px;
+    height: 42px;
+  
+    /* text-align: center; */
+    line-height: 42px;
+    font-size: 30px;
+    margin-right: 20px;
+    font-family: PingFangSC-Regular;
+
+color: #FFF3C8;
+text-align: right;
+  }
+  #detailLeft .left_bottom .water_temperature .p_two,
+  #detailLeft .left_bottom .water_gage .p_two,
+  #detailLeft .left_bottom .Tsp_water_gage .p_two,
+  #detailLeft .left_bottom .Total_amount .p_two {
+    display: flex;
+    justify-content: space-between;
+  }
+  #detailLeft .left_bottom .water_temperature .p_two span,
+  #detailLeft .left_bottom .water_gage .p_two span,
+  #detailLeft .left_bottom .Tsp_water_gage .p_two span,
+  #detailLeft .left_bottom .Total_amount .p_two span {
+    display: block;
+    width: 186px;
+    height: 58px;
+    color: #fff;
+    font-size: 50px;
+    margin-left: 20px;
+  }
+  #detailLeft .left_bottom .water_temperature .p_two i,
+  #detailLeft .left_bottom .water_gage .p_two i,
+  #detailLeft .left_bottom .Tsp_water_gage .p_two i,
+  #detailLeft .left_bottom .Total_amount .p_two i {
+    display: block;
+    margin-top: 21px;
+    width: 72px;
+    height: 35px;
+    color: #fff3c8;
+    text-align: center;
+    line-height: 42px;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+  #detailLeft .left_bottom .water_temperature .p_one span {
+    background: url(../img/icon/ic_volt_prdct0.png) no-repeat;
+    background-size:contain;
+  }
+  #detailLeft .left_bottom .water_gage .p_one span {
+    background-image: url(../img/icon/ic_volt_dspt0.png);
+    background-size:contain;
+  }
+  #detailLeft .left_bottom .Tsp_water_gage .p_one span {
+    background-image: url(../img/icon/ic_volt_prdct0.png);
+    background-size:contain;
+    
+  }
+  #detailLeft .left_bottom .Total_amount .p_one span {
+    background-image: url(../img/icon/ic_water_usage0.png);
+  }
+  #detailLeft .bottom_one{
+    overflow: hidden;
+    width:810px;
+    height:365px;
+    /* border: 2px solid #FFC800; */
+    margin-top:20px;
+    background-image: linear-gradient(45deg, rgba(232,255,193,0.00) 0%, rgba(255,243,200,0.40) 100%);
+  }
+  #detailLeft .bottom_one .title{
+    margin-top: 6px;
+    margin-left: 20px;
+    height: 33px;
+    font-size: 24px;
+    color:#FFF3C8;
+  }
+  .bottom_one_echarts{
+    width:760px;
+    height:295px;
+    margin-left:20px;
+    /* background-image: url(../img/block_c1.png); */
+    /* background-size:cover; */
+    background:#000000;
+    border: 2px solid #FFC800;
+    position: relative;
+  }
+  .bottom_one_echarts span{
+    width:40px;
+    height:40px;
+    display: inline-table;
+    position: absolute;
+    top:20px;
+    left:20px;
+    background:url("../img/icon/ic_volt_electro0.png");
+    background-size: contain;
+  }
+  .weatherglass{
+    width:25px;
+    height:200px;
+    background:red;
+    position: absolute;
+    top:72px;
+    left:30px;
+    background:url("../img/first.png") no-repeat;
+    
+    background-size: contain;
+  }
+  #detailLeft .equipment_num,.people{
+ 
+    width:315px;
+    height: 80px;
+    border-radius: 40px 0 0 40px;
+    border:1px solid #3E5E7E;
+    background-image: linear-gradient(90deg, rgba(62,94,126,0.00) 0%, #3E5E7E 100%);
+    border-radius: 50px 0 0 50px;
+    float: right;  
+    color:#fff;
+  }
+  #detailLeft .equipment_center,.people_center{
+    float: left;
+    width:102px;
+    height:70px;
+    margin-top:5px;
+    font-family: Roboto-Regular;
+    font-size: 60px;
+    color: #EEFEFF;
+  }
+  #detailLeft .equipment_left,.people_left {
+    width:60px;
+    height:60px;
+    margin-top:10px;
+    margin-right:10px;
+    float: left;
+    background-image: url(../img/icon/ic_perc_device.png);
+    background-size: contain;
+   } 
+   #detailLeft .equipment_right,.people_right{
+     margin-left:15px;
+     float: left;
+     width:110px;
+     height:70px;
+     margin-top:5px;
+     font-family: PingFangSC-Light;
+    font-size: 18px;
+    color: #EEFEFF;
+    text-align: right;
+    line-height: 30px;
+   }
+   #detailLeft .people{
+     margin-top:20px;
+    background-image: linear-gradient(90deg, rgba(71,68,51,0.00) 0%, #474433 97%);
+    border-radius: 50px 0 0 50px;
+    border:1px solid #FFE8A6;
+   }
+   #detailLeft .people_left{
+    background-image: url(../img/icon/ic_perc_crew.png);
+    background-size: contain;
+   }
+   #detailLeft .electric_change{
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 360px;
+    height: 155px;
+    border: 1px solid #ffc800;
+    background: #0b0b0d;
+     position:relative;
+   }
+   #detailLeft .costs_change,.energy_change{
+    float: left;
+    margin-right: 20px;
+    width: 360px;
+    height: 155px;
+    border: 1px solid #ffc800;
+    background: #0b0b0d;
+    position:relative;
+   }
+   #detailLeft .electric_echarts,.costs_echarts,.energy_echarts{
+     width:360px ;
+     height:155px;
+     position:absolute;
+     left:0;
+     top:0;
+     background: red;
+     z-index:888;
+     display: none;
+   }
+  

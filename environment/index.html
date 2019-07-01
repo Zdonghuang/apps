@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>省级环境分析</title>
+    <meta name = "keywords" content = "" />
+    <meta name = "description" content = "" />
+    <meta name="viewport" content="">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script	src="js/lib/jquery-1.11.1.min.js" type="text/javascript" ></script>
+    <script	src="js/lib/echarts.min.js" type="text/javascript" ></script>
+    <script	src="js/china.js" type="text/javascript" ></script>
+    <script src="js/navbar.js" type="text/javascript" ></script>
+
+</head>
+<body>
+<div class="flow_by">
+
+    <div class="flow_content_a">
+        <div class="content_a_left fwa">
+            <h3 class="">河北省水污染情况概览</h3>
+            <div id="shm">说明 : 污染指数综合衡量了,地表水 饮用水 污染源企业 农业用水,本地的水质情况</div>
+            <div class="content_a_con" id="Passenger_flow_chart" onclick="window.open('municipal.html');"></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('Passenger_flow_chart'));
+                var uploadedDataURL = "js/data/hebei.json";
+                function randomData() {
+                    return Math.round(Math.random()*1000);
+                }
+
+                function showProvince() {
+                    var data = [
+                        {name: '廊坊', value: 293},
+                    ];
+                    var geoCoordMap = {
+                        '廊坊':[116.7,39.53],
+                    };
+
+                    var convertData = function (data) {
+                        var res = [];
+                        for (var i = 0; i < data.length; i++) {
+                            var geoCoord = geoCoordMap[data[i].name];
+                            if (geoCoord) {
+                                res.push({
+                                    name: data[i].name,
+                                    value: geoCoord.concat(data[i].value)
+                                });
+                            }
+                        }
+                        return res;
+                    };
+                    var name = 'bj';
+                    $.get(uploadedDataURL, function(geoJson) {
+                        echarts.registerMap(name, geoJson);
+                        myChart.setOption(option = {
+                            backgroundColor: '#3c3c3c',
+                            title: {
+                                text: "",
+                                subtext: "",
+                                left: 'center',
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                left: 'left',
+                                data:['III以上污染9个+"<br/>"+1','悦居时代项目','青岛智慧城','济南海尔云世界天玺项目','洪城大市场','南昌万达K区','南昌万达M区']
+                            },
+                            visualMap: {
+                                min: 0,
+                                max: 100,
+                                left: '10%',
+                                bottom: '15%',
+                                text: ['高', '低'], // 文本，默认为数值文本
+                                calculable: true,
+                                textStyle: {
+                                  color: '#fff'
+                                },
+                                inRange:{
+                                    color: ['#f9c5ad','#f1844c', '#e3420b']
+                                }
+                            },
+                            series: [{
+                                name: '污染指数',
+                                type: 'map',
+                                mapType: name,
+                                label: {
+                                    normal: {
+                                        show: true
+                                    },
+                                    emphasis: {
+                                        textStyle: {
+                                            color: '#fff'
+                                        }
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        borderColor: '#fff',
+                                        areaColor: '#fff',
+                                    },
+                                    emphasis: {
+                                        areaColor: '#f18101',
+                                        borderWidth: 0
+                                    }
+                                },
+                                animation: false,
+                                data: [{
+                                    name: '保定市',
+                                    value: 80
+                                },{
+                                    name: '石家庄市',
+                                    value: 74
+                                }, {
+                                    name: '承德市',
+                                    value: 56
+                                }, {
+                                    name: '张家口市',
+                                    value: 80,
+                                }, {
+                                    name: '秦皇岛市',
+                                    value: 19
+                                }, {
+                                    name: '唐山市',
+                                    value: 37,
+                                }, {
+                                    name: '廊坊市',
+                                    value: 62
+                                }, {
+                                    name: '沧州市',
+                                    value: 41
+                                }, {
+                                    name: '衡水市',
+                                    value: 50
+                                }, {
+                                    name: '邢台市',
+                                    value: 26
+                                }, {
+                                    name: '邯郸市',
+                                    value: 70
+                                }, {
+                                    name: '延庆区',
+                                    value: 58
+                                }],
+                            }]
+                        });
+                    });
+                }
+                var currentIdx = 0;
+                showProvince();
+            </script>
+        </div>
+
+        <div class="content_a_left fwb">
+            <div class="content_a_con" id="Real_time_number">
+                <ul>
+                    <li>今日污水排放量 <span>93270 吨</span></li>
+                    <li>达标率 <span>80%</span></li>
+                </ul>
+                <div id="Pollution_distribution" style="width: 100%;height: 400px;">
+                    <script type="text/javascript">
+                        var distribution = echarts.init(document.getElementById('Pollution_distribution'));
+                        option = {
+                            color: ['#3398DB'],
+                            title: {
+                                text: "排污量分布",
+                                top:'10',
+                                subtext: "",
+                                left: 'center',
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            yAxis: [{
+                                type: 'category',
+                                data: ['张家口', '承德市', '秦皇岛市', '唐山市', '廊坊市', '保定市', '石家庄市', '沧州市', '衡水市', '邢台市', '邯郸市'],
+                                axisTick: {
+                                    alignWithLabel: true
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }],
+                            xAxis: [{
+                                type: 'value',
+                                splitNumber: 6,
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }],
+
+                            series: [{
+                                name: '排污量',
+                                type: 'bar',
+                                barWidth: '20',
+                                data: [7700, 8800, 9900, 11100, 14200, 16000, 18400, 10500, 12600, 14700, 19000],
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'right',
+                                        textStyle: {
+                                            color: '#fff',
+                                            fontSize: 12
+                                        }
+                                    }
+                                }
+                            }]
+                        };
+                        distribution.setOption(option);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flow_content_b">
+        <div class="content_b_left fw1">
+            <h3>水质类别分布</h3>
+            <ul>
+                <li class="AU1">
+                    <div id="distribution_a">
+                        <script type="text/javascript">
+                            var distribution_a = echarts.init(document.getElementById('distribution_a'));
+                            option = {
+                                title: {
+                                    text: "地表水",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '30',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '地表水污染层级',
+                                    type: 'pie',
+                                    radius: ['10%', '80%'],
+                                    center: ['50%','60%'],
+                                    color: ['#fdecdc', '#f9c5ad', '#f5af7c', '#f1844c', '#ea5421'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 11,
+                                        name: 'I'
+                                    }, {
+                                        value: 15,
+                                        name: 'II'
+                                    }, {
+                                        value: 9,
+                                        name: 'III'
+                                    }, {
+                                        value: 4,
+                                        name: 'IV'
+                                    }, {
+                                        value: 2,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_a.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU2">
+                    <div id="distribution_b">
+                        <script type="text/javascript">
+                            var distribution_b = echarts.init(document.getElementById('distribution_b'));
+                            option = {
+                                title: {
+                                    text: "主要饮用水源地",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '30',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '主要饮用水源地层级',
+                                    type: 'pie',
+                                    radius: ['10%', '80%'],
+                                    center: ['50%','60%'],
+                                    color: ['#fdf69f', '#fff581', '#fed001', '#f7ab00', '#f18101'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 5,
+                                        name: 'I'
+                                    }, {
+                                        value: 11,
+                                        name: 'II'
+                                    }, {
+                                        value: 7,
+                                        name: 'III'
+                                    }, {
+                                        value: 4.3,
+                                        name: 'IV'
+                                    }, {
+                                        value: 3,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_b.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU3">
+                    <div id="distribution_c">
+                        <script type="text/javascript">
+                            var distribution_c = echarts.init(document.getElementById('distribution_c'));
+                            option = {
+                                title: {
+                                    text: "污染源企业",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '30',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '污染源企业层级',
+                                    type: 'pie',
+                                    radius: ['10%', '80%'],
+                                    center: ['50%','60%'],
+                                    color: ['#d8e7ae', '#bfdc99', '#9acc6d', '#49b249', '#15a83d'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 5,
+                                        name: 'I'
+                                    }, {
+                                        value: 10,
+                                        name: 'II'
+                                    }, {
+                                        value:8,
+                                        name: 'III'
+                                    }, {
+                                        value: 5,
+                                        name: 'IV'
+                                    }, {
+                                        value: 3,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_c.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU4">
+                    <div id="distribution_d">
+                        <script type="text/javascript">
+                            var distribution_d = echarts.init(document.getElementById('distribution_d'));
+                            option = {
+                                title: {
+                                    text: "农业用水",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '30',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '农业用水层级',
+                                    type: 'pie',
+                                    radius: ['10%', '80%'],
+                                    center: ['50%','60%'],
+                                    color: ['#c2e6fb', '#a9dffc', '#7ecdf4', '#00a0ea', '#0180cd'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 8,
+                                        name: 'I'
+                                    }, {
+                                        value: 12,
+                                        name: 'II'
+                                    }, {
+                                        value: 10,
+                                        name: 'III'
+                                    }, {
+                                        value: 3.7,
+                                        name: 'IV'
+                                    }, {
+                                        value: 1.6,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_d.setOption(option);
+                        </script>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content_b_left fw2">
+            <h3>污染警报</h3>
+            <div id="news">
+                <a href="index.html"> . 邯郸洋河1号桥含氧量6.25mg/ml 达到IV级水质,为中度污染 <span>13小时前</span></a>
+                <a href="index.html"> . 石家庄怀河5段含氧量4.08mg/ml 达到II级水质,为轻度污染 <span>11小时前</span></a>
+                <a href="index.html"> . 承德市飞跃河7段含氧量3.52mg/ml 达到III级水质,为中度污染 <span>10.8小时前</span></a>
+                <a href="index.html"> . 廊坊市淋云河3段含氧量3.69mg/ml 达到II级水质,为轻度污染 <span>8.3小时前</span></a>
+                <a href="index.html"> . 衡水市罢潮河6段含氧量1.28mg/ml 达到I级水质,为轻度污染<span>7.9小时前</span></a>
+                <a href="index.html"> . 唐山市闪水河2段含氧量4.72mg/ml 达到IV级水质,为轻度污染<span>6.2小时前</span></a>
+                <a href="index.html"> . 保定东闸北河5段含氧量8.14mg/ml 达到V级水质,为重度污染<span>5小时前</span></a>
+            </div>
+            <script>
+                var c, _ = Function;
+                with(o = document.getElementById("news")) {
+                    innerHTML += innerHTML;
+                    onmouseover = _("c=1");
+                    onmouseout = _("c=0");
+                }
+                (F = _("if(#%18||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%51?10:1500);".replace(/#/g, "o.scrollTop")))();
+            </script>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

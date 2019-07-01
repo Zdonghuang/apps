@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>健康状态分析</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/meter.css">
+    <link rel="stylesheet" href="css/health.css">
+</head>
+<body>
+<div class="back">
+    <!--顶条-->
+    <div class="top clearfix">
+        <p class="fl">风场CPS系统<i></i></p>
+        <a href="health.html" class="fr top_icon"></a>
+    </div>
+    <!--中部content-->
+    <article class="clearfix">
+        <!--左侧边栏-->
+        <ul class="fl banner" >
+            <li>
+                <p></p>
+                <a href="index.html">
+                    <i class="fan_icon"></i>
+                    <em>风场状态概览</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="prod.html">
+                    <i class="fan_icon"></i>
+                    <em>生产管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="peration.html">
+                    <i class="fan_icon"></i>
+                    <em>维护管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="javascript:;">
+                    <i class="fan_icon"></i>
+                    <em>健康状态分析</em>
+                </a>
+            </li>
+        </ul>
+        <!--中部总体信息-->
+        <div class="fl meter">
+            <common-meter></common-meter>
+            <common-history></common-history>
+        </div>
+        <!--健康状态healthy-->
+        <div class="fl heal">
+            <ul class="heal_u clearfix">
+                <li class="fl selected"><a href="health.html">健康信息</a></li>
+                <li class="fl"><a href="http://211.159.172.203:8080/CPS/effect.html">效能信息</a></li>
+            </ul>
+            <div class="heal_t">
+                <div class="heal_d">
+                    <div class="heal-name">
+                        <dl class="rotor">
+                            <dt><a href="javascript:;" class="T_Rotor">风轮</a></dt>
+                            <dd>平均桨距角：0度</dd>
+                            <dd>叶片振动值：0g</dd>
+                            <dd>风轮转速：11.42RPM</dd>
+                            <dd>风速：6.89m/s</dd>
+                        </dl>
+                        <dl class="GBS">
+                            <dt><a href="javascript:;" class="T_GB" data-name="T_GBS_Out" data-name1="齿轮箱">齿轮箱</a></dt>
+                            <dd>输入轴温度 :62℃</dd>
+                            <dd>滑油温度：48℃</dd>
+                            <dd>冷却水温度：19℃</dd>
+                            <dd>输出轴温度：58℃</dd>
+                        </dl>
+                        <dl class="GW">
+                            <dt><a href="javascript:;" class="T_GW" data-name="T_GW_U1" data-name1="发电机">发电机</a></dt>
+                            <dd>输入轴转速 :1341RPM</dd>
+                            <dd>输入轴承温度：58℃</dd>
+                            <dd>输出轴承温度：45℃</dd>
+                            <dd>变流器冷却水温度 ：24℃</dd>
+                        </dl>
+                        <dl class='GW2'>
+                            <dt><a href="javascript:;" class="T_GW"   data-name="T_GW_U1" data-name1="发电机">发电机</a></dt>
+                            <dd>U相绕阻温度:59℃</dd>
+                            <dd>V相绕阻温度:58℃</dd>
+                            <dd>W相绕阻温度:57℃</dd>
+                        </dl>
+                    </div>
+                    <div id="radar"></div>
+                    <ul class="heal_dl">
+                        <li class="fl">
+                            <div class="heal_dm fl"></div>
+                            <div class="fl">
+                                <p class="CV"><i>100%</i></p>
+                                健康值</div>
+                        </li>
+                        <li class="fl"><div class="heal_de fl"></div><div class="fl"><p class="generate_loss"><i>176kwh</i></p>发电损失</div></li>
+                        <li class="fl"><div class="heal_dw fl"></div><div class="fl"><p class="Visu_Rot_Spd"><i>11.4RPM</i></p>风轮转速</div></li>
+                        <li class="fl"><div class="heal_ds fl"></div><div class="fl"><p class="WindSpeed"><i>6.89m/s</i></p>实时风速</div></li>
+                    </ul>
+                    <div class="fun">
+                        <div id="fun"></div>
+                    </div>
+                    <div class="single">
+                        <div class="single_sel">
+                            <select name="single_name" id="sel_3">
+                                <option value="T_GW_U1">发电机U相绕组温度</option>
+                                <option value="T_GW_V1">发电机V相绕组温度</option>
+                                <option value="T_GW_W1">发电机W相绕组温度</option>
+                            </select>
+                        </div>
+                        <div id="single"></div>
+                    </div>
+                </div>
+                <!-- <div class="heal_b">
+                </div> -->
+            </div>
+        </div>
+    </article>
+</div>
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/health1.js"></script>
+</html>

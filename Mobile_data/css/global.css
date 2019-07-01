@@ -1,0 +1,12 @@
+body, div, ul, ol, dl, dt, dd, li, dl, h1, h2, h3, h4
+{margin:0;padding:0;}
+
+ol, ul ,li{list-style: none;}
+img {border: 0; vertical-align:middle;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none; }
+a:hover{color:#BA2636;text-decoration:underline;}
+
+.float{
+    float: left;
+}

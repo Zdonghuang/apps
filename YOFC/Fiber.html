@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>factorySystem</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/detailLeft.1.css">
+
+    <link rel="stylesheet" href="css/detailRight.1.css">
+    <link rel="stylesheet" href="css/detailCenter.1.css">
+    <script type="text/javascript" src="http://211.159.172.203:8080/YOFC/jquery-easyui-1.2.4\jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="echarts3/echarts.js" charset="utf-8"></script>
+    <script type="text/javascript" src="echarts3/macarons.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="js/getJsonjs.js"></script>
+    <script type="text/javascript" src="js/sport.1.js"></script>
+    <script type="text/javascript" src="js/report.1.js"></script>
+    <script type="text/javascript" src="js/sportjson.js"></script>
+
+    <style>
+        .change_echarts {
+            display: block;
+        }
+
+        .detail {
+            width: 3840px;
+            height: 100%;
+            position: relative;
+            background: -webkit-linear-gradient(#0B0B0D, #334463);
+            /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#0B0B0D, #334463);
+            /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#0B0B0D, #334463);
+            /* Firefox 3.6 - 15 */
+            background: linear-gradient(#0B0B0D, #334463);
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="detail">
+        <section id="detailLeft">
+            <div class="left_center">
+                <p class="title">功率</p>
+                <div class="electric_change" "report_one"="false">
+                    <div class="electric ">
+                        <p class="p_one">
+                            <span></span>
+                            <i>功率因数</i>
+                        </p>
+                        <p class="p_two">
+                            <span id="electric_y">183779</span>
+                            <i>-</i>
+                        </p>
+                    </div>
+                    <div class="electric_echarts disappear">
+                        <div id="electricReport" style="width:360px;height:155px;"></div>
+                    </div>
+                </div>
+
+                <div class="load">
+                    <p class="p_one">
+                        <span></span>
+                        <i>有功功率</i>
+                    </p>
+                    <p class="p_two">
+                        <span id="electric_s">36.64</span>
+                        <i>kW/h</i>
+                    </p>
+                </div>
+            </div>
+            <div class="left_bottom">
+                <p class="title">用电</p>
+                <div class="water_temperature">
+                    <p class="p_one">
+                        <span></span>
+                        <i>总用电量</i>
+                    </p>
+                    <p class="p_two">
+                        <span id="water_w">183779</span>
+                        <i>kW/h</i>
+                    </p>
+                </div>
+                <div class="water_gage">
+                    <p class="p_one">
+                        <span></span>
+                        <i>累计耗电量</i>
+                    </p>
+                    <p class="p_two">
+                        <span id="water_y">36.64</span>
+                        <i>kW/h</i>
+                    </p>
+                </div>
+                <div class="power">
+                    <div class="Tsp_water_gage">
+                        <p class="p_one">
+                            <span></span>
+                            <i>用电量预测</i>
+                        </p>
+                        <p class="p_two">
+                            <span id="water_z">183779</span>
+                            <i>kW/h</i>
+                        </p>
+                    </div>
+                    <div class="Total_amount">
+                        <div id="monthByCorp3" style="width:350px;height:145px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_one">
+                <p class="title">供电质量/线电压波动</p>
+                <div class="bottom_one_echarts">
+                    <div id="monthByCorp6" style="width:678px;height:294px;margin-left:80px;"></div>
+                    <span></span>
+                    <div class="weatherglass"></div>
+                </div>
+            </div>
+        </section>
+        <div class="detailCenter">
+            <div class="centerSafe">
+                <h1 class="centerNum">139,543.00
+                    <!-- <i class="centerDays">天</i> -->
+                </h1>
+                <span class="centerWork">电能能耗总费用 (¥)</span>
+            </div>
+            <div class="centerFactory">
+                <div id="centerFactorimg"></div>
+                <p class="centerFactorysign centerFactorysign101" id="101"></p>
+                <p class="centerFactorysign centerFactorysign201" id="201"></p>
+                <p class="centerFactorysign centerFactorysign301" id="301"></p>
+            </div>
+            <div class="information">
+                点选建筑查看实时环境数据
+            </div>
+            <div>
+                <div class="information_detail">
+                    <p class="title">201 拉丝间厂房</p>
+                    <ul>
+                        <li>
+                            <p class="p_one">
+                                <span class="span_one"></span class="span_two">
+                                <span>日用电量</span>
+                            </p>
+                            <p class="p_two">
+                                <span class="span_one">3,145.67</span class="span_two">
+                                <span>
+                                    <span>kW/h</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p_one">
+                                <span class="span_one span_t"></span class="span_two">
+                                <span>月累计用电量</span>
+                            </p>
+                            <p class="p_two">
+                                <span class="span_one">112.85</span class="span_two">
+                                <span>
+                                    <span>kW/h</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="information_detail">
+                    <p class="title">201 特纤厂房</p>
+                    <ul>
+                        <li>
+                            <p class="p_one">
+                                <span class="span_one"></span class="span_two">
+                                <span>日用电量</span>
+                            </p>
+                            <p class="p_two">
+                                <span class="span_one">3,378,7</span class="span_two">
+                                <span>
+                                    <span>kW/h</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p_one">
+                                <span class="span_one span_t"></span class="span_two">
+                                <span>月累计用电量</span>
+                            </p>
+                            <p class="p_two">
+                                <span class="span_one">672.85</span class="span_two">
+                                <span>
+                                    <span>kW/h</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section id="detailRight">
+            <div class="right_top">
+                <div class="out_warning">
+                    <div class="warning">
+                        <p class="title">日电表数据</p>
+                        <div class="Dashboard">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="logo">
+                    <div class="logo_one">
+                        <!-- 供电系统  -->
+                    </div>
+                    <div class="logo_two">
+                        <div id="systemDiv">
+                            <div id="p_all">
+                                <p class="l_p_one" style="display:none">环保系统</p>
+                                <p class="l_p_two" style="display:none">气体系统</p>
+                                <p class="l_p_three">供电系统</p>
+                                <p class="l_p_four" style="display:none">工艺水系统</p>
+                                <p class="l_p_five" style="display:none">动力系统</p>
+                                <p class="l_p_six" style="display:none;font-size:30px;">安全生产系统</p>
+                            </div>
+                            <div id="span_all">
+                                <span class="l_span_one "></span>
+                                <span class="l_span_two"></span>
+                                <span class="l_span_three"></span>
+                                <span class="l_span_four"></span>
+                                <span class="l_span_five"></span>
+                                <span class="l_span_six"></span>
+                            </div>
+                            <div id="span_all_one">
+                                <span class="span_one "></span>
+                                <span class="span_two"></span>
+                                <span class="span_three"></span>
+                                <span class="span_four"></span>
+                                <span class="span_five"></span>
+                                <span class="span_six"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="I_span_seven"></span>
+                            <span class="I_span_eight"></span>
+                            <span class="I_span_nine"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_center">
+                <div class="center_one">
+                    <p class="title">总功率和功率因素趋势</p>
+                    <div class="center_one_top">
+                        <span class="icon"></span>
+                        <div id="monthByCorp7" style="width:994px;height:283px;margin-left:80px;"></div>
+                    </div>
+                </div>
+                <div class="center_two">
+                    <p class="title">10kV电流电压趋势</p>
+                    <div class="center_two_top">
+                        <span class="icon"></span>
+                        <div style="position: absolute;left:5px;top:80px;">
+                            <p style="font-family: PingFangSC-Semibold; font-size: 10px;
+                            color: #CCC;
+                            text-align: center;
+                            height:18px;                       
+                            text-shadow: 0 0 10px #FFF3C8;">电流 （A）</p>
+                            <p style="font-family: PingFangSC-Semibold;
+                            font-size: 10px;
+                            color: #0B0B0D;
+                            height:18px;
+                            text-align: center;
+                            text-shadow: 0 0 10px #FFF3C8;margin-top:10px;background: #FFC800;">电压 （kv）</p>
+                            
+                        </div>
+                        <div id="monthByCorp8" style="width:994px;height:283px;margin-left:80px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    var roomId = "";
+    var gas_y_index = "1";
+    $(function () {
+        InitializationReportFunction();
+        window.setInterval(intervalFun, 1000);
+        $(".centerFactorysign").click(function () {
+            var factoryId = $(this).attr("id");
+            var index = $(this).index()
+            console.log(index)
+            roomId = factoryId
+            $(".disappear").css("display", "none")
+            if (roomId == "101") {
+                $(".information_detail").eq(index - 1).show().siblings().hide()
+                $(".information").css("display", "none")
+            } else if (roomId == "201") {
+                $(".information_detail").eq(index - 1).show().siblings().hide()
+                $(".information").css("display", "none")
+            }
+
+        })
+
+        //鱼眼
+        $("#span_all_one span").mouseenter(function () {
+            var index = $(this).index()
+            console.log(index)
+            var oldIndex = $(".active_one").index();
+            $("#p_all p").eq(index).fadeIn(500).siblings().fadeOut(500)
+            if (index == 0) {
+                $(".active_one").removeClass("active_one");
+                $("#span_all span").eq(oldIndex + 1).removeClass("active_two");
+                $("#span_all span").eq(oldIndex - 1).removeClass("active_two");
+                $("#span_all span").eq(index).addClass("active_one")
+                $("#span_all span").eq(index + 1).addClass("active_two")
+            } else {
+                $(".active_one").removeClass("active_one");
+                $("#span_all span").eq(oldIndex + 1).removeClass("active_two")
+                $("#span_all span").eq(oldIndex - 1).removeClass("active_two")
+                $("#span_all span").eq(index).addClass("active_one")
+                $("#span_all span").eq(index + 1).addClass("active_two")
+                $("#span_all span").eq(index - 1).addClass("active_two")
+            }
+        }).mouseout(function () {
+
+        })
+    })
+    //初始化鱼眼的大小
+    function initspan() {
+        $("#span_all span").eq(1).addClass("active_two")
+        $("#span_all span").eq(2).addClass("active_one")
+        $("#span_all span").eq(3).addClass("active_two")
+
+    }
+    //所有动态数据的赋值调用方法
+   //所有动态数据的赋值调用方法
+   function intervalFun() {
+        forecastElectricFunction(roomId);
+        accumulativeElectricFunction(roomId);
+        powerFunction(roomId);
+        meritoriousFunction(roomId);
+        sumElectricFunction(roomId);
+        firstElectricReportFunction(roomId);
+        twoElectricReportFunction(roomId);
+        threeElectricReportFunction(roomId);
+        forElectricReportFunction(roomId);
+    }
+    //初始化报表所需的东西
+    function InitializationReportFunction() {
+        drawByCorp3(); //第一个柱状图
+        drawByCorp6(); 
+        drawByCorp7();
+        drawByCorp8();
+        initspan()
+
+    }
+</script>
+
+</html>

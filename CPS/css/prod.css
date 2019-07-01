@@ -1,0 +1,283 @@
+﻿article .banner li:nth-child(2) em{
+    color: #0eb1e6;
+}
+article .banner li:nth-child(2) p{
+    background: #0eb1e6;
+}
+article .banner li:nth-child(1) .fan_icon{
+    background: url("../images/19.png") no-repeat 0 0;
+}
+article .banner li:nth-child(2) .fan_icon{
+    background: url("../images/20.png") no-repeat 0 0;
+}
+article .banner li:nth-child(3) .fan_icon{
+    background: url("../images/23.png") no-repeat 0 0;
+}
+article .banner li:nth-child(4) .fan_icon{
+    background: url("../images/24.png") no-repeat 0 0;
+}
+article .speed{
+    width: 870px;
+    height: 996px;
+    margin-left:15px;
+    margin-top:15px;
+    background: rgba(0,0,0,0.15);
+}
+article .speed .speed_h{
+    height:40px;
+    font-size: 16px;
+    color: #e6e6e6;
+    padding-left:38px;
+    line-height: 40px;
+    background: rgba(0,0,0,0.25);
+}
+article .speed .speed_u{
+    margin-top: 15px;
+    margin-right:20px;
+}
+article .speed .speed_u li{
+    font-size: 11px;
+    color: #e6e6e6;
+}
+article .speed .speed_u li:nth-child(1) select{
+    background: rgba(0,0,0,0.3);
+    border:1px solid #4b4b4b;
+    color: #e6e6e6;
+
+}
+article .speed .speed_u li:nth-child(2){
+    margin-right:10px;
+}
+article .speed #speed_e{
+    width: 800px;
+    height: 260px;
+    margin-top:32px;
+    margin-left:54px;
+
+}
+/*风速误差*/
+article .speed .speed_ef select{
+    background: rgba(0,0,0,0.3);
+    border:1px solid #4b4b4b;
+    color: #e6e6e6;
+    margin-top:10px;
+    margin-right:20px;
+}
+article .speed #speed_eh{
+    width: 800px;
+    height: 260px;
+    margin-top:32px;
+    margin-left:54px;
+
+}
+/*table*/
+article .speed .speed_t{
+    width: 326px;
+    margin-left: 50px;
+}
+article .speed .speed_t a{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #E6E6E6;
+    text-decoration: underline;
+}
+article .speed .speed_t table th{
+    height: 20px;
+    background: rgba(255,255,255,0.15);
+    color: #E6E6E6;
+    border:1px solid #343435;
+    font-size: 12px;
+}
+article .speed .speed_t table td{
+    width: 165px;
+    height: 20px;
+    font-size: 10px;
+    color: #e6e6e6;
+    text-align: center;
+    border:1px solid #343435;
+}
+/*right*/
+article .speed .speed_m{
+    width: 326px;
+    margin-left:140px;
+}
+article .speed .speed_m a{
+    margin-left:20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #E6E6E6;
+    text-decoration: underline;
+}
+article .speed .speed_m table{
+
+}
+article .speed .speed_m table th{
+    height: 20px;
+    background: rgba(255,255,255,0.15);
+    color: #E6E6E6;
+    border:1px solid #343435;
+    font-size: 12px;
+}
+article .speed .speed_m table td{
+    width: 165px;
+    height: 20px;
+    font-size: 10px;
+    color: #e6e6e6;
+    text-align: center;
+    border:1px solid #343435;
+}
+/*风速预测right*/
+article .wind{
+    width: 850px;
+    height: 996px;
+    margin-left:15px;
+    margin-top:15px;
+    background: rgba(0,0,0,0.15);
+}
+article .wind .wind_h{
+    height:40px;
+    font-size: 16px;
+    color: #e6e6e6;
+    padding-left:38px;
+    line-height: 40px;
+    background: rgba(0,0,0,0.25);
+}
+article .wind .wind_r{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.2);
+    margin-right:10px;
+}
+article .wind .wind_r1{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background:#b12626;
+    margin-right:10px;
+    margin-left:5px;
+}
+article .wind .wind_r2{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background:#d69627;
+    margin-right:10px;
+    margin-left:5px;
+}
+article .wind .wind_r3{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background:#549782;
+    margin-right:10px;
+    margin-left:5px;
+}
+article .wind .wind_r4{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background:#54abe8;
+    margin-right:10px;
+    margin-left:5px;
+}
+article .wind .wind_u{
+    margin-top:20px;
+}
+article .wind .wind_u .wind_b{
+    color: red;
+}
+article .wind .wind_u li em,article .wind .wind_u li b{
+    font-size: 11px;
+    color: #ccc;
+}
+article .wind .wind_u li:nth-child(1){
+    margin-left:36px;
+}
+article .wind .wind_u li:nth-child(2){
+    margin-left:78px;
+}
+article .wind .wind_u li:nth-child(3){
+    margin-left:280px;
+    margin-right:40px;
+}
+article .wind .wind_u li:nth-child(4){
+    margin-left:36px;
+    margin-top:14px;
+}
+article .wind .wind_u li:nth-child(5){
+    margin-left:100px;
+    margin-top:14px;
+}
+article .wind .wind_u li:nth-child(6){
+    margin-right:20px;
+    margin-top:14px;
+}
+article .wind #wind_e{
+    position: relative;
+    width: 800px;
+    height: 328px;
+    margin-left:28px;
+    top:-15px;
+}
+/*单风机*/
+article .wind .wind_p{
+    width: 830px;
+    height: 478px;
+    margin-left:10px;
+    margin-top:45px;
+}
+article .wind .wind_p .wind_pl{
+    color: #fff;
+    height:33px;
+    width: 91px;
+    padding-top: 84px;
+    padding-left:3px;
+    background: url("../images/15.png") no-repeat 20px 10px;
+}
+article .wind .wind_p .wind_pl2{
+    color: #eca62b;
+    height:33px;
+    width: 91px;
+    padding-top: 84px;
+    padding-left:3px;
+    background: url("../images/16.png") no-repeat 20px 10px;
+}
+article .wind .wind_p .wind_pl3{
+    color: #ff4949;
+    height:33px;
+    width: 91px;
+    padding-top: 84px;
+    padding-left:3px;
+    background: url("../images/17.png") no-repeat 20px 10px;
+}
+article .wind .wind_p li{
+    width: 205px;
+    height: 117px;
+    background: rgba(255,255,255,0.03);
+    margin-left:3px;
+    margin-top:5px;
+}
+article .wind .wind_p li:nth-child(4n){
+    margin-right:-3px;
+}
+article .wind .wind_p li p{
+    font-size: 12px;
+    color:#ffffff;
+    margin-top:5px;
+}
+article .wind .wind_p .wind_b,article .wind .wind_p .wind_b i{
+    color:#009944;
+}
+article .wind .wind_p .wind_y,article .wind .wind_p .wind_y i{
+    color:#ffff00;
+}
+
+
+/* 发电管理表格形式展示 */
+.wind-detail{width:844px; margin:40px auto 0;}
+.tab{width: 416px; border:1px solid #353436; color:#ccc; font-size: 12px;}
+.tab thead th{ background: #373637; height: 42px; }
+.tab tbody td{  height: 38px; text-align: center;}
+.tab tbody tr:nth-child(odd) td{background: rgba(35,35,35,0.5);}
+.tab tbody tr:nth-child(even) td{background:rgba(31,31,31,0.95);}

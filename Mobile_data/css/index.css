@@ -1,0 +1,511 @@
+body{
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.index-body {
+    width: auto;
+    height: 102vh;
+    background: url(../images/bg1.png) center no-repeat;
+    text-align: center;
+    position: relative;
+    background-size: 100%;
+}
+.top{
+    position: absolute;
+    top:0;
+    background: url(../images/topbg.png) center no-repeat;
+}
+.logo{
+    text-align: left;
+}
+.form-container{
+    display: inline-block;
+    height: 99%;
+    position: relative;
+}
+.container{
+    width: 98vw;
+    height: 94vh;
+    margin: 2% auto;
+}
+.container-left{
+    width: 20%;
+    padding-left: 2%;
+}
+.container-cont{
+    width: 55%;
+}
+.container-right{
+    width: 25%;
+    float: right;
+}
+
+.mapd{
+
+}
+.mapd h3{
+    font-size: 16px;
+    color: #e6e6e6;
+    height: 38px;
+    line-height: 35px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 9%;
+    letter-spacing: 1px;
+}
+.mapd ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    position: absolute;
+}
+.mapd ul li{
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 25px;
+}
+.mapd ul li .a{
+    color: #ff5621;
+}
+.mapd ul li .b{
+    color: #ffbf00;
+}
+.mapd ul li .c{
+    color: #ffe75a;
+}
+.flip {
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    color: yellow;
+}
+.price_a,.price_b{
+    margin-top: 10%;
+    overflow: hidden;
+}
+.price_b{
+    height: 200px;
+}
+.price_a h3,.price_b h3{
+    font-size: 16px;
+    color: #e6e6e6;
+    height: 38px;
+    line-height: 35px;
+    font-weight: normal;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.price_a h5,.price_b h5{
+    font-size: 35px;
+    color: #00f6f5;
+    height: 38px;
+    line-height: 0;
+    font-weight: normal;
+    margin-left: 20%;
+    text-align: left;
+}
+.price_b h5 span{
+    font-size: 14px;
+    margin-left: 5px;
+}
+/*.price_b{
+    background: url(../icons/21.png) left no-repeat;
+    background-size: 80%;
+}*/
+
+.container-left dl{
+    height: auto;
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.container-left dl dd,.container-left dl dt{
+    float: left;
+    text-align: left;
+}
+.container-left dl dd{
+    width: 25%;
+}
+.container-left dl dd img{
+    width: 55%;
+    margin-top: 30%;
+}
+.container-left dl dt{
+    width: 75%;
+}
+
+.container-left dl dt h4{
+    font-size: 16px;
+    color: #e6e6e6;
+    font-weight: normal;
+}
+.container-left dl dt h3{
+    font-size: 35px;
+    color: #00f6f5;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+.container-left dl dt h3 span{
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.ch_l{
+    width: 100%;
+    height: 315px;
+    position: relative;
+    margin-top: 10%;
+}
+.ch_l .img{
+    position: absolute;
+    top: 27%;
+    left: -3px;
+    z-index: 99;
+    width: 165px;
+    height: 165px;
+    background: url(../images/yh.png) center no-repeat;
+}
+#ch_l{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+}
+.ch_l h3{
+    font-size: 16px;
+    color: #e6e6e6;
+    height: 38px;
+    line-height: 35px;
+    font-weight: normal;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.Shares{
+    width: 95%;
+    height: 180px;
+    margin-left: 9%;
+    margin-top: 6%;
+}
+.Shares h3{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 11%;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.yield{
+    width: 95%;
+    height: 100px;
+    margin-left: 9%;
+    margin-top: 14%;
+}
+
+.yield h3{
+    font-size: 16px;
+    color: #e6e6e6;
+    height: 38px;
+    line-height: 35px;
+    font-weight: normal;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+
+.runNum{
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+.runNum>li{
+    list-style: none;
+    float: left;
+    position: absolute;
+    background: #06284b;
+    width: 28px;
+    height: 45px;
+    line-height: 48px;
+    font-size: 2.4rem;
+    overflow: hidden;
+    color: #00e6f1;
+    border-left: 1px solid #010b26;
+    text-align: center;
+    padding-right: 1px;
+}
+
+
+/*
+.price-div {
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+}
+
+.price-div > div,
+.total-price > div {
+    float: left;
+    text-align: center;
+}
+
+.price-icon {
+    background: dimgrey;
+    width: 25px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.price-div .number {
+    background: #06284b;
+    width: 28px;
+    height: 45px;
+    line-height: 48px;
+    font-size: 2.4rem;
+    overflow: hidden;
+    color: #00e6f1;
+    margin: 0 2px;
+    border: 1px solid #0d447d;
+}
+
+.price-div .sign {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 68px;
+    height: 48px;
+}
+*/
+
+/*雷达扫描*/
+.radar {
+    background: -webkit-radial-gradient(center, rgba(35, 32, 255, 0.3) 0%, rgba(32, 255, 77, 0) 75%), -webkit-repeating-radial-gradient(rgba(32, 255, 77, 0) 5.8%, rgba(32, 255, 77, 0) 18%,  rgba(33, 150, 243, 0.1) 25%, rgba(32, 255, 77, 0) 18.9%), -webkit-linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #04a6de 50%, #01f3f3 50%, rgba(32, 255, 77, 0) 50.2%), -webkit-linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #04a6de 50%, #04a6de 50%, rgba(32, 255, 77, 0) 50.2%);
+    background: radial-gradient(center, rgba(32, 255, 77, 0.3) 0%, rgba(32, 255, 77, 0) 75%), repeating-radial-gradient(rgba(32, 255, 77, 0) 5.8%, rgba(32, 255, 77, 0) 18%, #195c8a 18.6%, rgba(32, 255, 77, 0) 18.9%), linear-gradient(90deg, rgba(32, 255, 77, 0) 49.5%, #04a6de 50%, #01f3f3 50%, rgba(32, 255, 77, 0) 50.2%), linear-gradient(0deg, rgba(32, 255, 77, 0) 49.5%, #184e93 50%, #184e93 50%, rgba(32, 255, 77, 0) 50.2%);
+    width: 75vw;
+    height: 75vw;
+    max-height: 75vh;
+    max-width: 75vh;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 0.2rem solid #02ecf3;
+    overflow: hidden;
+}
+.radar:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: blips 14s infinite;
+    animation-timing-function: linear;
+    animation-delay: 1.4s;
+}
+.radar:after {
+    content: ' ';
+    display: block;
+    background-image: linear-gradient(44deg, rgba(0, 255, 51, 0) 50%, #03A9F4  100%);
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: radar-beam 14s infinite;
+    animation-timing-function: linear;
+    transform-origin: bottom right;
+    border-radius: 100% 0 0 0;
+}
+
+@keyframes radar-beam {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes blips {
+    14% {
+        background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%);
+    }
+    14.0002% {
+        background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%);
+    }
+    25% {
+        background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%);
+    }
+    26% {
+        background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%);
+        opacity: 1;
+    }
+    100% {
+        background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #04a6de 30%, rgba(255, 255, 255, 0) 100%);
+        opacity: 0;
+    }
+}
+
+@keyframes animtran {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes animtrans {
+    from {
+        transform: rotateZ(360deg);
+    }
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
+@-webkit-keyframes animtran {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes animtrans {
+    from {
+        transform: rotateZ(360deg);
+    }
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+/*360旋转*/
+#advert {
+    width: 75vw;
+    height: 75vw;
+    max-height: 100%;
+    max-width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 9999;
+}
+
+
+#advert .bg1 {
+    width: 75vw;
+    height: 75vw;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#advert .bg1 div {
+    width: 34vw;
+    height: 34vw;
+    border: #02ecf3 1px solid;
+    border-radius: 50%;
+    position: fixed;
+    animation: animtran 28s linear infinite;
+    -webkit-animation: animtran 28s linear infinite;
+    z-index: 10;
+    left: 27.3%;
+    top: 16%;
+}
+
+/*#advert .bg1 div:hover{
+    animation: animtran 0s linear infinite;
+    -webkit-animation: animtran 0s linear infinite;
+}*/
+
+#advert .bg1 a {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    animation: animtrans 28s linear infinite;
+    -webkit-animation: animtrans 28s linear infinite;
+    display: inline-block;
+    text-decoration: none;
+    color: #00e6f1;
+    font-size: 12px;
+    background: url(../images/hover_c.png) left no-repeat;
+}
+#advert .bg1 a:hover{
+    color: #ffffff;
+    background: url(../images/hoverbg.png) left no-repeat;
+    animation: animtrans 28s linear infinite;
+    -webkit-animation: animtrans 28s linear infinite;
+    box-shadow: white 0 0 5px 1px;
+    border: #fff 1px solid;
+}
+#advert .bg1 a img{
+    width: 25%;
+    margin-top: 25%;
+}
+#advert .bg1 a p{
+    margin-top: 3px;
+    margin-left: 5px;
+}
+#advert .bg1 .icon01 {
+    bottom: 25px;
+    left: 7px;
+}
+
+#advert .bg1 .icon02 {
+    top: 201px;
+    left: -56px;
+}
+
+#advert .bg1 .icon03 {
+    top: 21px;
+    left: 34px;
+}
+
+#advert .bg1 .icon04 {
+    top: -60px;
+    right: 203px;
+}
+
+#advert .bg1 .icon05 {
+    top: -10px;
+    right: 31px;
+}
+
+#advert .bg1 .icon06 {
+    bottom: 279px;
+    right: -56px;
+}
+
+#advert .bg1 .icon07 {
+    bottom: 115px;
+    left: 466px;
+}
+
+#advert .bg1 .icon08 {
+    bottom: -10px;
+    right: 72px;
+}
+
+#advert .bg1 .icon09 {
+    bottom: -49px;
+    left: 177px;
+}

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>餐饮集团大数据平台</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script	src="js/jquery-1.11.1.min.js" type="text/javascript" ></script>
+    <script	src="js/echarts.min.js" type="text/javascript" ></script>
+    <script	src="js/bmap.min.js" type="text/javascript" ></script>
+    <script	src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM" type="text/javascript" ></script>
+    <script	src="js/china.js" type="text/javascript" ></script>
+</head>
+<body>
+
+    <div class="content">
+        <div class="map_bot">
+
+            <div id="map_bot" style="position: absolute;z-index: 0;width: 100%;height: 120%"></div>
+            <script type="text/javascript">
+                var myCharmap = echarts.init(document.getElementById('map_bot'));
+                var geoCoordMap = {
+                    '上海': [121.4648,31.2891],
+                    '东莞': [113.8953,22.901],
+                    '东营': [118.7073,37.5513],
+                    '中山': [113.4229,22.478],
+                    '临汾': [111.4783,36.1615],
+                    '临沂': [118.3118,35.2936],
+                    '丹东': [124.541,40.4242],
+                    '丽水': [119.5642,28.1854],
+                    '乌鲁木齐': [87.9236,43.5883],
+                    '佛山': [112.8955,23.1097],
+                    '保定': [115.0488,39.0948],
+                    '兰州': [103.5901,36.3043],
+                    '包头': [110.3467,41.4899],
+                    '北京': [116.4551,40.2539],
+                    '北海': [109.314,21.6211],
+                    '南京': [118.8062,31.9208],
+                    '南宁': [108.479,23.1152],
+                    '南昌': [116.0046,28.6633],
+                    '赣州': [116.0046,25.6633],
+                    '南通': [121.1023,32.1625],
+                    '厦门': [118.1689,24.6478],
+                    '台州': [121.1353,28.6688],
+                    '合肥': [117.29,32.0581],
+                    '呼和浩特': [111.4124,40.4901],
+                    '咸阳': [108.4131,34.8706],
+                    '哈尔滨': [127.9688,45.368],
+                    '唐山': [118.4766,39.6826],
+                    '嘉兴': [120.9155,30.6354],
+                    '大同': [113.7854,39.8035],
+                    '大连': [122.2229,39.4409],
+                    '天津': [117.4219,39.4189],
+                    '太原': [112.3352,37.9413],
+                    '威海': [121.9482,37.1393],
+                    '宁波': [121.5967,29.6466],
+                    '宝鸡': [107.1826,34.3433],
+                    '宿迁': [118.5535,33.7775],
+                    '宿州': [117.5535,33.7775],
+                    '常州': [119.4543,31.5582],
+                    '广州': [113.5107,23.2196],
+                    '廊坊': [116.521,39.0509],
+                    '延安': [109.1052,36.4252],
+                    '张家口': [115.1477,40.8527],
+                    '徐州': [117.5208,34.3268],
+                    '德州': [116.6858,37.2107],
+                    '惠州': [114.6204,23.1647],
+                    '成都': [103.9526,30.7617],
+                    '扬州': [119.4653,32.8162],
+                    '承德': [117.5757,41.4075],
+                    '拉萨': [91.1865,30.1465],
+                    '无锡': [120.3442,31.5527],
+                    '日照': [119.2786,35.5023],
+                    '昆明': [102.9199,25.4663],
+                    '杭州': [119.5313,29.8773],
+                    '枣庄': [117.323,34.8926],
+                    '曲阜': [117.323,35.8926],
+                    '柳州': [109.3799,24.9774],
+                    '株洲': [113.5327,27.0319],
+                    '武汉': [114.3896,30.6628],
+                    '汕头': [117.1692,23.3405],
+                    '江门': [112.6318,22.1484],
+                    '沈阳': [123.1238,42.1216],
+                    '沧州': [116.8286,38.2104],
+                    '河源': [114.917,23.9722],
+                    '泉州': [118.3228,25.1147],
+                    '泰安': [117.0264,36.0516],
+                    '泰州': [120.0586,32.5525],
+                    '济南': [117.1582,36.8701],
+                    '济宁': [116.8286,35.3375],
+                    '海口': [110.3893,19.8516],
+                    '淄博': [118.0371,36.6064],
+                    '淮安': [118.927,33.4039],
+                    '深圳': [114.5435,22.5439],
+                    '清远': [112.9175,24.3292],
+                    '温州': [120.498,27.8119],
+                    '渭南': [109.7864,35.0299],
+                    '湖州': [119.8608,30.7782],
+                    '湘潭': [112.5439,27.7075],
+                    '滨州': [117.8174,37.4963],
+                    '潍坊': [119.0918,36.524],
+                    '烟台': [120.7397,37.5128],
+                    '玉溪': [101.9312,23.8898],
+                    '珠海': [113.7305,22.1155],
+                    '盐城': [120.2234,33.5577],
+                    '盘锦': [121.9482,41.0449],
+                    '石家庄': [114.4995,38.1006],
+                    '福州': [119.4543,25.9222],
+                    '秦皇岛': [119.2126,40.0232],
+                    '绍兴': [120.564,29.7565],
+                    '聊城': [115.9167,36.4032],
+                    '肇庆': [112.1265,23.5822],
+                    '舟山': [122.2559,30.2234],
+                    '苏州': [120.6519,31.3989],
+                    '莱芜': [117.6526,36.2714],
+                    '菏泽': [115.6201,35.2057],
+                    '营口': [122.4316,40.4297],
+                    '葫芦岛': [120.1575,40.578],
+                    '衡水': [115.8838,37.7161],
+                    '衢州': [118.6853,28.8666],
+                    '西宁': [101.4038,36.8207],
+                    '西安': [109.1162,34.2004],
+                    '贵阳': [106.6992,26.7682],
+                    '连云港': [119.1248,34.552],
+                    '邢台': [114.8071,37.2821],
+                    '邯郸': [114.4775,36.535],
+                    '郑州': [113.4668,34.6234],
+                    '鄂尔多斯': [108.9734,39.2487],
+                    '重庆': [107.7539,30.1904],
+                    '金华': [120.0037,29.1028],
+                    '铜川': [109.0393,35.1947],
+                    '银川': [106.3586,38.1775],
+                    '镇江': [119.4763,31.9702],
+                    '长春': [125.8154,44.2584],
+                    '长沙': [113.0823,28.2568],
+                    '长治': [112.8625,36.4746],
+                    '阳泉': [113.4778,38.0951],
+                    '青岛': [120.4651,36.3373],
+                    '黔南': [107.523205,26.264536],
+                    '新戈里察': [13.45205,45.964536],
+                    '韶关': [113.7964,24.7028]
+                };
+                var BJData = [
+                    [{name:'北京',value:140}, {name:'无锡'}],
+                    [{name:'上海',value:20}, {name:'无锡'}],
+                    [{name:'天津',value:30}, {name:'无锡'}],
+                    [{name:'广州',value:10}, {name:'无锡'}],
+                    [{name:'大连',value:40}, {name:'无锡'}],
+                    [{name:'青岛',value:20}, {name:'无锡'}],
+                    [{name:'石家庄',value:20}, {name:'无锡'}],
+                    [{name:'保定',value:20}, {name:'无锡'}],
+                    [{name:'南昌',value:10}, {name:'无锡'}],
+                    [{name:'合肥',value:160}, {name:'无锡'}],
+                    [{name:'呼和浩特',value:20}, {name:'无锡'}],
+                    [{name:'宿州',value:10}, {name:'无锡'}],
+                    [{name:'曲阜',value:10}, {name:'无锡'}],
+                    [{name:'杭州',value:20}, {name:'无锡'}],
+                    [{name:'武汉',value:20}, {name:'无锡'}],
+                    [{name:'深圳',value:10}, {name:'无锡'}],
+                    [{name:'珠海',value:10}, {name:'无锡'}],
+                    [{name:'福州',value:20}, {name:'无锡'}],
+                    [{name:'西安',value:60}, {name:'无锡'}],
+                    [{name:'贵阳',value:10}, {name:'无锡'}],
+                    [{name:'长春',value:10}, {name:'无锡'}],
+                    [{name:'哈尔滨',value:10}, {name:'无锡'}],
+                    [{name:'黔南',value:20}, {name:'无锡'}],
+                    [{name:'重庆',value:20}, {name:'无锡'}],
+                    [{name:'新戈里察',value:20}, {name:'无锡'}],
+                    [{name:'赣州',value:10}, {name:'无锡'}]
+                ];
+                var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+                var convertData = function (data) {
+                    var res = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var dataItem = data[i];
+                        var fromCoord = geoCoordMap[dataItem[0].name];
+                        var toCoord = geoCoordMap[dataItem[1].name];
+                        if (fromCoord && toCoord) {
+                            res.push({
+                                fromName: dataItem[0].name,
+                                toName: dataItem[1].name,
+                                coords: [fromCoord, toCoord]
+                            });
+                        }
+                    }
+                    return res;
+                };
+
+                var covertColor = function(data){
+                    var value= data[1].value;
+                    var result = 'aqua';
+                    if(value>80){
+                        result = '#ff3333';
+                    }else if(value>60){
+                        result = 'orange';
+                    }else if(value>40){
+                        result = 'yellow';
+                    }else if(value>60){
+                        result = 'lime';
+                    }
+                    return result;
+                };
+
+                var color = ['#56e88c', '#ffa022', '#46bee9'];
+                var series = [];
+                [['北京', BJData]].forEach(function (item, i) {
+                    series.push(
+                        {
+                            name: item[2],
+                            type: 'lines',
+                            zlevel: 2,
+                            effect: {
+                                show: true,
+                                period: 6,
+                                trailLength: 0.1,
+//            symbol: planePath,
+                                symbol:'arrow',
+                                symbolSize: 5
+                            },
+                            lineStyle: {
+                                normal: {
+                                    color: '#60ff44',
+                                    width: 1,
+                                    opacity: 0.4,
+                                    curveness: 0.2
+                                }
+                            },
+                            data: convertData(item[1])
+                        },
+                        {
+                            //       name: item[1],
+                            type: 'effectScatter',
+                            coordinateSystem: 'geo',
+                            zlevel: 2,
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'right',
+                                    formatter: '{b}'
+                                }
+                            },
+                            symbolSize: function (val) {
+                                return 3 + val[2] / 10;
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#60ff44'
+                                }
+                            },
+                            data: item[1].map(function (dataItem) {
+                                return {
+                                    name: dataItem[0].name,
+                                    value: geoCoordMap[dataItem[0].name].concat([dataItem[0].value])
+                                };
+                            })
+                        });
+                });
+
+                option = {
+                    backgroundColor: '#003872',
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    geo: {
+                        map: 'china',
+                        label: {
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#004882',
+                                borderColor: '#20a6C7'
+                            },
+                            emphasis: {
+                                areaColor: '#2a333d'
+                            }
+                        }
+                    },
+                    series: series
+                };
+                myCharmap.setOption(option, true);
+            </script>
+
+
+            <div class="lanzhou_ft">
+                <div class="lanzhou_title">
+                    <span  id="nowTime"></span>
+                    <script type="text/javascript">
+                        function current(){
+                            var d=new Date(),str='';
+                            str +=d.getFullYear()+'年'; //获取当前年份
+                            str +=d.getMonth()+1+'月'; //获取当前月份（0——11）
+                            str +=d.getDate()+'日';
+                            str +=d.getHours()+':';
+                            str +=d.getMinutes()+':';
+                            str +=d.getSeconds()+'';
+                            return str; }
+                        setInterval(function(){$("#nowTime").html(current)});
+                    </script>
+                    <h1>XX连锁餐饮集团大数据平台</h1>
+                </div>
+
+                <div class="float lanzhou_left">
+
+                    <div class="shis">
+                        <h2>实时交易</h2>
+                        <ul>
+                            <li>
+                                <span>&nbsp;</span>
+                                <span class="sp">商品名</span>
+                                <span class="je">金额</span>
+                            </li>
+                            <li>
+                                <span><i></i></span>
+                                <span class="sp">上海-坤府捞面</span>
+                                <span class="je">20</span>
+                            </li>
+                            <li>
+                                <span><i></i></span>
+                                <span class="sp">昆明-宽粉套餐</span>
+                                <span class="je">15</span>
+                            </li>
+                            <li>
+                                <span><i></i></span>
+                                <span class="sp">郑州-牛肉套餐</span>
+                                <span class="je">22</span>
+                            </li>
+                            <li>
+                                <span><i></i></span>
+                                <span class="sp">北京-炸酱套餐</span>
+                                <span class="je">20</span>
+                            </li>
+                            <li>
+                                <span><i></i></span>
+                                <span class="sp">杭州-香菇肉酱面</span>
+                                <span class="je">21</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="wuliao" id="wuliao" style="width: 100%;height:230px"></div>
+                    <script type="text/javascript">
+                        var myCharwl = echarts.init(document.getElementById('wuliao'));
+                        option = {
+                            color: ['#C1232B','#B5C334','#FCCE10','#E87C25','#27727B'],
+                            title: {
+                                text: '物料库存',
+                                x:'center',
+                                top:'10',
+                                textStyle:{
+                                    color: '#fff',
+                                    fontSize:'28',
+                                    fontWeight:'100'
+                                }
+                            },
+                            tooltip : {
+                                trigger: 'axis',
+                                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis:  {
+                                type: 'value',
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff',
+                                    }
+                                },
+                            },
+                            yAxis: {
+                                type: 'category',
+                                data: ['包材','牛肉','调味料','面粉','辣椒'],
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#fff',
+                                    }
+                                },
+                            },
+                            series: [
+                                {
+                                    name: '未到货数量',
+                                    type: 'bar',
+                                    stack: '总量',
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideRight'
+                                        }
+                                    },
+                                    data: [320, 302, 301, 334, 390],
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#1e7fdd',
+
+                                        }
+                                    },
+                                },
+
+                                {
+                                    name: '已到货数量',
+                                    type: 'bar',
+                                    stack: '总量',
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideRight'
+                                        }
+                                    },
+                                    data: [820, 832, 901, 934, 1290],
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#1FBCD2',
+
+                                        }
+                                    },
+                                }
+                            ]
+                        };
+                        myCharwl.setOption(option, true);
+                    </script>
+
+                    <div class="wuliao" id="sl" style="width: 100%;height:230px"></div>
+                    <script type="text/javascript">
+                        var myCharsl = echarts.init(document.getElementById('sl'));
+                        option = {
+                            animation: false,
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow',
+                                }
+                            },
+                            grid: {
+                                top: 60,
+                                bottom: 30
+                            },
+                            yAxis: {
+                                type: 'value',
+                                name: '单位万',
+                                nameTextStyle:{
+                                    color: '#ffffff'
+                                },
+                                splitLine: {
+                                    lineStyle: {
+                                        type: 'solid',
+                                        color: '#ffffff'
+                                    }
+                                },
+                                axisLabel: {
+                                    show: true,
+                                    rotate: 0,
+                                    textStyle: {
+                                        color: '#ffffff'
+                                    }
+                                },
+                            },
+                            xAxis: {
+                                splitNumber: 25,
+                                type: 'category',
+                                axisLine: {
+                                    lineStyle: {
+                                        type: 'solid',
+                                    }
+                                },
+                                axisLabel: {
+                                    show: true,
+                                    rotate: 0,
+                                    textStyle: {
+                                        color: '#ffffff'
+                                    }
+                                },
+                                axisTick: {
+                                    show: true
+                                },
+                                splitLine: {
+                                    lineStyle: {
+                                        type: 'solid',
+                                        color: '#ffffff'
+                                    }
+                                },
+                                data: ['Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr']
+                            },
+                            series: [{
+                                name: '月开支',
+                                type: 'bar',
+                                barGap: '-100%',
+                                label: {
+                                    normal: {
+                                        textStyle: {
+                                            color: '#682d19'
+                                        },
+                                        position: 'left',
+                                        show: false,
+                                        formatter: '{b}'
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        color: '#1FBCD2',
+                                    }
+                                },
+                                data: [1900, 1029, 1602, 2004, 1100, 1800, 2800,]
+                            }, {
+                                type: 'line',
+                                silent: true,
+                                barGap: '-100%',
+                                data: [100, 1000, 800, 1070, 900, 300, 1200],
+                                itemStyle: {
+                                    normal: {
+                                        color: '#FEDC6E',
+
+                                    }
+                                },
+
+                            }]
+                        }
+                        myCharsl.setOption(option, true);
+                    </script>
+
+                </div>
+                <div class="float lanzhou_cont">
+                    <div class="amount">
+                        <span>今日支付金额</span>
+                        <div class="flip">
+                            <div class="price-icon">￥</div>
+                            <div class="price-div">
+                                <div class="h-k number"></div>
+                                <div class="t-k number"></div>
+                                <div class="k number"></div>
+                                <div class="comma sign"></div>
+                                <div class="h number"></div>
+                                <div class="t number"></div>
+                                <div class="single number"></div>
+                                <div class="sign dot"></div>
+                                <div class="t-d number"></div>
+                                <div class="h-d number"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ranking">
+                        <h2>热销榜单</h2>
+                        <ul>
+                            <li>
+                                <span>NO.1</span>
+                                <span>霸王套餐</span>
+                            </li>
+                            <li>
+                                <span>NO.2</span>
+                                <span>宽粉套餐</span>
+                            </li>
+                            <li>
+                                <span>NO.3</span>
+                                <span>牛肉粉</span>
+                            </li>
+                            <li>
+                                <span>NO.4</span>
+                                <span>牛肉套餐</span>
+                            </li>
+                            <li>
+                                <span>NO.5</span>
+                                <span>炸酱套餐</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="float lanzhou_right">
+                    <div class="user" id="user" style="width: 80%;height:230px;margin-left: 20%"></div>
+                    <script type="text/javascript">
+                        var myCharuser = echarts.init(document.getElementById('user'));
+                        var giftImageUrl = "image/user.png";
+                        myCharuser.setOption({
+                            graphic: {
+                                elements: [{
+                                    type: 'image',
+                                    style: {
+                                        image: giftImageUrl,
+                                        width: 50,
+                                        height: 50
+                                    },
+                                    left: 'center',
+                                    top: 'center'
+                                }]
+                            },
+                            series: [{
+                                type: 'pie',
+                                radius: [30, '55%'],
+                                center: ['50%', '50%'],
+                                roseType: 'radius',
+                                color: [ '#4bd4e4', '#fff'],
+                                data: [{
+                                    value: 35,
+                                    name: '老用户'
+                                }, {
+                                    value: 65,
+                                    name: '新用户'
+                                }],
+                                label: {
+                                    normal: {
+                                        textStyle: {
+                                            fontSize: 14
+                                        },
+                                        formatter: function(param) {
+                                            return param.name + ':\n' + Math.round(param.percent) + '%';
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        smooth: true,
+                                        lineStyle: {
+                                            width: 2
+                                        }
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        shadowBlur: 30,
+                                        shadowColor: 'rgba(0, 0, 0, 0.4)'
+                                    }
+                                },
+
+                                animationType: 'scale',
+                                animationEasing: 'elasticOut',
+                                animationDelay: function(idx) {
+                                    return Math.random() * 200;
+                                }
+                            }]
+                        });
+                        myCharsl.setOption(option, true);
+                    </script>
+
+                    <div class="user" id="cailiao" style="width: 80%;height:430px;margin-left: 20%"></div>
+                    <script type="text/javascript">
+                        var myCharca = echarts.init(document.getElementById('cailiao'));
+                        option = {
+                            title : {
+                                text: '原材料占比',
+                                subtext: '',
+                                x:'center',
+                                top:'30',
+                                textStyle:{
+                                    color: '#fff',
+                                    fontSize:'28',
+                                    fontWeight:'100'
+                                }
+                            },
+                            tooltip : {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                x : 'center',
+                                y : 'bottom',
+                                data:['面粉','牛肉','调味料','菜籽油','辣椒'],
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+
+                            calculable : true,
+                            series : [
+                                {
+                                    name:'原材料占比',
+                                    type:'pie',
+                                    radius : [50, 100],
+                                    center : ['50%', '50%'],
+                                    roseType : 'area',
+                                    data:[
+                                        {value:3078, name:'面粉'},
+                                        {value:212, name:'牛肉'},
+                                        {value:930, name:'调味料'},
+                                        {value:2946, name:'菜籽油'},
+                                        {value:128, name:'辣椒'}
+                                    ]
+                                }
+                            ]
+                        };
+                        myCharca.setOption(option, true);
+                    </script>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    /*实时支付金额数据变化*/
+    //乘法函数
+    function accMul(arg1, arg2) {
+        var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+        try {
+            m += s1.split(".")[1].length;
+        }
+        catch (e) {
+        }
+        try {
+            m += s2.split(".")[1].length;
+        }
+        catch (e) {
+        }
+        return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+    }
+
+    //给Number类型增加一个mul方法，使用时直接用 .mul 即可完成计算。
+    Number.prototype.mul = function (arg) {
+        return accMul(arg, this);
+    };
+
+    //除法函数
+    function accDiv(arg1, arg2) {
+        var t1 = 0, t2 = 0, r1, r2;
+        try {
+            t1 = arg1.toString().split(".")[1].length;
+        }
+        catch (e) {
+        }
+        try {
+            t2 = arg2.toString().split(".")[1].length;
+        }
+        catch (e) {
+        }
+        with (Math) {
+            r1 = Number(arg1.toString().replace(".", ""));
+            r2 = Number(arg2.toString().replace(".", ""));
+            return (r1 / r2) * pow(10, t2 - t1);
+        }
+    }
+    //给Number类型增加一个div方法，，使用时直接用 .div 即可完成计算。
+    Number.prototype.div = function (arg) {
+        return accDiv(this, arg);
+    };
+    function accAdd(arg1, arg2) {
+        var r1, r2, m;
+        try {
+            r1 = arg1.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r1 = 0;
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r2 = 0;
+        }
+        m = Math.pow(10, Math.max(r1, r2));
+        return (arg1.mul(m) + arg2.mul(m)).div(m);
+    }
+
+    //给Number类型增加一个add方法，，使用时直接用 .add 即可完成计算。
+    Number.prototype.add = function (arg) {
+        return accAdd(arg, this);
+    };
+
+
+    //减法函数
+    function Subtr(arg1, arg2) {
+        var r1, r2, m, n;
+        try {
+            r1 = arg1.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r1 = 0;
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r2 = 0;
+        }
+        m = Math.pow(10, Math.max(r1, r2));
+        //last modify by deeka
+        //动态控制精度长度
+        n = (r1 >= r2) ? r1 : r2;
+        return parseFloat(((arg1 * m - arg2 * m) / m).toFixed(n));
+    }
+
+    //给Number类型增加一个add方法，，使用时直接用 .sub 即可完成计算。
+    Number.prototype.sub = function (arg) {
+        return Subtr(this, arg);
+    };
+
+    var $hk = $(".h-k"); // Ê®Íò
+    var $tk = $(".t-k"); // Íò
+    var $k = $(".k"); // Ç§
+    var $h = $(".h"); // °Ù
+    var $t = $(".t"); // Ê®
+    var $single = $(".single"); // ¸ö
+    var $td = $(".t-d"); // Ê®·ÖÎ»
+    var $hd = $(".h-d"); // °Ù·ÖÎ»
+    var $comma = $(".comma.sign");
+    var $dot = $(".dot.sign");
+    var $bigMap = $(".big-map");
+
+    var data = {
+        numbers: ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"],
+        targetClass: {
+            "hk": $hk,
+            "tk": $tk,
+            "k": $k,
+            "h": $h,
+            "t": $t,
+            "single": $single,
+            "td": $td,
+            "hd": $hd
+        },
+        zero: {
+            hk: 0,
+            tk: 0,
+            k: 0,
+            h: 0,
+            t: 0,
+            single: 0,
+            td: 0,
+            hd: 0
+        },
+        numbersTmp: ""
+    };
+
+    (function (){
+        function numberDiv(num){
+            return "<div class='" + data.numbers[num] + "'>" + num + "</div>";
+        }
+
+        for(var i = 0; i < 10; i ++) {
+            data.numbersTmp += numberDiv(i);
+        }
+
+        $(".price-div .number").append("<div class='numbers-view'>" + data.numbersTmp + "</div>");
+    })();
+
+    function priceToObj(price){
+        if(price == 0) {
+            return data.zero;
+        }
+        var obj = {};
+        obj.hd = parseInt((price.mul(100)) % 10);
+        obj.td = parseInt((price.mul(10)) % 10);
+        obj.single = parseInt(price % 10);
+        obj.t = parseInt((price.div(10)) % 10);
+        obj.h = parseInt((price.div(100)) % 10);
+        obj.k = parseInt((price.div(1000)) % 10);
+        obj.tk = parseInt((price.div(10000)) % 10);
+        obj.hk = parseInt((price.div(100000)) % 10);
+        return obj;
+    }
+
+    function objToPrice(obj) {
+        return obj.hk.mul(100000).add(obj.tk.mul(10000))
+            .add(obj.k.mul(1000)).add(obj.h.mul(100))
+            .add(obj.t.mul(10)).add(obj.single)
+            .add(obj.td.div(10)).add(obj.hd.div(100));
+    }
+
+    function animateQueue(){
+        locking = false;
+        if(eventQueue.length > 0) {
+            eventQueue.shift()();
+        }
+    }
+
+    $.fn.extend({
+        scrollToNumber: function(num, pos){
+            var $this = $(this);
+            var target = data.numbers[num];
+
+            $this.find(".numbers-view").stop(true, true);
+
+            var top = num * $this.find(".zero").height();
+            var currentTop = -parseFloat($this.find(".numbers-view").css("marginTop").split("px")[0]);
+
+            if(top == currentTop) {
+                return;
+            } else if(currentTop < top) {
+                $this.find(".numbers-view").animate({marginTop: -top}, 1500, "swing");
+            } else {
+                $this.find(".numbers-view").append($(data.numbersTmp).addClass("temp"));
+                top = $this.find("." + target + ".temp").offset().top - $this.find(".numbers-view").offset().top;
+
+                $this.find(".numbers-view").animate({marginTop: -top}, 1500, "swing", function(){
+                    if($this.find(".zero").size() > 1) {
+                        var top = $this.find("." + target + ":not(.temp)").first().offset().top - $this.find(".numbers-view").offset().top;
+                        $this.find(".numbers-view").css({marginTop: -top});
+                        $this.find(".numbers-view .temp").remove();
+                    }
+                });
+            }
+        }
+    })
+
+    $.animateToPrice = function(price){
+        var obj = priceToObj(price);
+
+        $.each(obj, function(key, value){
+            data.targetClass[key].scrollToNumber(value, key);
+        });
+    };
+
+    var number = 19201290;
+        number = number + parseFloat((Math.random() * 1000).toFixed(2));
+        $.animateToPrice(number);
+
+
+</script>
+
+</body>
+</html>

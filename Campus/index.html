@@ -1,0 +1,289 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="../favicon.ico" >
+<link rel="Shortcut Icon" href="../favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>某高校 大数据分析系统</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+<header class="navbar-wrapper">
+	<div class="navbar navbar-fixed-top">
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="http://211.159.172.203:8080/aboutHui.shtml">某高校 大数据分析系统</a>
+			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+			<ul class="cl">
+				<li>超级管理员</li>
+				<li class="dropDown dropDown_hover">
+					<a href="index.html#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<ul class="dropDown-menu menu radius box-shadow">
+						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+						<li><a href="index.html#">切换账户</a></li>
+						<li><a href="index.html#">退出</a></li>
+				</ul>
+			</li>
+				<li id="Hui-msg"> <a href="index.html#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+				<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+					<ul class="dropDown-menu menu radius box-shadow">
+						<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+						<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+						<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+						<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+						<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+						<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+</header>
+<aside class="Hui-aside">
+	<div class="menu_dropdown bk_2">
+		<dl>
+			<dt>
+                <i class="Hui-iconfont">&#xe625;</i><a data-href="welcome.html" data-title="管理驾驶舱" href="javascript:void(0)"> 管理驾驶舱</a>
+			</dt>
+		</dl>
+
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe647; </i>学生管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="portrait_list.html" data-title="学生画像" href="javascript:void(0)">学生画像</a></li>
+					<li><a data-href="region.html" data-title="学生档案" href="javascript:void(0)">学生档案</a></li>
+					<li><a data-href="trajectory_4.html" data-title="行为轨迹" href="javascript:void(0)">行为轨迹</a></li>
+					<li><a data-href="trajectory.html" data-title="行为轨迹" href="javascript:void(0)">重点学生监测</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe602; </i>教学管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="智能签到" href="javascript:void(0)">智能签到</a></li>
+					<li><a data-href="404.html" data-title="课程/教师评估" href="javascript:void(0)">课程/教师评估</a></li>
+					<li><a data-href="404.html" data-title="院系教学评估" href="javascript:void(0)">院系教学评估</a></li>
+					<li><a data-href="404.html" data-title="智能防作弊" href="javascript:void(0)">智能防作弊</a></li>
+					<li><a data-href="404.html" data-title="学业分析" href="javascript:void(0)">学业分析</a></li>
+					<li><a data-href="404.html" data-title="挂科预警" href="javascript:void(0)">挂科预警</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe646; </i>舆情管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="话题热度排行" href="javascript:void(0)">话题热度排行</a></li>
+					<li><a data-href="404.html" data-title="口碑分析" href="javascript:void(0)">口碑分析</a></li>
+					<li><a data-href="404.html" data-title="正/负情感舆情" href="javascript:void(0)">正/负情感舆情</a></li>
+					<li><a data-href="404.html" data-title="实时事件追踪" href="javascript:void(0)">实时事件追踪</a></li>
+					<li><a data-href="404.html" data-title="舆情预警" href="javascript:void(0)">舆情预警</a></li>
+					<li><a data-href="404.html" data-title="异常舆情分析" href="javascript:void(0)">异常舆情分析</a></li>
+					<li><a data-href="404.html" data-title="舆情事件复盘" href="javascript:void(0)">舆情事件复盘</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe612; </i> 综合预警<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="earlywarning.html" data-title="校园预警" href="javascript:void(0)">校园预警</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe611; </i>生活服务<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="人流实时查询" href="javascript:void(0)">人流实时查询</a></li>
+					<li><a data-href="404.html" data-title="生活服务设施查询" href="javascript:void(0)">生活服务设施查询</a></li>
+					<li><a data-href="404.html" data-title="院系教学评估" href="javascript:void(0)">院系教学评估</a></li>
+					<li><a data-href="404.html" data-title="校园服务口碑分析" href="javascript:void(0)">校园服务口碑分析</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe636; </i>招生就业<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="历史就业分析" href="javascript:void(0)">历史就业分析</a></li>
+					<li><a data-href="404.html" data-title="当前就业市场分析" href="javascript:void(0)">当前就业市场分析</a></li>
+					<li><a data-href="404.html" data-title="就业预测模型" href="javascript:void(0)">就业预测模型</a></li>
+					<li><a data-href="404.html" data-title="资讯推送" href="javascript:void(0)">资讯推送</a></li>
+					<li><a data-href="404.html" data-title="岗位智能匹配" href="javascript:void(0)">岗位智能匹配</a></li>
+					<li><a data-href="404.html" data-title="招聘会规划" href="javascript:void(0)">招聘会规划</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+
+
+
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe621; </i>贫困生<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="智能贫困生检测" href="javascript:void(0)">智能贫困生检测</a></li>
+					<li><a data-href="404.html" data-title="物资/生活补助发放" href="javascript:void(0)">物资/生活补助发放</a></li>
+					<li><a data-href="404.html" data-title="奖/助学金评定" href="javascript:void(0)">奖/助学金评定</a></li>
+					<li><a data-href="404.html" data-title="勤工俭学智能推荐" href="javascript:void(0)">勤工俭学智能推荐</a></li>
+					<li><a data-href="404.html" data-title="消费分析" href="javascript:void(0)">消费分析</a></li>
+					<li><a data-href="404.html" data-title="学业分析" href="javascript:void(0)">学业分析</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="">
+			<dt><i class="Hui-iconfont">&#xe623; </i>节能环保<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="404.html" data-title="能耗分析" href="javascript:void(0)">能耗分析</a></li>
+					<li><a data-href="404.html" data-title="废弃物智能分析" href="javascript:void(0)">废弃物智能分析</a></li>
+					<li><a data-href="404.html" data-title="智慧节能减排" href="javascript:void(0)">智慧节能减排</a></li>
+					<li><a data-href="404.html" data-title="生态监测" href="javascript:void(0)">生态监测</a></li>
+					<li><a data-href="404.html" data-title="环境污染预警" href="javascript:void(0)">环境污染预警</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<!--
+                <dl id="menu-product">
+                    <dt><i class="Hui-iconfont">&#xe620;</i> 学生画像<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                    <dd>
+                        <ul>
+                            <li><a data-href="portrait_list.html" data-title="画像列表" href="javascript:void(0)">画像列表</a></li>
+                    </ul>
+                </dd>
+            </dl>
+                    <dl id="menu-comments">
+                        <dt><i class="Hui-iconfont">&#xe622;</i> 智慧校园服务<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                        <dd>
+                            <ul>
+                                <li><a data-href="wisdom.html" data-title="智慧校园" href="javascript:;">智慧校园</a></li>
+                        </ul>
+                    </dd>
+                </dl>-->
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+		<div class="Hui-tabNav-wp">
+			<ul id="min_title_list" class="acrossTab cl">
+				<li class="active">
+					<span title="管理驾驶舱" data-href="welcome.html">管理驾驶舱</span>
+					<em></em>
+				</li>
+            </ul>
+        </div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+	</div>
+	<div id="iframe_box" class="Hui-article">
+		<div class="show_iframe">
+			<div style="display:none" class="loading"></div>
+			<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+	</div>
+</div>
+</section>
+
+<div class="contextMenu" id="Huiadminmenu">
+	<ul>
+		<li id="closethis">关闭当前 </li>
+		<li id="closeall">关闭全部 </li>
+</ul>
+</div>
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+<script type="text/javascript">
+$(function(){
+	/*$("#min_title_list li").contextMenu('Huiadminmenu', {
+		bindings: {
+			'closethis': function(t) {
+				console.log(t);
+				if(t.find("i")){
+					t.find("i").trigger("click");
+				}		
+			},
+			'closeall': function(t) {
+				alert('Trigger was '+t.id+'\nAction was Email');
+			},
+		}
+	});*/
+});
+/*个人信息*/
+function myselfinfo(){
+	layer.open({
+		type: 1,
+		area: ['300px','200px'],
+		fix: false, //不固定
+		maxmin: true,
+		shade:0.4,
+		title: '查看信息',
+		content: '<div>管理员信息</div>'
+	});
+}
+
+/*资讯-添加*/
+function article_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*图片-添加*/
+function picture_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*产品-添加*/
+function product_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*用户-添加*/
+function member_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+
+
+</script> 
+
+</body>
+</html>

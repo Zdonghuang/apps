@@ -1,0 +1,106 @@
+﻿*{
+    padding:0;
+    margin:0;
+    list-style: none;
+    font-family:'Microsoft YaHei';
+
+}
+table{
+    border-collapse:collapse;
+}
+i,em{
+    font-style: normal;
+    color: #ffffff;
+}
+a{
+    text-decoration: none;
+}
+b{font-weight: normal;}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.clearfix{
+    zoom: 1;
+}
+/*背景*/
+.back{
+    margin:0 auto;
+    width: 1920px;
+    height: 1080px;
+    background:url(../images/bg.jpg) repeat 0 0;
+}
+/*顶条*/
+.top{
+    width: 1920px;
+    height: 50px;
+    background:#131111;
+}
+.top p{
+    margin-left:42px;
+    color: #a3a3a3;
+    font-size: 20px;
+    font-weight:normal;
+    line-height: 50px;
+}
+.top_icon{
+    display: block;
+    width: 23px;
+    height: 25px;
+    background:url(../images/on_01.png) no-repeat;
+    margin-right:20px;
+    margin-top:13px;
+    line-height:50px;
+}
+/*左侧边栏*/
+article .banner{
+    padding:0 5px 0 5px;
+    width: 150px;
+    height: 1030px;
+    background:#161313;
+}
+article .banner li{
+    border-bottom:1px solid #000;
+    margin-bottom:1px;
+}
+article .banner li p{
+    width: 5px;
+    height: 150px;
+    position: absolute;
+    left:0;
+}
+article .banner li a{
+    display: block;
+    padding-top: 43px;
+    width: 150px;
+    height: 107px;
+}
+article .banner li .fan_icon{
+    margin-left:50px;
+    width: 54px;
+    height: 46px;
+    display: block;
+    margin-bottom:13px;
+}
+
+article .banner li em{
+    display: block;
+    width: 140px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+}
+article .banner .tool{
+    border-top: 1px solid #2a292b;
+}
+
+article .banner li:hover {
+    background:rgba(255,255,255,0.1);
+}

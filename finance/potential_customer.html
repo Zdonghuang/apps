@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>金融风险分析-潜客触达</title>
+
+	<meta name = "keywords" content = "" />
+	<meta name = "description" content = "" />
+	<meta name="viewport" content="">
+
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script	src="js/lib/jquery-1.11.1.min.js" type="text/javascript" ></script>
+	<script	src="js/lib/echarts.min.js" type="text/javascript" ></script>
+
+</head>
+<body>
+	<div class="wrap ">
+		<div class="subMenu" >
+			<sapn class="subNavBtn">金融大数据风控管理平台</sapn>
+			<div class="inner">
+				<a href="pre_screening.html" class="subNavBtn">货前筛选</a>
+				<a href="potential_customer.html" class="subNavBtn active">潜客触达<i></i></a>
+				<a href="track.html" class="subNavBtn">货后追踪</a>
+				<a href="online_channel.html" class="subNavBtn">线上渠道分析</a>
+			</div>
+		</div>
+
+		<div class="section potenttial">
+			<div class="potenttial_left potenttial_ca">
+				<img src="image/yun1.png" />
+			</div>
+			<div class="potenttial_left potenttial_cb">
+				<h5>潜客筛选条件(*必填项,可多选)</h5>
+
+				<dl class="qainke">
+					<dd>用户类型</dd>
+					<dt>
+						<span>
+							<input id="hy1" type="checkbox" name="un-login" class="un-bin">
+							<label for="hy1">个人用户</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="hy2" type="checkbox" name="un-login" class="un-bin">
+							<label for="hy2">运营商用户</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="hy3" type="checkbox" name="un-login" class="un-bin">
+							<label for="hy3">消费金融企业用户</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="hy4" type="checkbox" name="un-login" class="un-bin">
+							<label for="hy4">银行用户</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="hy5" type="checkbox" name="un-login" class="un-bin">
+							<label for="hy5">金融P2P企业用户</label>
+						</span>
+					</dt>
+				</dl>
+
+				<dl class="qainke">
+					<dd>营销类型</dd>
+					<dt>
+						<span>
+							<input id="yx1" type="checkbox" name="un-login" class="un-bin">
+							<label for="yx1">潜在用户营销</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="yx2" type="checkbox" name="un-login" class="un-bin">
+							<label for="yx2">存量用户再营销</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="yx3" type="checkbox" name="un-login" class="un-bin">
+							<label for="yx3">流失用户再营销</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="yx4" type="checkbox" name="un-login" class="un-bin">
+							<label for="yx4">不限</label>
+						</span>
+					</dt>
+				</dl>
+
+				<dl class="qainke">
+					<dd>信用分区间</dd>
+					<dt>
+						<span>
+							<input id="xyf1" type="checkbox" name="un-login" class="un-bin">
+							<label for="xyf1">[600,700]</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="xyf2" type="checkbox" name="un-login" class="un-bin">
+							<label for="xyf2">[700,800]</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="xyf3" type="checkbox" name="un-login" class="un-bin">
+							<label for="xyf3">[800,900]</label>
+						</span>
+					</dt>
+					<dt>
+						<span>
+							<input id="xyf4" type="checkbox" name="un-login" class="un-bin">
+							<label for="xyf4">[900,+]</label>
+						</span>
+					</dt>
+				</dl>
+				<dl class="qainke" id="quyu">
+					<dd>区域选址</dd>
+					<dt>
+						<select class="qyselect">
+							<option value="volvo">广西</option>
+							<option value="saab">广东</option>
+							<option value="opel">深圳</option>
+							<option value="audi">杭州</option>
+						</select>
+						<select>
+							<option value="volvo">南宁</option>
+							<option value="saab">宁夏</option>
+							<option value="opel">南京</option>
+							<option value="audi">海南</option>
+						</select>
+					</dt>
+				</dl>
+				<ul class="qainke" id="qainke_a">
+					<li class="ch_title">触达方式</li>
+					<li class="ch_content">
+						<h4>
+							<input id="chu1" type="checkbox" name="un-login" class="un-bin">
+							<label for="chu1">电话</label>
+							<input type="text" name="firstname" value="请输入你的外显号码" class="waixian">
+						</h4>
+						<h4>
+							<input id="chu2" type="checkbox" name="un-login" class="un-bin">
+							<label for="chu2">邮件</label>
+							<input type="text" name="firstname" value="请输入你的外显号码" class="waixian">
+						</h4>
+						<h4>
+							<input id="chu3" type="checkbox" name="un-login" class="un-bin">
+							<label for="chu3">短信</label>
+							<input type="text" name="firstname" value="请输入你的外显号码" class="waixian">
+						</h4>
+					</li>
+				</ul>
+			</div>
+			<div class="potenttial_left potenttial_c">
+				<img src="image/yun2.png" />
+			</div>
+
+			<!--
+			<script src="js/city-picker.data.js"></script>
+			<script src="js/city-picker.js"></script>
+			<div class="docs-methods">
+				<form class="form-inline">
+					<div id="distpicker">
+						<div class="form-group">
+							<div style="position: relative;">
+								<input id="city-picker3" class="form-control" readonly type="text" value="江苏省/常州市/溧阳市" data-toggle="city-picker">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>-->
+
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="section potenttial_cont2">
+			<h5>筛选条件(可多选，可不选)</h5>
+
+			<dl class="channel">
+				<dd>月均ARPU值分布</dd>
+				<dt>
+					<span>
+						<input id="y1" type="checkbox" name="un-login" class="un-bin">
+						<label for="y1">50元及以上</label>
+					</span>
+					<span>
+						<input id="y2" type="checkbox" name="un-login" class="un-bin">
+						<label for="y2">100元及以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="y3" type="checkbox" name="un-login" class="un-bin">
+						<label for="y3">150元及以上</label>
+					</span>
+					<span>
+						<input id="y4" type="checkbox" name="un-login" class="un-bin">
+						<label for="y4">200元及以上</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>月均通话时长区间</dd>
+				<dt>
+					<span>
+						<input id="th1" type="checkbox" name="un-login" class="un-bin">
+						<label for="th1">50分钟及以上</label>
+					</span>
+					<span>
+						<input id="th2" type="checkbox" name="un-login" class="un-bin">
+						<label for="th2">100分钟及以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="th3" type="checkbox" name="un-login" class="un-bin">
+						<label for="th3">150分钟及以上</label>
+					</span>
+					<span>
+						<input id="th4" type="checkbox" name="un-login" class="un-bin">
+						<label for="th4">200分钟及以上</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>年龄段</dd>
+				<dt>
+					<span>
+						<input id="age1" type="checkbox" name="un-login" class="un-bin">
+						<label for="age1">25岁以下</label>
+					</span>
+					<span>
+						<input id="age2" type="checkbox" name="un-login" class="un-bin">
+						<label for="age2">25-30岁</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="age3" type="checkbox" name="un-login" class="un-bin">
+						<label for="age3">31-35岁</label>
+					</span>
+					<span>
+						<input id="age4" type="checkbox" name="un-login" class="un-bin">
+						<label for="age4">26-40岁</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="age5" type="checkbox" name="un-login" class="un-bin">
+						<label for="age5">40岁以上</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>现终端价格区间</dd>
+				<dt>
+					<span>
+						<input id="terminal1" type="checkbox" name="un-login" class="un-bin">
+						<label for="terminal1">800元以下</label>
+					</span>
+					<span>
+						<input id="terminal2" type="checkbox" name="un-login" class="un-bin">
+						<label for="terminal2">800-1500元</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="terminal3" type="checkbox" name="un-login" class="un-bin">
+						<label for="terminal3">1500-2500元</label>
+					</span>
+					<span>
+						<input id="terminal4" type="checkbox" name="un-login" class="un-bin">
+						<label for="terminal4">2500-4000元</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="terminal5" type="checkbox" name="un-login" class="un-bin">
+						<label for="terminal5">4000元以上</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>月均流量区间</dd>
+				<dt>
+					<span>
+						<input id="flow1" type="checkbox" name="un-login" class="un-bin">
+						<label for="flow1">50M及以上</label>
+					</span>
+					<span>
+						<input id="flow2" type="checkbox" name="un-login" class="un-bin">
+						<label for="flow2">100M及以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="flow3" type="checkbox" name="un-login" class="un-bin">
+						<label for="flow3">300M及以上</label>
+					</span>
+					<span>
+						<input id="flow4" type="checkbox" name="un-login" class="un-bin">
+						<label for="flow4">500M及以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="flow5" type="checkbox" name="un-login" class="un-bin">
+						<label for="flow5">1000M及以上</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel chwidth">
+				<dd>地市区选择</dd>
+				<dt>
+					<span>
+						<input id="region1" type="checkbox" name="un-login" class="un-bin">
+						<label for="region1">新秀区</label>
+					</span>
+					<span>
+						<input id="region2" type="checkbox" name="un-login" class="un-bin">
+						<label for="region2">兴宁区</label>
+					</span>
+					<span>
+						<input id="region3" type="checkbox" name="un-login" class="un-bin">
+						<label for="region3">江南区</label>
+					</span>
+					<span>
+						<input id="region4" type="checkbox" name="un-login" class="un-bin">
+						<label for="region4">良庆区</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="region5" type="checkbox" name="un-login" class="un-bin">
+						<label for="region5">舒宁区</label>
+					</span>
+					<span>
+						<input id="region6" type="checkbox" name="un-login" class="un-bin">
+						<label for="region6">西乡塘区</label>
+					</span>
+					<span>
+						<input id="region7" type="checkbox" name="un-login" class="un-bin">
+						<label for="region7">横县</label>
+					</span>
+					<span>
+						<input id="region8" type="checkbox" name="un-login" class="un-bin">
+						<label for="region8">隆安县</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="region9" type="checkbox" name="un-login" class="un-bin">
+						<label for="region9">大鸿县</label>
+					</span>
+					<span>
+						<input id="region10" type="checkbox" name="un-login" class="un-bin">
+						<label for="region10">马山县</label>
+					</span>
+					<span>
+						<input id="region11" type="checkbox" name="un-login" class="un-bin">
+						<label for="region11">上林县</label>
+					</span>
+					<span>
+						<input id="region12" type="checkbox" name="un-login" class="un-bin">
+						<label for="region12">贵阳县</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>性别</dd>
+				<dt>
+					<span>
+						<input id="gender1" type="checkbox" name="un-login" class="un-bin">
+						<label for="gender1">男</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="gender2" type="checkbox" name="un-login" class="un-bin">
+						<label for="gender2">女</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="gender3" type="checkbox" name="un-login" class="un-bin">
+						<label for="gender3">不限</label>
+					</span>
+				</dt>
+			</dl>
+
+			<dl class="channel">
+				<dd>用户画像</dd>
+				<dt>
+					<span>
+						<input id="portrait1" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait1"> I T </label>
+					</span>
+					<span>
+						<input id="portrait2" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait2">电商购物</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="portrait3" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait3">房产</label>
+					</span>
+					<span>
+						<input id="portrait4" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait4">职业稳定</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="portrait5" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait5">商旅</label>
+					</span>
+					<span>
+						<input id="portrait6" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait6">高端消费</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="portrait7" type="checkbox" name="un-login" class="un-bin">
+						<label for="portrait7">金融</label>
+					</span>
+				</dt>
+			</dl>
+			</dl>
+
+			<dl class="channel">
+				<dd>手机在网时长</dd>
+				<dt>
+					<span>
+						<input id="phone1" type="checkbox" name="un-login" class="un-bin">
+						<label for="phone1">3个月以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="phone2" type="checkbox" name="un-login" class="un-bin">
+						<label for="phone2">6个月以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="phone3" type="checkbox" name="un-login" class="un-bin">
+						<label for="phone3">12个月以上</label>
+					</span>
+				</dt>
+				<dt>
+					<span>
+						<input id="phone4" type="checkbox" name="un-login" class="un-bin">
+						<label for="phone4">24个月以上</label>
+					</span>
+				</dt>
+			</dl>
+
+
+
+			<div class="clear"></div>
+
+			<div class="chaxun">
+				<a>查询</a>
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

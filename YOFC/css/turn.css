@@ -1,0 +1,67 @@
+/* .contaier {
+	width: 640px;
+	margin: 30px auto;
+} */
+
+.card {
+	perspective: 1000;
+	-webkit-perspective: 1000;
+/*	width: 100%;*/
+	margin-bottom: 3px;
+}
+
+.face {
+	position: absolute;
+	/*border-radius: 5px;*/
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	transition: all 1s ease;
+	backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+}
+
+.front {
+	z-index: 10;
+}
+
+.back {
+	transform: rotate3d(0, 1, 0, -180deg);
+	-ms-transform: rotate3d(0, 1, 0, -180deg);
+	/* IE 9 */
+	-moz-transform: rotate3d(0, 1, 0, -180deg);
+	/* Firefox */
+	-webkit-transform: rotate3d(0, 1, 0, -180deg);
+	/* Safari 和 Chrome */
+	-o-transform: rotateY(0, 1, 0, -180deg);
+	/* Opera */
+	z-index: 8;
+}
+
+.card-flipped .front {
+	transform: rotate3d(0, 1, 0, 180deg);
+	-ms-transform: rotate3d(0, 1, 0, 180deg);
+	/* IE 9 */
+	-moz-transform: rotate3d(0, 1, 0, 180deg);
+	/* Firefox */
+	-webkit-transform: rotate3d(0, 1, 0, 180deg);
+	/* Safari 和 Chrome */
+	-o-transform: rotate3d(0, 1, 0, 180deg);
+	/* Opera */
+	z-index: 8;
+}
+
+.card-flipped .back {
+	transform: rotate3d(0, 1, 0, 0deg);
+	-ms-transform: rotate3d(0, 1, 0, 0deg);
+	/* IE 9 */
+	-moz-transform: rotate3d(0, 1, 0, 0deg);
+	/* Firefox */
+	-webkit-transform: rotate3d(0, 1, 0, 0deg);
+	/* Safari 和 Chrome */
+	-o-transform: rotate3d(0, 1, 0, 0deg);
+	/* Opera */
+	z-index: 10;
+}

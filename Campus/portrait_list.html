@@ -1,0 +1,1589 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="lib/html5shiv.js"></script>
+    <script type="text/javascript" src="lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/Student_portrait.css" />
+
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/portrait.css" />
+
+    <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+    <script	src="static/h-ui/js/echarts.js" type="text/javascript" ></script>
+    <script	src="static/h-ui/js/china.js" type="text/javascript" ></script>
+
+    <!--[if IE 6]>
+    <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>学生画像</title>
+</head>
+<body style="background: #FFF">
+
+<dl id="select">
+    <dt>物 理 系</dt>
+    <dd>
+        <ul class="topicList">
+            <li id="wuli"><a href="portrait_list.html#">物 理 系</a></li>
+            <li id="wenxue"><a href="portrait_list.html#">文 学 系</a></li>
+            <li><a href="portrait_list.html#">语 言 系</a></li>
+            <li><a href="portrait_list.html#">数 学 系</a></li>
+            <li><a href="portrait_list.html#">地 理 系</a></li>
+            <li><a href="portrait_list.html#">商 务 系</a></li>
+            <li><a href="portrait_list.html#">金 融 系</a></li>
+        </ul>
+    </dd>
+</dl>
+<script type="text/javascript">
+    $(function(){
+        <!--下拉选择-->
+        $("#select").each(function(){
+            var s=$(this);
+            var z=parseInt(s.css("z-index"));
+            var dt=$(this).children("dt");
+            var dd=$(this).children("dd");
+            var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};   //展开效果
+            var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};    //关闭效果
+            dt.click(function(){dd.is(":hidden")?_show():_hide();});
+            dd.find("a").click(function(){dt.html($(this).html());_hide();});     //选择效果（如需要传值，可自定义参数，在此处返回对应的“value”值 ）
+            $("body").click(function(i){ !$(i.target).parents("#select").first().is(s) ? _hide():"";});
+        });
+
+        <!--内容切换-->
+        $('#systemB').hide();
+        $('#wuli').click(function(){
+            $('#systemA').show();
+            $('#systemB').hide();
+        });
+        $('#wenxue').click(function(){
+            $('#systemB').show();
+            $('#systemA').hide();
+        });
+    })
+</script>
+
+
+<div class="content" id="systemA">
+    <ul class="">
+        <li class="left">
+            <div class="top">
+                <h1>学生规模分析</h1>
+                <dl>
+                    <dd>
+                        <div class="Gender" id="Gender"></div>
+                        <script type="text/javascript">
+                            var Gender = echarts.init(document.getElementById('Gender'));
+                            option = {
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    top:50,
+                                    x: "left",
+                                    data: ['本科','研究生','研究生','博士','博士后','在职教育'],
+                                    left:'20',
+                                    top:'10'
+                                },
+                                series : [
+                                    {
+                                        name: '学生占比',
+                                        type: 'pie',
+                                        radius : '55%',
+                                        center: ['50%', '65%'],
+                                        data:[
+                                            {value:335, name:'本科'},
+                                            {value:310, name:'研究生'},
+                                            {value:234, name:'博士'},
+                                            {value:135, name:'博士后'},
+                                            {value:115, name:'在职教育'}
+                                        ],
+                                        itemStyle: {
+                                            emphasis: {
+                                                shadowBlur: 10,
+                                                shadowOffsetX: 0,
+                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+                            Gender.setOption(option, true);
+                        </script>
+                    </dd>
+                </dl>
+            </div>
+            <div class="bom">
+                <h1>学生分析</h1>
+                <dl class="Student_portrait">
+                    <dt>
+                        <span>总人数: 300</span>
+                        <span><i>男</i>170人</span>
+                        <span><i class="n">女</i>130人</span>
+                    </dt>
+                    <dt>
+                        <span>平均成绩: <i>78.3分</i></span>
+                    </dt>
+                    <dt><span>学霸人数: 18人</span></dt>
+                    <dt><span>挂科人数: 67人次</span></dt>
+                    <dt><span>平均上网时长: 16.1小时</span></dt>
+                    <dt class="student_portrait">
+                    <div id="student_portrait"></div>
+                    <script type="text/javascript">
+                        var student_portrait = echarts.init(document.getElementById('student_portrait'));
+                        var defaultFontSize = 12,
+                            defaultTextColor = '#636c72',
+                            defaultGlobalColor = ['#5d9cec', '#62c87f', '#f15755', '#fc863f', '#7053b6'],
+                            defaultFontFamily = 'microsoft yahei',
+                            defaultBackgroundColor = '#fff',
+                            defaultShadowColor = 'rgba(204, 214, 235, 0.247059)';
+                        option = {
+                            color: defaultGlobalColor, // 调色盘颜色列表。
+                            textStyle: { // 全局字体样式
+                                color: defaultTextColor,
+                                fontSize: defaultFontSize
+                            },
+                            legend: {
+                                bottom: -5,
+                                left: 'center',
+                                width: 300,
+                                itemWidth: 10,
+                                itemHeight: 10,
+                                itemBorderRadius: 8,
+                                textStyle: {
+                                    // color: "#d7d7d7"
+                                },
+                                data: ['个人平均', '班级平均']
+                            },
+                            tooltip: { // 提示框组件
+                                trigger: 'item', // 触发类型 可选为：'axis' | 'item' | 'none'
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'line', // 默认为直线，可选为：'line' | 'shadow'
+                                    shadowStyle: {
+                                        color: defaultShadowColor
+                                    }
+                                }
+                            },
+                            radar: {
+                                // shape: 'circle',
+                                splitArea: {
+                                    show: false
+                                },
+                                splitLine: {
+                                    lineStyle: {
+                                        color: ['#eae9e9', '#eae9e9', '#eae9e9', '#eae9e9', '#eae9e9', '#6a7791']
+                                    }
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#eae9e9'
+                                    }
+                                },
+                                indicator: [{
+                                    name: '身体素质',
+                                    max: 30
+                                }, {
+                                    name: '社会实践',
+                                    max: 10
+                                }, {
+                                    name: '思想道德',
+                                    max: 7
+                                }, {
+                                    name: '学术科研',
+                                    max: 2
+                                }, {
+                                    name: '课业成绩',
+                                    max: 2
+                                }, {
+                                    name: '生活习惯',
+                                    max: 2
+                                }]
+                            },
+                            series: [{
+                                name: '',
+                                type: 'radar',
+                                symbol: 'none',
+                                areaStyle: {
+                                    normal: {
+                                        opacity: .4
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        lineStyle: {
+                                            width: 2
+                                        }
+                                    },
+                                    emphasis: {
+                                        areaStyle: {
+                                            opacity: .3
+                                        }
+                                    }
+                                },
+                                data: [{
+                                    value: [27.4, 8.6, 6.2, 1.8, 1.9,1.8],
+                                    name: '班级平均',
+                                    z: 1
+                                }]
+                            }]
+                        };
+                        student_portrait.setOption(option, true);
+                    </script>
+                    </dt>
+                </dl>
+            </div>
+        </li>
+        <li class="right">
+            <div class="top">
+                <div class="Gender" id="achievementb"></div>
+                <script type="text/javascript">
+                    var achievementb = echarts.init(document.getElementById('achievementb'));
+                    var defaultFontSize = 14,
+                        defaultTextColor = '#636c72',
+                        defaultGlobalColor = ['#f15755', '#62c87f', '#f15755', '#fc863f', '#7053b6'],
+                        defaultFontFamily = 'microsoft yahei',
+                        defaultBackgroundColor = '#fff',
+                        defaultShadowColor = 'rgba(204, 214, 235, 0.247059)';
+
+                    option = {
+                        title: {
+                            text: '学生成绩分析',
+                            top: 10,
+                            left: '20',
+                            textStyle: {
+                                fontSize: 18,
+                                fontWeight: 400
+                            }
+                        },
+                        backgroundColor: defaultBackgroundColor, // 背景色，默认无背景。
+                        color: defaultGlobalColor,// 调色盘颜色列表。
+                        textStyle: {// 全局字体样式
+                            color: defaultTextColor,
+                            fontSize: defaultFontSize
+                        },
+                        legend: {
+                            top: 50,
+                            left: 'center',
+
+
+                            data: ['及格率', '优秀率']
+                        },
+                        tooltip: {// 提示框组件
+                            trigger: 'axis', // 触发类型 可选为：'axis' | 'item' | 'none'
+                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                                shadowStyle: {
+                                    color: defaultShadowColor
+                                }
+                            }
+                        },
+                        grid: { // 坐标系内绘图网格
+                            top: 90,
+                            right: 10,
+                            bottom: 10,
+                            left: 10,
+                            containLabel: true
+                        },
+                        xAxis: [{// x轴
+                            type: 'category',
+                            data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016'],
+                            //name:'时间', // 坐标轴名称。
+                            axisTick: { // 坐标轴刻度相关设置。
+                                alignWithLabel: true
+                            },
+                            axisLine: { // 坐标轴轴线相关设置。
+                                lineStyle: {
+                                    color: '#6a7791'
+                                }
+                            },
+                            axisLabel: { // 坐标轴轴线标签设置。
+                                formatter: '{value} 年',
+                                textStyle: {
+                                    color: defaultTextColor,
+                                    fontSize: defaultFontSize
+                                }
+                            }
+                        }],
+                        yAxis: [{// y轴
+                            type: 'value',
+                            //name:'人', // 坐标轴名称。
+                            nameTextStyle:{// name的样式，默认不需要设置，继承全局集体样式。
+                            },
+                            nameGap: 15, // 坐标名称跟坐标轴的距离。
+                            axisTick:{ // 坐标轴刻度相关设置。
+                                show:false
+                            },
+                            axisLine:{ // 坐标轴轴线相关设置。
+                                show:false
+                            },
+                            splitLine:{ // 坐标轴在 grid 区域中的分隔线。
+                                lineStyle:{
+                                    color: '#eae9e9'
+                                }
+                            },
+                            axisLabel: { // 坐标轴轴线标签设置。
+                                formatter: '{value} %',
+                                textStyle: {
+                                    color: defaultTextColor,
+                                    fontSize: defaultFontSize
+                                }
+                            }
+                        }],
+                        series: [{// 系列列表。每个系列通过 type 决定自己的图表类型
+                            name: '及格率', // 系列名称，用于tooltip的显示
+                            type: 'line',
+                            data: [20, 42, 36, 30, 38, 24, 42]
+                        },{// 系列列表。每个系列通过 type 决定自己的图表类型
+                            name: '优秀率', // 系列名称，用于tooltip的显示
+                            type: 'line',
+                            data: [17, 51, 29, 41, 50, 60, 47]
+                        }]
+                    };
+                    achievementb.setOption(option, true);
+                </script>
+            </div>
+            <div class="bom">
+                <h1>生源地分析</h1>
+                <div class="region" id="region"></div>
+                <script type="text/javascript">
+                    var region = echarts.init(document.getElementById('region'));
+                    function randomData() {
+                        return Math.round(Math.random() * 1000);
+                    }
+                    var data1 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 5816
+                    }, {
+                        name: '上海',
+                        value: 28408
+                    }, {
+                        name: '重庆',
+                        value: 7890
+                    }, {
+                        name: '河北',
+                        value: 7120
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 5222
+                    }, {
+                        name: '湖南',
+                        value: 12658
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 16253
+                    }, {
+                        name: '新疆',
+                        value: 3536
+                    }, {
+                        name: '江苏',
+                        value: 31939
+                    }, {
+                        name: '浙江',
+                        value: 33156
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 7531
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 7435
+                    }, {
+                        name: '吉林',
+                        value: 4019
+                    }, {
+                        name: '福建',
+                        value: 14269
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 5555
+                    }, {
+                        name: '西藏',
+                        value: 365
+                    }, {
+                        name: '四川',
+                        value: 16160
+                    }, {
+                        name: '宁夏',
+                        value: 1027
+                    }, {
+                        name: '海南',
+                        value: 6666
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 77
+                    }];
+
+                    var data2 = [{
+                        name: '北京',
+                        value: 23545
+                    }, {
+                        name: '天津',
+                        value: 6765
+                    }, {
+                        name: '上海',
+                        value: 34565
+                    }, {
+                        name: '重庆',
+                        value: 5435
+                    }, {
+                        name: '河北',
+                        value: 1243
+                    }, {
+                        name: '河南',
+                        value: 24565
+                    }, {
+                        name: '云南',
+                        value: 7657
+                    }, {
+                        name: '辽宁',
+                        value: 3452
+                    }, {
+                        name: '黑龙江',
+                        value: 4543
+                    }, {
+                        name: '湖南',
+                        value: 56432
+                    }, {
+                        name: '安徽',
+                        value: 23456
+                    }, {
+                        name: '山东',
+                        value: 65432
+                    }, {
+                        name: '新疆',
+                        value: 423
+                    }, {
+                        name: '江苏',
+                        value: 4565
+                    }, {
+                        name: '浙江',
+                        value: 5432
+                    }, {
+                        name: '江西',
+                        value: 43454
+                    }, {
+                        name: '湖北',
+                        value: 3432
+                    }, {
+                        name: '广西',
+                        value: 12343
+                    }, {
+                        name: '甘肃',
+                        value: 34542
+                    }, {
+                        name: '山西',
+                        value: 24345
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 42314
+                    }, {
+                        name: '吉林',
+                        value: 43223
+                    }, {
+                        name: '福建',
+                        value: 3242
+                    }, {
+                        name: '贵州',
+                        value: 4321
+                    }, {
+                        name: '广东',
+                        value: 2343
+                    }, {
+                        name: '青海',
+                        value: 43343
+                    }, {
+                        name: '西藏',
+                        value: 4321
+                    }, {
+                        name: '四川',
+                        value: 23456
+                    }, {
+                        name: '宁夏',
+                        value: 34562
+                    }, {
+                        name: '海南',
+                        value: 24565
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 321
+                    }]
+
+                    var data3 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 5816
+                    }, {
+                        name: '上海',
+                        value: 3452
+                    }, {
+                        name: '重庆',
+                        value: 434
+                    }, {
+                        name: '河北',
+                        value: 34525
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 23543
+                    }, {
+                        name: '湖南',
+                        value: 24555
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 16253
+                    }, {
+                        name: '新疆',
+                        value: 234
+                    }, {
+                        name: '江苏',
+                        value: 34654
+                    }, {
+                        name: '浙江',
+                        value: 34653
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 47457
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 7435
+                    }, {
+                        name: '吉林',
+                        value: 74
+                    }, {
+                        name: '福建',
+                        value: 14269
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 764
+                    }, {
+                        name: '西藏',
+                        value: 4574
+                    }, {
+                        name: '四川',
+                        value: 7467
+                    }, {
+                        name: '宁夏',
+                        value: 3455
+                    }, {
+                        name: '海南',
+                        value: 6666
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 2355
+                    }]
+
+
+                    var data4 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 4533
+                    }, {
+                        name: '上海',
+                        value: 34555
+                    }, {
+                        name: '重庆',
+                        value: 7890
+                    }, {
+                        name: '河北',
+                        value: 7120
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 5222
+                    }, {
+                        name: '湖南',
+                        value: 12658
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 3555
+                    }, {
+                        name: '新疆',
+                        value: 545
+                    }, {
+                        name: '江苏',
+                        value: 31939
+                    }, {
+                        name: '浙江',
+                        value: 33156
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 7531
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 543
+                    }, {
+                        name: '吉林',
+                        value: 23233
+                    }, {
+                        name: '福建',
+                        value: 323
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 5555
+                    }, {
+                        name: '西藏',
+                        value: 365
+                    }, {
+                        name: '四川',
+                        value: 16160
+                    }, {
+                        name: '宁夏',
+                        value: 10227
+                    }, {
+                        name: '海南',
+                        value: 323
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 231
+                    }]
+
+                    option = {
+
+                        timeline: {
+                            axisType: 'category',
+                            data: ['2013', '2014', '2015', '2016']
+                        },
+                        baseOption: {
+                            visualMap: {
+                                min: 0,
+                                max: 45000,
+                                left: 'left',
+                                top: 'bottom',
+                                text: ['高', '低'], // 文本，默认为数值文本
+                                calculable: true,
+                                left:'20'
+                            },
+                            series: [{
+                                type: 'map',
+                                map: 'china',
+                                roam: true
+                            }]
+                        },
+                        options: [{
+                            series: {
+                                data: data1
+                            }
+                        }, {
+                            series: {
+                                data: data2
+                            }
+                        }, {
+                            series: {
+                                data: data3
+                            }
+                        }, {
+                            series: {
+                                data: data4
+                            }
+                        }, ]
+
+                    };
+
+                    region.setOption(option, true);
+                </script>
+
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+
+<div class="content" id="systemB">
+    <ul class="">
+        <li class="left">
+            <div class="top">
+                <h1>学生规模分析</h1>
+                <dl>
+                    <dd>
+                        <div class="Gender" id="Genderb"></div>
+                        <script type="text/javascript">
+                            var Genderb = echarts.init(document.getElementById('Genderb'));
+                            option = {
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    top:50,
+                                    x: "left",
+                                    data: ['本科','研究生','研究生','博士','博士后','在职教育'],
+                                    left:'20',
+                                    top:'10'
+                                },
+                                series : [
+                                    {
+                                        name: '学生占比',
+                                        type: 'pie',
+                                        radius : '55%',
+                                        center: ['50%', '65%'],
+                                        data:[
+                                            {value:305, name:'本科'},
+                                            {value:210, name:'研究生'},
+                                            {value:264, name:'博士'},
+                                            {value:175, name:'博士后'},
+                                            {value:145, name:'在职教育'}
+                                        ],
+                                        itemStyle: {
+                                            emphasis: {
+                                                shadowBlur: 10,
+                                                shadowOffsetX: 0,
+                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+                            Genderb.setOption(option, true);
+                        </script>
+                    </dd>
+                </dl>
+            </div>
+            <div class="bom">
+                <h1>学生分析</h1>
+                <dl class="Student_portrait">
+                    <dt>
+                        <span>总人数: 500</span>
+                        <span><i>男</i>290人</span>
+                        <span><i class="n">女</i>210人</span>
+                    </dt>
+                    <dt>
+                        <span>平均成绩: <i>81.5分</i></span>
+                    </dt>
+                    <dt><span>学霸人数: 39人</span></dt>
+                    <dt><span>挂科人数: 57人次</span></dt>
+                    <dt><span>平均上网时长: 13.4小时</span></dt>
+                    <dt class="student_portrait">
+                    <div id="student_portraitb"></div>
+                    <script type="text/javascript">
+                        var student_portraitb = echarts.init(document.getElementById('student_portraitb'));
+                        var defaultFontSize = 12,
+                            defaultTextColor = '#636c72',
+                            defaultGlobalColor = ['#5d9cec', '#62c87f', '#f15755', '#fc863f', '#7053b6'],
+                            defaultFontFamily = 'microsoft yahei',
+                            defaultBackgroundColor = '#fff',
+                            defaultShadowColor = 'rgba(204, 214, 235, 0.247059)';
+                        option = {
+                            color: defaultGlobalColor, // 调色盘颜色列表。
+                            textStyle: { // 全局字体样式
+                                color: defaultTextColor,
+                                fontSize: defaultFontSize
+                            },
+                            legend: {
+                                bottom: -5,
+                                left: 'center',
+                                width: 300,
+                                itemWidth: 10,
+                                itemHeight: 10,
+                                itemBorderRadius: 8,
+                                textStyle: {
+                                    // color: "#d7d7d7"
+                                },
+                                data: ['个人平均', '班级平均']
+                            },
+                            tooltip: { // 提示框组件
+                                trigger: 'item', // 触发类型 可选为：'axis' | 'item' | 'none'
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'line', // 默认为直线，可选为：'line' | 'shadow'
+                                    shadowStyle: {
+                                        color: defaultShadowColor
+                                    }
+                                }
+                            },
+                            radar: {
+                                // shape: 'circle',
+                                splitArea: {
+                                    show: false
+                                },
+                                splitLine: {
+                                    lineStyle: {
+                                        color: ['#eae9e9', '#eae9e9', '#eae9e9', '#eae9e9', '#eae9e9', '#6a7791']
+                                    }
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#eae9e9'
+                                    }
+                                },
+                                indicator: [{
+                                    name: '身体素质',
+                                    max: 31
+                                }, {
+                                    name: '社会实践',
+                                    max: 11
+                                }, {
+                                    name: '思想道德',
+                                    max: 8
+                                }, {
+                                    name: '学术科研',
+                                    max: 2.3
+                                }, {
+                                    name: '课业成绩',
+                                    max: 2
+                                }, {
+                                    name: '生活习惯',
+                                    max: 2.1
+                                }]
+                            },
+                            series: [{
+                                name: '',
+                                type: 'radar',
+                                symbol: 'none',
+                                areaStyle: {
+                                    normal: {
+                                        opacity: .4
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        lineStyle: {
+                                            width: 2
+                                        }
+                                    },
+                                    emphasis: {
+                                        areaStyle: {
+                                            opacity: .3
+                                        }
+                                    }
+                                },
+                                data: [{
+                                    value: [17.2, 6.1, 4.1, 1.4, 1.3,1.1],
+                                    name: '个人平均',
+                                    z: 3
+                                }]
+                            }]
+                        };
+                        student_portraitb.setOption(option, true);
+                    </script>
+                    </dt>
+                </dl>
+            </div>
+        </li>
+        <li class="right">
+            <div class="top">
+                <div class="Gender" id="achievementb1"></div>
+                <script type="text/javascript">
+                    var achievementb = echarts.init(document.getElementById('achievementb1'));
+                    var defaultFontSize = 14,
+                        defaultTextColor = '#636c72',
+                        defaultGlobalColor = ['#f15755', '#62c87f', '#f15755', '#fc863f', '#7053b6'],
+                        defaultFontFamily = 'microsoft yahei',
+                        defaultBackgroundColor = '#fff',
+                        defaultShadowColor = 'rgba(204, 214, 235, 0.247059)';
+
+                    option = {
+                        title: {
+                            text: '学生成绩分析',
+                            top: 10,
+                            left: '20',
+                            textStyle: {
+                                fontSize: 18,
+                                fontWeight: 400
+                            }
+                        },
+                        backgroundColor: defaultBackgroundColor, // 背景色，默认无背景。
+                        color: defaultGlobalColor,// 调色盘颜色列表。
+                        textStyle: {// 全局字体样式
+                            color: defaultTextColor,
+                            fontSize: defaultFontSize
+                        },
+                        legend: {
+                            top: 50,
+                            left: 'center',
+
+
+                            data: ['及格率', '优秀率']
+                        },
+                        tooltip: {// 提示框组件
+                            trigger: 'axis', // 触发类型 可选为：'axis' | 'item' | 'none'
+                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                                shadowStyle: {
+                                    color: defaultShadowColor
+                                }
+                            }
+                        },
+                        grid: { // 坐标系内绘图网格
+                            top: 90,
+                            right: 10,
+                            bottom: 10,
+                            left: 10,
+                            containLabel: true
+                        },
+                        xAxis: [{// x轴
+                            type: 'category',
+                            data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016'],
+                            //name:'时间', // 坐标轴名称。
+                            axisTick: { // 坐标轴刻度相关设置。
+                                alignWithLabel: true
+                            },
+                            axisLine: { // 坐标轴轴线相关设置。
+                                lineStyle: {
+                                    color: '#6a7791'
+                                }
+                            },
+                            axisLabel: { // 坐标轴轴线标签设置。
+                                formatter: '{value} 年',
+                                textStyle: {
+                                    color: defaultTextColor,
+                                    fontSize: defaultFontSize
+                                }
+                            }
+                        }],
+                        yAxis: [{// y轴
+                            type: 'value',
+                            //name:'人', // 坐标轴名称。
+                            nameTextStyle:{// name的样式，默认不需要设置，继承全局集体样式。
+                            },
+                            nameGap: 15, // 坐标名称跟坐标轴的距离。
+                            axisTick:{ // 坐标轴刻度相关设置。
+                                show:false
+                            },
+                            axisLine:{ // 坐标轴轴线相关设置。
+                                show:false
+                            },
+                            splitLine:{ // 坐标轴在 grid 区域中的分隔线。
+                                lineStyle:{
+                                    color: '#eae9e9'
+                                }
+                            },
+                            axisLabel: { // 坐标轴轴线标签设置。
+                                formatter: '{value} %',
+                                textStyle: {
+                                    color: defaultTextColor,
+                                    fontSize: defaultFontSize
+                                }
+                            }
+                        }],
+                        series: [{// 系列列表。每个系列通过 type 决定自己的图表类型
+                            name: '及格率', // 系列名称，用于tooltip的显示
+                            type: 'line',
+                            data: [25, 52, 46, 50, 68, 44, 32]
+                        },{// 系列列表。每个系列通过 type 决定自己的图表类型
+                            name: '优秀率', // 系列名称，用于tooltip的显示
+                            type: 'line',
+                            data: [16, 41, 49, 51, 60, 46, 62]
+                        }]
+                    };
+                    achievementb.setOption(option, true);
+                </script>
+            </div>
+            <div class="bom">
+                <h1>生源地分析</h1>
+                <div class="region" id="regionb"></div>
+                <script type="text/javascript">
+                    var regionb = echarts.init(document.getElementById('regionb'));
+                    function randomData() {
+                        return Math.round(Math.random() * 1000);
+                    }
+                    var data1 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 5816
+                    }, {
+                        name: '上海',
+                        value: 28408
+                    }, {
+                        name: '重庆',
+                        value: 7890
+                    }, {
+                        name: '河北',
+                        value: 7120
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 5222
+                    }, {
+                        name: '湖南',
+                        value: 12658
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 16253
+                    }, {
+                        name: '新疆',
+                        value: 3536
+                    }, {
+                        name: '江苏',
+                        value: 31939
+                    }, {
+                        name: '浙江',
+                        value: 33156
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 7531
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 7435
+                    }, {
+                        name: '吉林',
+                        value: 4019
+                    }, {
+                        name: '福建',
+                        value: 14269
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 5555
+                    }, {
+                        name: '西藏',
+                        value: 365
+                    }, {
+                        name: '四川',
+                        value: 16160
+                    }, {
+                        name: '宁夏',
+                        value: 1027
+                    }, {
+                        name: '海南',
+                        value: 6666
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 77
+                    }];
+
+                    var data2 = [{
+                        name: '北京',
+                        value: 23545
+                    }, {
+                        name: '天津',
+                        value: 6765
+                    }, {
+                        name: '上海',
+                        value: 34565
+                    }, {
+                        name: '重庆',
+                        value: 5435
+                    }, {
+                        name: '河北',
+                        value: 1243
+                    }, {
+                        name: '河南',
+                        value: 24565
+                    }, {
+                        name: '云南',
+                        value: 7657
+                    }, {
+                        name: '辽宁',
+                        value: 3452
+                    }, {
+                        name: '黑龙江',
+                        value: 4543
+                    }, {
+                        name: '湖南',
+                        value: 56432
+                    }, {
+                        name: '安徽',
+                        value: 23456
+                    }, {
+                        name: '山东',
+                        value: 65432
+                    }, {
+                        name: '新疆',
+                        value: 423
+                    }, {
+                        name: '江苏',
+                        value: 4565
+                    }, {
+                        name: '浙江',
+                        value: 5432
+                    }, {
+                        name: '江西',
+                        value: 43454
+                    }, {
+                        name: '湖北',
+                        value: 3432
+                    }, {
+                        name: '广西',
+                        value: 12343
+                    }, {
+                        name: '甘肃',
+                        value: 34542
+                    }, {
+                        name: '山西',
+                        value: 24345
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 42314
+                    }, {
+                        name: '吉林',
+                        value: 43223
+                    }, {
+                        name: '福建',
+                        value: 3242
+                    }, {
+                        name: '贵州',
+                        value: 4321
+                    }, {
+                        name: '广东',
+                        value: 2343
+                    }, {
+                        name: '青海',
+                        value: 43343
+                    }, {
+                        name: '西藏',
+                        value: 4321
+                    }, {
+                        name: '四川',
+                        value: 23456
+                    }, {
+                        name: '宁夏',
+                        value: 34562
+                    }, {
+                        name: '海南',
+                        value: 24565
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 321
+                    }]
+
+                    var data3 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 5816
+                    }, {
+                        name: '上海',
+                        value: 3452
+                    }, {
+                        name: '重庆',
+                        value: 434
+                    }, {
+                        name: '河北',
+                        value: 34525
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 23543
+                    }, {
+                        name: '湖南',
+                        value: 24555
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 16253
+                    }, {
+                        name: '新疆',
+                        value: 234
+                    }, {
+                        name: '江苏',
+                        value: 34654
+                    }, {
+                        name: '浙江',
+                        value: 34653
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 47457
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 7435
+                    }, {
+                        name: '吉林',
+                        value: 74
+                    }, {
+                        name: '福建',
+                        value: 14269
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 764
+                    }, {
+                        name: '西藏',
+                        value: 4574
+                    }, {
+                        name: '四川',
+                        value: 7467
+                    }, {
+                        name: '宁夏',
+                        value: 3455
+                    }, {
+                        name: '海南',
+                        value: 6666
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 2355
+                    }]
+
+
+                    var data4 = [{
+                        name: '北京',
+                        value: 21300
+                    }, {
+                        name: '天津',
+                        value: 4533
+                    }, {
+                        name: '上海',
+                        value: 34555
+                    }, {
+                        name: '重庆',
+                        value: 7890
+                    }, {
+                        name: '河北',
+                        value: 7120
+                    }, {
+                        name: '河南',
+                        value: 12406
+                    }, {
+                        name: '云南',
+                        value: 6870
+                    }, {
+                        name: '辽宁',
+                        value: 9845
+                    }, {
+                        name: '黑龙江',
+                        value: 5222
+                    }, {
+                        name: '湖南',
+                        value: 12658
+                    }, {
+                        name: '安徽',
+                        value: 10783
+                    }, {
+                        name: '山东',
+                        value: 3555
+                    }, {
+                        name: '新疆',
+                        value: 545
+                    }, {
+                        name: '江苏',
+                        value: 31939
+                    }, {
+                        name: '浙江',
+                        value: 33156
+                    }, {
+                        name: '江西',
+                        value: 8684
+                    }, {
+                        name: '湖北',
+                        value: 14803
+                    }, {
+                        name: '广西',
+                        value: 7531
+                    }, {
+                        name: '甘肃',
+                        value: 2880
+                    }, {
+                        name: '山西',
+                        value: 5444
+                    }, {
+                        name: '内蒙古',
+                        value: 3775
+                    }, {
+                        name: '陕西',
+                        value: 543
+                    }, {
+                        name: '吉林',
+                        value: 23233
+                    }, {
+                        name: '福建',
+                        value: 323
+                    }, {
+                        name: '贵州',
+                        value: 5106
+                    }, {
+                        name: '广东',
+                        value: 41800
+                    }, {
+                        name: '青海',
+                        value: 5555
+                    }, {
+                        name: '西藏',
+                        value: 365
+                    }, {
+                        name: '四川',
+                        value: 16160
+                    }, {
+                        name: '宁夏',
+                        value: 10227
+                    }, {
+                        name: '海南',
+                        value: 323
+                    }, {
+                        name: '台湾',
+                        value: randomData()
+                    }, {
+                        name: '香港',
+                        value: randomData()
+                    }, {
+                        name: '澳门',
+                        value: 231
+                    }]
+
+                    option = {
+
+                        timeline: {
+                            axisType: 'category',
+                            data: ['2013', '2014', '2015', '2016']
+                        },
+                        baseOption: {
+                            visualMap: {
+                                min: 0,
+                                max: 45000,
+                                left: 'left',
+                                top: 'bottom',
+                                text: ['高', '低'], // 文本，默认为数值文本
+                                calculable: true,
+                                left:'20'
+                            },
+                            series: [{
+                                type: 'map',
+                                map: 'china',
+                                roam: true
+                            }]
+                        },
+                        options: [{
+                            series: {
+                                data: data1
+                            }
+                        }, {
+                            series: {
+                                data: data2
+                            }
+                        }, {
+                            series: {
+                                data: data3
+                            }
+                        }, {
+                            series: {
+                                data: data4
+                            }
+                        }, ]
+
+                    };
+
+                    regionb.setOption(option, true);
+                </script>
+
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+
+</body>
+</html>

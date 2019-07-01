@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风场CPS系统</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/meter.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body>
+<div class="back">
+    <!--顶条-->
+    <div class="top clearfix">
+        <p class="fl">风场CPS系统<i></i></p>
+        <a href="index.html" class="fr top_icon"></a>
+    </div>
+    <!--中部content-->
+    <article class="clearfix">
+        <!--左侧边栏-->
+        <ul class="fl banner" >
+            <li>
+                <p></p>
+                <a href="JavaScript:;">
+                    <i class="fan_icon"></i>
+                    <em>风场状态概览</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="prod.html">
+                    <i class="fan_icon"></i>
+                    <em>生产管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="peration.html">
+                    <i class="fan_icon"></i>
+                    <em>维护管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="javascript:;">
+                    <i class="fan_icon"></i>
+                    <em>健康状态分析</em>
+                </a>
+            </li>
+        </ul>
+        <!--中部总体信息-->
+        <div class="fl meter" id="meter">
+            <common-meter></common-meter>
+            <common-history></common-history>
+        </div>
+        <!--map-->
+        <div class="map fl">
+            <h5>风场总体信息</h5>
+            <div class="map_i clearfix">
+                <ul class="map_u fl">
+                    <li class="fl  map_ui">
+                        <p class="math">24</p>
+                        <i class="fl math_i">在线风机数</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <ul class="clearfix map_g">
+                            <li class="fl"><div></div><p>效 能</p></li>
+                            <li class="fl"><div></div><p>健 康</p></li>
+                            <li class="fl"><div></div><p>任 务</p></li>
+                            <li class="fl"><div></div><p>调 度</p></li>
+                        </ul>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">2</p>
+                        <i class="fl math_i">预警风机</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">1</p>
+                        <i class="fl math_i">报警风机</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">31<em> kW</em></p>
+                        <i class="fl math_i">当前总功率</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">31<em> kW</em></p>
+                        <i class="fl math_i">电网调度功率</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">4.5<em> %</em></p>
+                        <i class="fl math_i">发电损失率</i>
+                    </li>
+                    <li class="fl  map_ui">
+                        <p class="math">9<em> m/s</em></p>
+                        <i class="fl math_i">当前平均风速</i>
+                    </li>
+                </ul>
+                <ul class="map_con fl" id="map_con">
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="health.html" class="tooltip">
+                            <span class="run"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+                <div id="map_var">
+                    <div id='tooltip'>
+                        <h5> 号风机</h5>
+                        <ul>
+                            <li class='clearfix'><p class='fl'></p><i class='fl'>当前健康值</i><em class='fr'>0.66</em></li>
+                            <li class='clearfix'><p class='fl'></p><i class='fl'>当前发电损失率</i><em class='fr'>0.03%</em></li>
+                            <li class='clearfix'><p class='fl'></p><i class='fl'>当前时间</i><em class='fr'>2017-03-28</em></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="weather">
+                    <h5></h5>
+                    <div class="clearfix ">
+                        <ul class="fl weather_fl">
+                            <li class="weather_temp">温度：27℃/30℃</li>
+                            <li class="weather_date">时间：14:25</li>
+                            <li class="weather_wind">风向：西南风 3-5级</li>
+                        </ul>
+                        <div class="fr weather_p"></div>
+                    </div>
+                </div>
+                <ul class="clearfix map_butt">
+                   <li class="fl"></li>
+                   <li class="fl"></li>
+                   <li class="fr"></li>
+                </ul>
+            </div>
+        </div>
+        <!--右侧边栏-->
+        <div class="fl prod">
+            <h5>生产管理</h5>
+            <div class="prod_b">
+                <div class="prod_bl fl">
+                    <ul class="prod_yd">
+                        <li class="clearfix"><p class="prod_y fl"></p><i class="fl">预测发电量：</i><em class="fl prod_em">1024KW</em></li>
+                        <li class="clearfix"><p class="prod_y fl"></p><i class="fl">当日电网调度匹配率：</i><em class="fl prod_emb">90%</em></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="prod_ec" id="prod_ec"></div>
+        </div>
+        <div class="task fl">
+            <div class=" task_h clearfix">
+                <p class="task_hl selected fl">任务(<i>10</i>)</p>
+                <p class="task_hr fl">通知(<i></i>)</p>
+            </div>
+            <div class="mass">
+                <div class="mass_l">
+                    <table class="mass_table">
+                        <tr>
+                            <th class="tab_h">编号</th>
+                            <th class="tab_h" >风机编号</th>
+                            <th class="tab_h1">发生时间</th>
+                            <th class="tab_h2">故障部件</th>
+                            <th class="tab_h3">故障描述</th>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">1</td>
+                            <td>22</td>
+                            <td>2015/2/1</td>
+                            <td>变桨系统</td>
+                            <td>变桨紧停、安全链断开</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">2</td>
+                            <td>15</td>
+                            <td>2015/2/4</td>
+                            <td>偏航系统</td>
+                            <td>偏航斜率故障</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">3</td>
+                            <td>3</td>
+                            <td>2015/2/6</td>
+                            <td>主控系统</td>
+                            <td>风机发电量异常</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">4</td>
+                            <td>17</td>
+                            <td>2015/2/22</td>
+                            <td>变桨系统</td>
+                            <td>安全系统紧停</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">5</td>
+                            <td>17</td>
+                            <td>2015/2/26</td>
+                            <td>变桨系统</td>
+                            <td>风轮超速紧停</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">6</td>
+                            <td>17</td>
+                            <td>2015/3/2</td>
+                            <td>变桨系统</td>
+                            <td>风轮超速紧停</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">7</td>
+                            <td>17</td>
+                            <td>2015/3/7</td>
+                            <td>变桨系统</td>
+                            <td>风轮超速紧停</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">8</td>
+                            <td>20</td>
+                            <td>2015/3/20</td>
+                            <td>变流器系统</td>
+                            <td>变流器冷却水压力故障</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">9</td>
+                            <td>20</td>
+                            <td>2015/4/4</td>
+                            <td>发电机</td>
+                            <td>高温降容、轴承温度过高</td>
+                        </tr>
+                        <tr>
+                            <td class="tab_r1">10</td>
+                            <td>15</td>
+                            <td>2015/5/5</td>
+                            <td>齿轮箱</td>
+                            <td>齿轮箱冷却水温度高</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mass_r" style="display: none;">
+                    <dl style="display: none">
+                        <dt class="clearfix"><em class="fl"></em><i class="fl">分类1</i><a href="index.html" class="fr">更多</a></dt>
+                        <dd class="clearfix"><a href="index.html">关于xxxxxx任务说明xxxxxxxxxxxxxxxxxfdgvxxdf待办事迹等等等</a><b class="fr">1分钟前</b></dd>
+                        <dd class="clearfix"><a href="index.html">关于xxxxxx任务说明xxxxxxxxxxxxxxxxxfdgvxxdf待办事迹等等等</a><b class="fr">1分钟前</b></dd>
+                        <dd class="clearfix"><a href="index.html">关于xxxxxx任务说明xxxxxxxxxxxxxxxxxfdgvxxdf待办事迹等等等</a><b class="fr">1分钟前</b></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</html>

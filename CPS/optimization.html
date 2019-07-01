@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>维护排程优化</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/peration.css">
+</head>
+<body>
+<div class="back">
+    <!--顶条-->
+    <div class="top clearfix">
+        <p class="fl">风场CPS系统<i></i></p>
+        <a href="optimization.html" class="fr top_icon"></a>
+    </div>
+    <!--中部content-->
+    <article class="clearfix">
+        <!--左侧边栏-->
+        <ul class="fl banner" >
+            <li>
+                <p></p>
+                <a href="index.html">
+                    <i class="fan_icon"></i>
+                    <em>风场状态概览</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="prod.html">
+                    <i class="fan_icon"></i>
+                    <em>生产管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="optimization.html">
+                    <i class="fan_icon"></i>
+                    <em>维护管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="javascript:;">
+                    <i class="fan_icon"></i>
+                    <em>健康状态分析</em>
+                </a>
+            </li>
+        </ul>
+        <!--维护任务 maintain-->
+        <div class="fl main">
+            <div class="mai_menu">
+                <ul class="clearfix">
+                    <li class="fl"><a href="peration.html">维护任务管理</a></li>
+                    <li class="fl"><a href="resource.html">运维资源输入</a></li>
+                    <li class="fl selected"><a href="optimization.html">维护排程优化</a></li>
+                    <li class="fl"><a href="http://211.159.172.203:8080/CPS/result.html">结果方案透视</a></li>
+                </ul>
+            </div>
+            <div class="mai_box">
+                <!-- 排程优化 -->
+                <div class="mai_box3">
+                    <div class="manage ">
+                        <p>任务编号</p>
+                    </div>
+                    <div class="mai_fan">
+                        <table class="mai_num">
+                            <tr>
+                                <td class="tab_r1">风机13号  task0001</td>
+                                <td class="tab_r2">
+                                    <span class="time_eig1">08:00</span>
+                                    <span class="time_five">17:00</span>
+                                </td>
+                                <td class="tab_r3 task_td">
+                                    <!--<div class="prog">
+                                        <i class="time1">08:50</i>
+                                        <i class="time2">11:50</i>
+                                        <div class="tab_task" >
+                                            <h3>风机<b>2</b>号 任务名称</h3>
+                                            <p>船员：A</p>
+                                            <div class="clearfix" style="margin-top: 12px">
+                                                <p class="fl tab_pop" style="margin-top: 0">人员：</p>
+                                                <div class="fl tab_id" >
+                                                    <b>SD001</b>&nbsp;&nbsp;&nbsp;<b>SD001</b>
+                                                    <b>SD001</b>&nbsp;&nbsp;&nbsp;<b>SD001</b>
+                                                </div>
+                                            </div>
+                                            <p>时间：<b>2017-05-06</b></p>
+                                            <p>费用：<b>3800</b>元</p>
+                                        </div>
+                                    </div>-->
+                                </td>
+                                <td class="tab_r4"><span class="night_eig">20:00</span><!--<span class="time_eig2">08:00</span>--></td>
+                                <td class="tab_r5"></td>
+                                <td class="tab_r6"></td>
+                                <td class="tab_r7"><!--<span class="time_next">17:00</span><span class="time_eig3">20:00</span>--></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机15号  task0002</td>
+                                <td></td>
+                                <td class="task_td">
+                                    <div class="prog1 ">
+                                        <i class="time1">12:00</i>
+                                        <i class="time2">15:50</i>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机17号  task0003</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机14号  task0004</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机18号  task0005</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机19号  task0006</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机20号  task0007</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机20号  task0008</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机21号  task0009</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">风机23号  task0010</td>
+                                <td></td>
+                                <td class="task_td"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <div class="mai_day">5<br/>月<br/>6<br/>日</div>
+                       <!-- <div class="mai_nexday">5<br/>月<br/>7<br/>日</div>-->
+                       <!-- <ul class="mai_num fl">
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                            <li>风机<i>1</i>号 <em> 任务名称</em></li>
+                        </ul>
+                        <ul class="mai_d fl">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>-->
+                    </div>
+                    <ul class="mai_page clearfix">
+                        <li class="fl"> < </li>
+                        <li class="fl">1</li>
+                        <li class="fl">2</li>
+                        <li class="fl">...</li>
+                        <li class="fl"> > </li>
+                    </ul>
+                    <p class="scheme_p">优化方案</p>
+                    <div class="scheme_tab">
+                        <table>
+                            <tr>
+                                <th class="tab_h">任务编号</th>
+                                <th class="tab_h1">时间</th>
+                                <th class="tab_h2">船只编号</th>
+                                <th class="tab_h3">工人ID</th>
+                                <th class="tab_h4">风机编号</th>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0001</td>
+                                <td>2017-03-1</td>
+                                <td>01</td>
+                                <td>ME0001 ME0002 ME0003 EE0001 EE0002</td>
+                                <td>13</td>
+                             </tr>
+                            <tr>
+                                <td class="tab_r1">task0002</td>
+                                <td>2017-03-01</td>
+                                <td>02</td>
+                                <td>ME0004 ME0005 EE0003 EE0004 EE0005E EE0006</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0003</td>
+                                <td>2017-03-01</td>
+                                <td>01</td>
+                                <td>ME0010 EE0007 IT0001 IT0002</td>
+                                <td>17</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0004</td>
+                                <td>2017-03-01</td>
+                                <td>01</td>
+                                <td>ME0011</td>
+                                <td>14</td>
+
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0005</td>
+                                <td>2017-03-01</td>
+                                <td>01</td>
+                                <td>ME0006</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0006</td>
+                                <td>2017-03-01</td>
+                                <td>01</td>
+                                <td>EE0003 EE0004 EE0006</td>
+                                <td>19</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0007</td>
+                                <td>2017-03-01</td>
+                                <td>01</td>
+                                <td>ME0004 ME0005</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0008</td>
+                                <td>2017-03-01</td>
+                                <td>02</td>
+                                <td>ME0008</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0009</td>
+                                <td>2017-03-01</td>
+                                <td>02</td>
+                                <td>ME0003 EE0001 EE0002</td>
+                                <td>21</td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0010</td>
+                                <td>2017-03-01</td>
+                                <td>02</td>
+                                <td>ME0002 ME0007 EE0007 IT0001 IT0002</td>
+                                <td>23</td>
+                            </tr>
+                        </table>
+                        <ul class="page clearfix">
+                            <li class="fl"> < </li>
+                            <li class="fl">1</li>
+                            <li class="fl">2</li>
+                            <li class="fl">...</li>
+                            <li class="fl"> > </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </article>
+</div>
+</body>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/optimization.js"></script>
+</html>

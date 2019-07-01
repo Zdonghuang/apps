@@ -1,0 +1,619 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生产管理</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/prod.css">
+    <script src="js/echarts.js"></script>
+    <script src="js/jquery-1.7.2.js"></script>
+
+</head>
+<body>
+<div class="back">
+    <!--顶条-->
+    <div class="top clearfix">
+        <p class="fl">风场CPS系统<i></i></p>
+        <a href="prod.html" class="fr top_icon"></a>
+    </div>
+    <!--中部content-->
+    <article class="clearfix">
+        <!--左侧边栏-->
+        <ul class="fl banner" >
+            <li>
+                <p></p>
+                <a href="index.html">
+                    <i class="fan_icon"></i>
+                    <em>风场状态概览</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="javascript:;">
+                    <i class="fan_icon"></i>
+                    <em>生产管理</em>
+                </a>
+            </li>
+
+            <li  class="tool">
+                <p></p>
+                <a href="peration.html">
+                    <i class="fan_icon"></i>
+                    <em>维护管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="prod.html">
+                    <i class="fan_icon"></i>
+                    <em>健康状态分析</em>
+                </a>
+            </li>
+        </ul>
+        <!--生产管理 prod-->
+        <div class="fl speed">
+            <h5 class="speed_h">风功率预测</h5>
+            <ul class="speed_u">
+                <li class="fr">
+                    <select name="" id="">
+                        <option value="0">超短期预测分辨率</option>
+                        <option value="1">5分钟</option>
+                        <option value="2">10分钟</option>
+                        <option value="3">15分钟</option>
+                        <option value="4">20分钟</option>
+                    </select>
+                </li>
+                <li class="fr"> 15<i>分钟</i></li>
+                <li class="fr">短期分辨率 :&nbsp </li>
+            </ul>
+            <div id="speed_e"></div>
+            <div class="speed_ef fr">
+                <label></label>
+                <select name="">
+                    <option value="0">误差统计时间</option>
+                    <option value="1">本日</option>
+                    <option value="1">本月</option>
+                    <option value="1">本年</option>
+                </select>
+            </div>
+            <div id="speed_eh"></div>
+            <div class="clearfix">
+                <div class=" speed_t fl">
+                    <a href="javascript:;" class="fr">自动上报表格</a>
+                    <table class="fl">
+                        <tr>
+                            <th>时间</th>
+                            <th>风功率(MW)</th>
+                        </tr>
+                        <tr>
+                            <td>15min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>30min</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>45min</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>1h</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>1h15min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>1h30min</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>1h45min</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>2h</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h15min</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h30min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h45min</td>
+                            <td>10.5</td>
+                        </tr>
+                        <tr>
+                            <td>3h</td>
+                            <td>11.0</td>
+                        </tr>
+                        <tr>
+                            <td>3h15min</td>
+                            <td>12.0</td>
+                        </tr>
+                        <tr>
+                            <td>3h30min</td>
+                            <td>13.0</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="speed_m fl">
+                    <a href="javascript:;" class="fr">自动上报表格</a>
+                    <a href="javascript:;" class="fr">手动上报表格</a>
+                    <table class="fl speed_a">
+                        <tr>
+                            <th><a href="javascript:;"><  &nbsp;</a>时间<a href="javascript:;">&nbsp;></a></th>
+                            <th>风功率(MW)</th>
+                        </tr>
+                        <tr>
+                            <td>15min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>30min</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>45min</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>1h</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>1h15min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>1h30min</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>1h45min</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>2h</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h15min</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h30min</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>2h45min</td>
+                            <td>10.5</td>
+                        </tr>
+                        <tr>
+                            <td>3h</td>
+                            <td>11.0</td>
+                        </tr>
+                        <tr>
+                            <td>3h15min</td>
+                            <td>12.0</td>
+                        </tr>
+                        <tr>
+                            <td>3h30min</td>
+                            <td>13.0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="fl wind">
+            <h5 class="wind_h">发电管理</h5>
+            <ul class="wind_u clearfix">
+                <li class="fl"><i class="wind_r"></i><em>当前电网调度率： </em><b>xx</b></li>
+                <li class="fl"><i class="wind_r"></i><em>下一周期预测功率： </em><b>xx</b></li>
+                <li class="fr"><em>超过惩罚值占比： </em><b class="wind_b">5%</b></li>
+                <li class="fl"><i class="wind_r"></i><em>当前实际功率: </em><b>xx</b></li>
+                <li class="fl"><i class="wind_r"></i><em>在线风机数量：</em><b>xx</b></li>
+            </ul>
+            <div id="wind_e"></div>
+            <!-- 增加风机，改变布局 -->
+            <!-- <div class="wind_p">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <div class="wind_pl fl">1号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl2 fl">2号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl3 fl">3号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">4号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">5号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">6号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">7号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">8号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">9号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">10号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">11号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">12号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">13号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">14号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">15号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div class="wind_pl fl">16号</div>
+                        <div class="fl">
+                            <p class="wind_b">健康值：<i>0.9</i></p>
+                            <p class="wind_y">效能：<i>6</i>%</p>
+                            <p>限速：<i>无</i></p>
+                            <p>预测功率：<i>500</i></p>
+                            <p>生产率：<i>38</i>%</p>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+            <div class="wind-detail clearfix">
+                <table class="tab fl">
+                    <thead>
+                        <tr>
+                            <th>风机号</th>
+                            <th>健康值</th>
+                            <th>效能</th>
+                            <th>限速</th>
+                            <th>预测功率</th>
+                            <th>生产率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tab fr">
+                    <thead>
+                        <tr>
+                            <th>风机号</th>
+                            <th>健康值</th>
+                            <th>效能</th>
+                            <th>限速</th>
+                            <th>预测功率</th>
+                            <th>生产率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                        <tr>
+                            <td class="fan-id">1号</td>
+                            <td class="health">0.9</td>
+                            <td class="effect">6%</td>
+                            <td class="limit-speed">无</td>
+                            <td class="forecast">500</td>
+                            <td class="productivity">38%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </article>
+
+</div>
+<script src="js/prod.js"></script>
+</body>
+</html>

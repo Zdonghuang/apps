@@ -1,0 +1,170 @@
+﻿
+/*中部信息*/
+.meter{
+    width: 568px;
+    height: 994px;
+    margin-left:16px;
+    margin-top:15px;
+}
+.meter .meter_t{
+    height: 628px;
+    background: rgba(0,0,0,0.2)
+}
+.meter .meter_t h5{
+    height:40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding-left:20px;
+    background: #1c1b1c;
+    color: #ffffff;
+    font-weight: normal;
+}
+/*仪表盘*/
+.meter .meter_t .meter_pie{}
+.meter .meter_t .meter_pie li{
+    width:160px;
+    margin-left: 20px;
+    margin-top:28px;
+}
+.meter .meter_t .meter_pie li div{
+    width:160px;
+    height:150px;
+}
+#sel_1{
+    margin-left: 430px;
+    margin-top:24px;
+    width: 124px;
+    height: 26px;
+    background:  #1d1c1e;
+    border:1px solid #4b4b4b;
+    color: #CCCCCC;
+}
+.meter .meter_t .meter_pie li:nth-child(1) p{font-size: 18px; color:#fff;text-align: center;letter-spacing: 2px}
+.meter .meter_t .meter_pie li p{font-size: 18px; color:#fff;text-align: center;letter-spacing: 2px}
+.meter .meter_t .meter_pie li:nth-child(6){background:url("../images/icon_1.png") no-repeat center 24px;padding-top: 98px;}
+.meter .meter_t .meter_pie li:nth-child(5){background:url("../images/icon_2.png") no-repeat center 20px;padding-top: 98px;}
+
+.meter .meter_t .meter_pie li:nth-child(5) .p1{font-size: 32px;color:#0eb1e6;margin-bottom: 10px;}
+.meter .meter_t .meter_pie li:nth-child(5) .p1 em{font-size: 16px;letter-spacing: 0px;color:#0eb1e6;}
+.meter .meter_t .meter_pie li:nth-child(6) .p1{font-size: 32px;color:#ffb153;margin-bottom: 10px;}
+.meter .meter_t .meter_pie li:nth-child(6) .p1 em{font-size: 16px;letter-spacing: 0px;color:#ffb153;}
+
+.sel-date{width: 126px; height: 28px; border:1px solid #4b4b4b; margin-left: 428px; margin-top: 12px;}
+.sel-date input{width: 104px; height: 100%; outline:none;  background:url(../images/arrow.png) 103px center no-repeat  #1e1e1f; border:none; color:#ccc;  padding-left: 22px}
+.meter .meter_t .meter_u{
+    margin-top:408px;
+}
+
+.meter .meter_t .meter_u .meter_ul{
+    width: 208px;
+    height: 84px;
+    padding:18px 18px 18px 22px;
+    margin-left:14px;
+    background: rgba(255,255,255,0.1);
+}
+.meter .meter_t .meter_u .meter_ur{
+    padding:18px;
+    width: 240px;
+    height: 84px;
+    margin-left:14px;
+    background: rgba(255,255,255,0.1);
+}
+
+.meter .meter_t .meter_u .meter_ul li{
+    margin-bottom:16px;
+    font-size:12px;
+    color: #E6E6E6;
+}
+.meter .meter_t .meter_u .meter_ur li{
+    margin-bottom:16px;
+    font-size:12px;
+    color: #E6E6E6;
+}
+
+#meter_gl li:nth-child(1){
+    font-size: 40px;
+    color: #d7d7d7;
+    text-align: center;
+}
+#meter_gl li:nth-child(2){
+    font-size: 26px;
+    color: #d7d7d7;
+    text-align: center;
+}
+#meter_gl li:nth-child(1) i{
+    font-size: 25px;
+}
+.meter .meter_t .meter_u .meter_ul .meter_p{
+    margin-right:10px;
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    border-radius: 10%;
+    background:#555;
+}
+.meter .meter_t .meter_u .meter_ur .meter_up{
+    margin-right:10px;
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    border-radius: 10%;
+    background:#555;
+}
+/*表盘*/
+#meter_e{
+    height:455px;
+}
+.meter .meter_b{
+    position: relative;
+    margin-top:10px;
+    height:354px;
+    background: rgba(0,0,0,0.15);
+}
+.meter .meter_b h5{
+    height:40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding-left:20px;
+    background: rgba(0,0,0,0.15);
+    color: #ffffff;
+    font-weight: normal;
+}
+.meter .meter_b select{
+    position: absolute;
+    left:20px;
+    top:50px;
+    z-index: 1;
+    width: 124px;
+    height: 26px;
+    background:  #1d1c1e;
+    border:1px solid #4b4b4b;
+    color: #CCCCCC;
+}
+.meter .meter_b .meter_bg{
+    width: 75px;
+    height: 38px;
+    margin-left:456px;
+    margin-top:12px;
+    background: url("http://211.159.172.203:8080/CPS/images/his_13.png") no-repeat 0 0;
+}
+#meter_el{
+    position: absolute;
+    left:0;
+    top:51px;
+    width: 528px;
+    height: 264px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

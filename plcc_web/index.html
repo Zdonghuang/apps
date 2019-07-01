@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="always" name="referrer">
+    <meta name="keywords"  content="网站关键字" />
+    <meta name="description" content="网站描述" />
+
+    <link rel="shortcut icon" type="image/plcc.icon" />
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+    <link href="css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+
+
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+
+    <script src="js/lib/foundation-datepicker.js"></script>
+    <script src="js/lib/foundation-datepicker.zh-CN.js"></script>
+
+    <script type="text/javascript" src="js/home.min.js"></script>
+
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=gVSBobrScGzwCsWwjsihbeZr9sXycAME"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+
+    <script src="js/lib/echarts.min.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/kehu.js"></script>
+    <script type="text/javascript" src="js/pagination.js"></script><!--分页-->
+
+    <title>picc</title>
+</head>
+<body>
+<script>
+    $(function(){
+        $("ul li").click(function(){
+            $(this).addClass("curr").siblings().removeClass("curr");
+        });
+    });
+</script>
+    <div class="content-outer-layer">
+        <div class="content-outer-max">
+            <div class="content-inner-layer">
+                <div class="nav">
+                    <ul>
+                        <li><img src="image/logo.png" /></li>
+                        <li class="mav-width curr" id="dom1">
+                            <a href="index.html#">
+                                <span><img src="image/customer.png" /></span>
+                                <span>风险系数</span>
+                            </a>
+                        </li>
+                        <li class="mav-width marlef" id="dom2">
+                            <a href="index.html#">
+                                <span><img src="image/customer.png" /></span>
+                                <span>客户画像</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contenter" id="contenter-a">
+                    <div class="contenter-left">
+                        <div class="contenter-left-weather">
+                            <h3>未来七天天气预报</h3>
+                            <div id="banner">
+                                <ul>
+                                    <li class="on"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <div id="banner_list">
+                                    <a href="javascript:void(0);"><img src="image/weather1.jpg" title="" alt=""/></a>
+                                    <a href="javascript:void(0);"><img src="image/weather2.jpg" title="" alt=""/></a>
+                                    <a href="javascript:void(0);"><img src="image/weather1.jpg" title="" alt=""/></a>
+                                    <a href="javascript:void(0);"><img src="image/weather2.jpg" title="" alt=""/></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contenter-left-risk-area">
+                            <h3>风险区域TOP10</h3>
+                            <dl>
+                                <dt>
+                                    <span>TOP10</span>
+                                    <span>高险地区</span>
+                                    <span>业务人员</span>
+                                </dt>
+                                <dd>
+                                    <span>01</span>
+                                    <span id="wangfujin">王府井</span>
+                                    <span id="wangfujin4">4名</span>
+                                </dd>
+                                <dt>
+                                    <span>02</span>
+                                    <span id="changan">东长安街</span>
+                                    <span id="changan1">1名</span>
+                                </dt>
+                                <dd>
+                                    <span>03</span>
+                                    <span>北二环西路</span>
+                                    <span>8名</span>
+                                </dd>
+                                <dt>
+                                    <span>04</span>
+                                    <span>三元桥北</span>
+                                    <span>7名</span>
+                                </dt>
+                                <dd>
+                                    <span>05</span>
+                                    <span>蓟门桥西</span>
+                                    <span>6名</span>
+                                </dd>
+                                <dt>
+                                    <span>06</span>
+                                    <span>广渠门</span>
+                                    <span>5名</span>
+                                </dt>
+                                <dd>
+                                    <span>07</span>
+                                    <span>天坛南路</span>
+                                    <span>4名</span>
+                                </dd>
+                                <dt>
+                                    <span>08</span>
+                                    <span>国贸桥东</span>
+                                    <span>3名</span>
+                                </dt>
+                                <dd>
+                                    <span>09</span>
+                                    <span>上地五街</span>
+                                    <span>2名</span>
+                                </dd>
+                                <dt>
+                                    <span>10</span>
+                                    <span>机场线南路</span>
+                                    <span>1名</span>
+                                </dt>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="contenter-right">
+                        <div class="contenter-right-heat">
+                            <div class="contenter-right-nav">
+                                <div class="contenter-right-nav-title ritnav">北京路线图</div>
+                                <div class="ri-input ritnav">
+                                    <div class="inputbor" id="inputbor">
+                                        <input name="" type="text" placeholder="输入区域/路线 检测">
+                                    </div>
+                                    <img class="souinco" src="image/sou.png">
+                                </div>
+                                <div class="tiaojian ritnav" id="subutton">筛选条件</div>
+                                <!--筛选弹出-->
+                                <div class="shaixuan" id="shaixuan">
+                                    <div class="titf" id="clos">
+                                        <h3>风险系数<a><img src="image/clos.png" /></a></h3>
+                                    </div>
+                                    <ul>
+                                        <li><input id="wa" type="checkbox" value="checkbox" checked="">天气状况</li>
+                                        <li><input id="wb" type="checkbox" value="checkbox" checked="">路况</li>
+                                        <li><input id="wc" type="checkbox" value="checkbox" checked="">重大突发事件</li>
+                                        <li><input id="wd" type="checkbox" value="checkbox" checked="">高危地区</li>
+                                        <li class="bor"><input id="we" type="checkbox" value="checkbox" checked="">车型</li>
+                                    </ul>
+                                    <submit id="querysv">确定</submit>
+                                </div>
+                                <!--弹出点击事件-->
+                                <script>
+                                    $(document).ready(function(){
+                                        $("#shaixuan").hide();
+                                        $("#subutton,#clos,#querysv").click(function(){
+                                            $("#shaixuan").slideToggle();
+                                        });
+
+                                        $("#query").hide();
+                                        $("#inputbor,#closq,#querysu").click(function(){
+                                            $("#query").fadeToggle();
+                                        });
+                                    });
+                                </script>
+                                <!--路线查询-->
+                                <div class="query" id="query">
+                                    <div class="titf">
+                                        <h3>输入地名/路线<a id="closq">取消</a></h3>
+                                    </div>
+                                    <div class="query-by">
+                                        <div class="querynama"><span>从 :</span><input name="" type="text" placeholder="请输入地名"></div>
+                                        <div class="querynama"><span>到 :</span><input name="" type="text" placeholder="请输入地名"></div>
+                                    </div>
+                                    <submit id="querysu">确定</submit>
+                                </div>
+                            </div>
+                            <div class="hamap">
+                                <div class="contenter-right-map" id="main"></div>
+                                <!--业务人员定位-->
+                                <div class="yewu" id="computerMove">
+                                    <div class="yewu-left"><img src="image/dingwei.png" /></div>
+                                    <div class="yewu-right">
+                                        <ul>
+                                            <h5>业务人员</h5>
+                                            <li id="fujin01">
+                                                <img src="image/timg1.jpg" />
+                                            </li>
+                                            <li>
+                                                <img src="image/timg3.jpg" />
+                                            </li>
+                                            <li>
+                                                <img src="image/m04.png" />
+                                            </li>
+                                            <li>
+                                                <img src="image/timg4.jpg" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="yewu" id="computerMove_b">
+                                    <div class="yewu-left"><img src="image/dingwei02.png" /></div>
+                                    <div class="yewu-right">
+                                        <ul>
+                                            <h5>业务人员</h5>
+                                            <li id="fujin02">
+                                                <img src="image/timg2.jpg" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <script src="js/comput.js" type="text/javascript"></script>
+                            </div>
+                            <div id="r-result">
+                                <input type="button"  onclick="openHeatmap();" value="显示热力图"/>
+                                <input type="button"  onclick="closeHeatmap();" value="关闭热力图"/>
+                            </div>
+                            <div class="cache">
+                                <div class="cache-left">
+                                    <span class="spsa">&nbsp;</span>
+                                    <a id="chakan">查看某区域业务人员</a>
+                                </div>
+                                <div class="cache-right" id="yingc">隐藏</div>
+                            </div>
+                            <!--热力图展示-->
+                            <script src="js/hedamap.js"></script>
+                        </div>
+                        <div class="contenter-right-business">
+                            <div class="business-nav">
+                                <div class="paihang">业务人员排行榜</div>
+                                <div class="sous">
+                                    <input name="" type="text" placeholder="查找业务人员">
+                                    <a id="chaz"><img class="souinco" src="image/sou.png"></a>
+                                </div>
+                            </div>
+                            <div class="business">
+                                <ul id="da-thumbs" class="da-thumbs">
+                                    <li>
+                                        <a href="javascript:void(0);" id="chaz1">
+                                            <img src="image/y01.png">
+                                            <div class="hot_info">
+                                                <h2>李芸</h2>
+                                                <em></em>
+                                                <p>工作年限 : 3</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 7</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" id="chaz2">
+                                            <img src="image/y02.png">
+                                            <div class="hot_info">
+                                                <h2>刘文</h2>
+                                                <em></em>
+                                                <p>工作年限 : 2</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y03.png">
+                                            <div class="hot_info">
+                                                <h2>赵萱</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y04.png">
+                                            <div class="hot_info">
+                                                <h2>文卓</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y05.png">
+                                            <div class="hot_info">
+                                                <h2>萨研</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y06.png">
+                                            <div class="hot_info">
+                                                <h2>方元尔</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y07.png">
+                                            <div class="hot_info">
+                                                <h2>王欧</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y08.png">
+                                            <div class="hot_info">
+                                                <h2>曹斯顿</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y09.png">
+                                            <div class="hot_info">
+                                                <h2>美嘉</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" >
+                                            <img src="image/y010.png">
+                                            <div class="hot_info">
+                                                <h2>程民</h2>
+                                                <em></em>
+                                                <p>工作年限 : 1</p>
+                                                <p>理赔响应速度 : 5</p>
+                                                <p>历史理赔处理单数 : 5</p>
+                                                <p>综合客户满意度 : 10</p>
+                                                <p>客户投诉单数 : 2</p>
+                                                <p>距事故现场距离 : 1KM</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="chaxun" id="chaxun">
+                                    <a class="fanhui" id="fanhui">返回</a>
+                                    <dl>
+                                        <div class="namaz">姓名 : 李芸</div>
+                                        <dd><img src="image/m01.png"></dd>
+                                        <dt>
+                                            <p>工作年限 : 3</p>
+                                            <p>理赔响应速度 : 5</p>
+                                            <p>历史理赔处理单数 : 7</p>
+                                            <p>综合客户满意度 : 10</p>
+                                            <p>客户投诉单数 : 2</p>
+                                            <p>距事故现场距离 : 1KM</p>
+                                        </dt>
+                                        <div class="phon">联系电话 : 18809116516  <a class="paidan" id="paidan">派单</a></div>
+                                    </dl>
+                                </div>
+                                <div class="chaxun" id="liuwen">
+                                    <a class="fanhui" id="liuwen_fanhui">返回</a>
+                                    <dl>
+                                        <div class="namaz">姓名 : 刘文</div>
+                                        <dd><img src="image/m02.png"></dd>
+                                        <dt>
+                                        <p>工作年限 : 2</p>
+                                        <p>理赔响应速度 : 5</p>
+                                        <p>历史理赔处理单数 : 5</p>
+                                        <p>综合客户满意度 : 10</p>
+                                        <p>客户投诉单数 : 2</p>
+                                        <p>距事故现场距离 : 1KM</p>
+                                        </dt>
+                                        <div class="phon">联系电话 : 15806016521  <a class="paidan" id="paidan1">派单</a></div>
+                                    </dl>
+                                </div>
+                                <script>
+                                    $("#paidan,#paidan1").click(function(){
+                                        alert('派单成功');
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+<!--/*客户画像板块*/----------------------------------------------------------------------->
+                <div class="contenter" id="contenter-b">
+                    <div class="contenter-left">
+                        <ul class="titnav">
+                            <li><a href="javascript:void(0);" id="tongji">统计</a></li>
+                            <li><a href="javascript:void(0);" id="xiangxi">详细</a></li>
+                        </ul>
+                        <div class="ruw">
+                            <img src="image/lfa1.png" />
+                        </div>
+                        <div class="select-cont">
+                            <form action="index.html" method="post">
+                                <dl class="select">
+                                    <dt>请选择分组<img src="image/u7.png" /></dt>
+                                    <dd>
+                                        <ul>
+                                            <li><a href="javascript:void(0);">潜在客户</a></li>
+                                            <li><a href="javascript:void(0);">再付费意愿高</a></li>
+                                            <li><a href="javascript:void(0);">二度人脉关系有意向客户</a></li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </form>
+                            <div class="jians" id="jians">标签检索</div>
+                        </div>
+                    </div>
+                    <div class="jianspop" id="jianspop">
+                        <div class="jians-title" id="">
+                            <h3>风险系数<a><img id="close" src="image/clos.png"></a></h3>
+                        </div>
+                        <div class="jians-content">
+                            <div class="jians-content-a">
+                                <h4>性别</h4>
+                                <ul>
+                                    <li>
+                                        <input id="un-a1" type="radio" value="radio" name="性别">
+                                        <label for="un-a1">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>男</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-a2" type="radio" value="radio" name="性别">
+                                        <label for="un-a2">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>女</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-a3" type="radio" value="radio" name="性别">
+                                        <label for="un-a3">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>不限</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="jians-content-a">
+                                <h4>客户等级</h4>
+                                <ul>
+                                    <li>
+                                        <input id="un-b1" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-b1">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>潜在</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-b2" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-b2">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>普通</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-b3" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-b3">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>高级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-b4" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-b4">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>VIP</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="jians-content-a">
+                                <h4>客户职业</h4>
+                                <ul>
+                                    <li>
+                                        <input id="un-c1" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c1">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>学生</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-c2" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c2">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>白领</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-c3" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c3">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>公务员</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-c4" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c4">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>商务人员</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-c5" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c5">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>医疗人员</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-c6" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-c6">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>其它</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="jians-content-a">
+                                <h4>客户常在地风险区域等级</h4>
+                                <ul>
+                                    <li>
+                                        <input id="un-e1" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-e1">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>一级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-e2" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-e2">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>二级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-e3" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-e3">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>三级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-e4" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-e4">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>四级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input id="un-e5" type="checkbox" name="un-login" class="un-bin">
+                                        <label for="un-e5">
+                                            <!-- Unnamed () -->
+                                            <div id="" class="text">
+                                                <p><span>高级</span></p>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="jians-content-a">
+                                <h4>投保日期</h4>
+                                <div class="date">
+                                        <input type="text" class="span2" value="" id="dpd1"> 至
+                                        <input type="text" class="span2" value="" id="dpd2">
+                                </div>
+                            </div>
+                            <div class="jians-content-a">
+                                <h4>标签组</h4>
+                                <ul>
+                                    <li>
+                                        <a class="gwy">高级<span>x</span></a>
+                                    </li>
+                                    <li>
+                                        <a class="gwy">公务员<span>x</span></a>
+                                    </li>
+                                    <li>
+                                        <a class="gwy">三级<span>x</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="jians-content-a adop">
+                                <div class="kssx" id="kssx">开始筛选</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contenter-right">
+                        <div class="contenter-right-ta" id="contenter-right-ta">
+                            <div class="tongji">
+                                <h2>统计</h2>
+                                <div class="bintu">
+                                    <div class="biny">
+                                        <h3>客户性别占比</h3>
+                                        <div id="bsa" style="width: 300px; height: 300px;"></div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        // 基于准备好的dom，初始化echarts实例
+                                        var myChart = echarts.init(document.getElementById('bsa'));
+                                        option = {
+                                            tooltip: {
+                                                trigger: 'item',
+                                                formatter: "{a} <br/>{b}: {c} ({d}%)"
+                                            },
+                                            legend: {
+                                                orient: 'vertical',
+                                                x: 'left',
+                                                data:['男','女']
+                                            },
+
+                                            series: [
+                                                {
+                                                    name:'性别占比',
+                                                    type:'pie',
+                                                    radius: ['50%', '70%'],
+                                                    avoidLabelOverlap: false,
+                                                    label: {
+                                                        normal: {
+                                                            show: false,
+                                                            position: 'center'
+                                                        },
+                                                        emphasis: {
+                                                            show: true,
+                                                            textStyle: {
+                                                                fontSize: '30',
+                                                                fontWeight: 'bold'
+                                                            }
+                                                        }
+                                                    },
+                                                    labelLine: {
+                                                        normal: {
+                                                            show: false
+                                                        }
+                                                    },
+                                                    data:[
+                                                        {value:1335, name:'女'},
+                                                        {value:1048, name:'男'}
+                                                    ]
+                                                }
+                                            ]
+                                        };
+                                        myChart.setOption(option);
+                                    </script>
+                                    <div class="biny">
+                                        <h3>风险系数区域占比</h3>
+                                        <div id="fxa" style="width: 300px; height: 300px;"></div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        // 基于准备好的dom，初始化echarts实例
+                                        var myChart = echarts.init(document.getElementById('fxa'));
+                                        option = {
+                                            title : {
+                                                x:'center'
+                                            },
+                                            tooltip : {
+                                                trigger: 'item',
+                                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                            },
+                                            legend: {
+                                                orient: 'vertical',
+                                                left: 'left',
+                                                data: ['五级','四级','三级','二级','一级']
+                                            },
+                                            series : [
+                                                {
+                                                    name: '区域占比',
+                                                    type: 'pie',
+                                                    radius : '55%',
+                                                    center: ['50%', '60%'],
+                                                    data:[
+                                                        {value:335, name:'五级'},
+                                                        {value:310, name:'四级'},
+                                                        {value:234, name:'三级'},
+                                                        {value:135, name:'二级'},
+                                                        {value:1548, name:'一级'}
+                                                    ],
+                                                    itemStyle: {
+                                                        emphasis: {
+                                                            shadowBlur: 10,
+                                                            shadowOffsetX: 0,
+                                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        };
+                                        myChart.setOption(option);
+                                    </script>
+                                    <div class="biny">
+                                        <h3>用户预测职业分布</h3>
+                                        <div id="zhy" style="width: 300px; height: 300px;"></div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        // 基于准备好的dom，初始化echarts实例
+                                        var myChart = echarts.init(document.getElementById('zhy'));
+                                        option = {
+                                            title: {
+                                            },
+                                            tooltip: {
+                                                trigger: 'item',
+                                                formatter: "{a} <br/>{b} : {c}%"
+                                            },
+                                            legend: {
+                                                data: ['研究生及以上','本科','专科','其它']
+                                            },
+                                            calculable: true,
+                                            series: [
+                                                {
+                                                    name:'职业分布',
+                                                    type:'funnel',
+                                                    left: '10%',
+                                                    top: 60,
+                                                    //x2: 80,
+                                                    bottom: 60,
+                                                    width: '80%',
+                                                    min: 0,
+                                                    max: 100,
+                                                    minSize: '0%',
+                                                    maxSize: '100%',
+                                                    sort: 'descending',
+                                                    gap: 2,
+                                                    label: {
+                                                        normal: {
+                                                            show: true,
+                                                            position: 'inside'
+                                                        },
+                                                        emphasis: {
+                                                            textStyle: {
+                                                                fontSize: 20
+                                                            }
+                                                        }
+                                                    },
+                                                    labelLine: {
+                                                        normal: {
+                                                            length: 10,
+                                                            lineStyle: {
+                                                                width: 1,
+                                                                type: 'solid'
+                                                            }
+                                                        }
+                                                    },
+                                                    itemStyle: {
+                                                        normal: {
+                                                            borderColor: '#fff',
+                                                            borderWidth: 1
+                                                        }
+                                                    },
+                                                    data: [
+                                                        {value: 60, name: '本科'},
+                                                        {value: 40, name: '专科'},
+                                                        {value: 20, name: '其它'},
+                                                        {value: 80, name: '研究生及以上'},
+                                                    ]
+                                                }
+                                            ]
+                                        };
+                                        myChart.setOption(option);
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="zhexian">
+                                <ul>
+                                    <li id="kehu1">客户客单价分析</li>
+                                    <li id="kehu2">客户累计消费金额</li>
+                                    <li id="kehu3">客户成交笔数分析</li>
+                                </ul>
+                                <div class="zhwidth" id="zhea"></div>
+                                <script>
+                                    var myChart = echarts.init(document.getElementById('zhea'));
+
+                                    var xData = function() {
+                                        var data = [];
+                                        for (var i =1; i < 15; i++) {
+                                            data.push(i + "");
+                                        }
+                                        return data;
+                                    }();
+
+                                    option = {
+                                        backgroundColor: "#fff",
+                                        "title": {
+
+                                            textStyle: {
+                                                color: '#fff',
+                                                fontSize: '22'
+                                            },
+                                            subtextStyle: {
+                                                color: '#90979c',
+                                                fontSize: '16',
+
+                                            },
+                                        },
+                                        "tooltip": {
+                                            "trigger": "axis",
+                                            "axisPointer": {
+                                                "type": "shadow",
+                                                textStyle: {
+                                                    color: "#fff"
+                                                }
+
+                                            },
+                                        },
+                                        "grid": {
+                                            "borderWidth": 0,
+                                            "top": 60,
+                                            "bottom": 30,
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        "legend": {
+                                            x: '40%',
+                                            top: '1%',
+                                            textStyle: {
+                                                color: '#90979c',
+                                            },
+                                            "data": ['白领', '公务员']
+                                        },
+
+
+                                        "calculable": true,
+                                        "xAxis": [{
+                                            "type": "category",
+                                            "axisLine": {
+                                                lineStyle: {
+                                                    color: '#90979c'
+                                                }
+                                            },
+                                            "splitLine": {
+                                                "show": false
+                                            },
+                                            "axisTick": {
+                                                "show": false
+                                            },
+                                            "splitArea": {
+                                                "show": false
+                                            },
+                                            "axisLabel": {
+                                                "interval": 0,
+
+                                            },
+                                            "data": xData,
+                                        }],
+                                        "yAxis": [{
+                                            "type": "value",
+                                            "splitLine": {
+                                                "show": false
+                                            },
+                                            "axisLine": {
+                                                lineStyle: {
+                                                    color: '#90979c'
+                                                }
+                                            },
+                                            "axisTick": {
+                                                "show": false
+                                            },
+                                            "axisLabel": {
+                                                "interval": 0,
+
+                                            },
+                                            "splitArea": {
+                                                "show": false
+                                            },
+
+                                        }],
+
+                                        "series": [{
+                                            "name": "白领",
+                                            "type": "bar",
+                                            "stack": "总量",
+                                            "barMaxWidth": 35,
+                                            "barGap": "10%",
+                                            "itemStyle": {
+                                                "normal": {
+                                                    "color": "rgba(255,144,128,1)",
+                                                    "label": {
+                                                        "show": true,
+                                                        "textStyle": {
+                                                            "color": "#fff"
+                                                        },
+                                                        "position": "insideTop",
+                                                        formatter: function(p) {
+                                                            return p.value > 0 ? (p.value) : '';
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "data": [
+                                                198.66,
+                                                330.81,
+                                                151.95,
+                                                160.12,
+                                                222.56,
+                                                229.05,
+                                                128.53,
+                                                250.91,
+                                                224.47,
+                                                473.99,
+                                                126.85,
+                                                260.50
+                                            ],
+                                        },
+
+                                            {
+                                                "name": "公务员",
+                                                "type": "bar",
+                                                "stack": "总量",
+                                                "itemStyle": {
+                                                    "normal": {
+                                                        "color": "rgba(0,191,183,1)",
+                                                        "barBorderRadius": 0,
+                                                        "label": {
+                                                            "show": true,
+                                                            "position": "top",
+                                                            formatter: function(p) {
+                                                                return p.value > 0 ? (p.value) : '';
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "data": [
+                                                    82.89,
+                                                    67.54,
+                                                    62.07,
+                                                    59.43,
+                                                    67.02,
+                                                    67.09,
+                                                    35.66,
+                                                    71.78,
+                                                    81.61,
+                                                    78.85,
+                                                    79.12,
+                                                    72.30
+                                                ]
+                                            },
+                                        ]
+                                    }
+                                    myChart.setOption(option);
+                                </script>
+                               <div class="zhwidth" id="zheb"></div>
+                                <script type="text/javascript">
+                                    var myChart = echarts.init(document.getElementById('zheb'));
+                                    var colors = ['#e8340c', '#e8340c'];
+
+                                    option = {
+                                        color: colors,
+
+                                        tooltip: {
+                                            trigger: 'none',
+                                            axisPointer: {
+                                                type: 'cross'
+                                            }
+                                        },
+                                        legend: {
+                                            data:[ '累计消费金额']
+                                        },
+                                        grid: {
+                                            top: 70,
+                                            bottom: 50
+                                        },
+                                        xAxis: [
+                                            {
+                                                type: 'category',
+                                                axisTick: {
+                                                    alignWithLabel: true
+                                                },
+                                                axisLine: {
+                                                    onZero: false,
+                                                    lineStyle: {
+                                                        color: colors[1]
+                                                    }
+                                                },
+                                                axisPointer: {
+                                                    label: {
+                                                        formatter: function (params) {
+                                                            return '累计消费金额  ' + params.value + '：' + params.seriesData[0].data;
+                                                        }
+                                                    }
+                                                },
+                                                data: ["2016-1", "2016-2", "2016-3", "2016-4", "2016-5", "2016-6", "2016-7", "2016-8", "2016-9", "2016-10", "2016-11", "2016-12"]
+                                            },
+
+                                        ],
+                                        yAxis: [
+                                            {
+                                                type: 'value'
+                                            }
+                                        ],
+                                        series: [
+
+                                            {
+                                                name:'累计消费金额',
+                                                type:'line',
+                                                smooth: true,
+                                                data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 71.6, 86.6, 97.4, 108.4, 110.3, 115.7]
+                                            }
+                                        ]
+                                    };
+                                    myChart.setOption(option);
+                                </script>
+                                <div class="zhwidth" id="zhec"></div>
+                                <script>
+                                    var myChart = echarts.init(document.getElementById('zhec'));
+                                    option = {
+                                        tooltip : {
+                                            trigger: 'axis',
+                                            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                                                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                            }
+                                        },
+                                        legend: {
+                                            data: ['汽车保险', '旅游保险','意外保险','家庭保险','人身保险']
+                                        },
+                                        grid: {
+                                            left: '3%',
+                                            right: '4%',
+                                            bottom: '3%',
+                                            containLabel: true
+                                        },
+                                        xAxis:  {
+                                            type: 'value'
+                                        },
+                                        yAxis: {
+                                            type: 'category',
+                                            data: ['2010年','2011年','2012年','2013年','2014年','2015年','2016年']
+                                        },
+                                        series: [
+                                            {
+                                                name: '汽车保险',
+                                                type: 'bar',
+                                                stack: '总量',
+                                                label: {
+                                                    normal: {
+                                                        show: true,
+                                                        position: 'insideRight'
+                                                    }
+                                                },
+                                                data: [320, 302, 301, 334, 390, 330, 320]
+                                            },
+                                            {
+                                                name: '旅游保险',
+                                                type: 'bar',
+                                                stack: '总量',
+                                                label: {
+                                                    normal: {
+                                                        show: true,
+                                                        position: 'insideRight'
+                                                    }
+                                                },
+                                                data: [120, 132, 101, 134, 90, 230, 210]
+                                            },
+                                            {
+                                                name: '意外保险',
+                                                type: 'bar',
+                                                stack: '总量',
+                                                label: {
+                                                    normal: {
+                                                        show: true,
+                                                        position: 'insideRight'
+                                                    }
+                                                },
+                                                data: [220, 182, 191, 234, 290, 330, 310]
+                                            },
+                                            {
+                                                name: '家庭保险',
+                                                type: 'bar',
+                                                stack: '总量',
+                                                label: {
+                                                    normal: {
+                                                        show: true,
+                                                        position: 'insideRight'
+                                                    }
+                                                },
+                                                data: [150, 212, 201, 154, 190, 330, 410]
+                                            },
+                                            {
+                                                name: '人身保险',
+                                                type: 'bar',
+                                                stack: '总量',
+                                                label: {
+                                                    normal: {
+                                                        show: true,
+                                                        position: 'insideRight'
+                                                    }
+                                                },
+                                                data: [820, 832, 901, 934, 1290, 1330, 1320]
+                                            }
+                                        ]
+                                    };
+                                    myChart.setOption(option);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="contenter-right-tb" id="contenter-right-tb">
+                            <ul>
+                                <li class="xiangxi">详细</li>
+                                <li class="fzu">
+                                    <a>发起营销</a>
+                                    <a id="cunwei">另存分组</a>
+                                    <select>
+                                        <option value="volvo">已存分组</option>
+                                        <option value="saab">客单价</option>
+                                        <option value="opel">累计消费</option>
+                                        <option value="audi">成交笔数</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <!--另存分组弹出框-->
+                            <div class="lcwfzpop" id="lcwfzpop">
+                                <h3>另存分组</h3>
+                                <a class="lcw" id="lcw"><img src="image/clos.png"></a>
+                                <ul>
+                                    <li>存为新分组</li>
+                                    <li>导出为文档</li>
+                                </ul>
+                            </div>
+
+                            <dl>
+                                <dt class="titleq">
+                                    <h5>
+                                        <label for="quana">
+                                            全选<input id="quana" type="checkbox" name="un-login">
+                                        </label>
+                                    </h5>
+                                    <p>姓名</p>
+                                    <p>性别</p>
+                                    <p>指数</p>
+                                    <p>职业</p>
+                                    <p>客户等级</p>
+                                    <p>客单价</p>
+                                    <p>成交笔数</p>
+                                    <p>查看</p>
+                                </dt>
+                                <dd>
+                                    <p><input id="sa1" type="checkbox" name="un-login"></p>
+                                    <p>李芸</p>
+                                    <p>女</p>
+                                    <p>10</p>
+                                    <p>金融理财师</p>
+                                    <p>VIP</p>
+                                    <p>10w</p>
+                                    <p>9</p>
+                                    <p>
+                                        <a class="chakan">查看</a>
+                                    </p>
+                                </dd>
+                                <dt>
+                                    <p><input id="sa2" type="checkbox" name="un-login"></p>
+                                    <p>李芸</p>
+                                    <p>女</p>
+                                    <p>10</p>
+                                    <p>金融理财师</p>
+                                    <p>VIP</p>
+                                    <p>10w</p>
+                                    <p>9</p>
+                                    <p>
+                                        <a class="chakan">查看</a>
+                                    </p>
+                                </dt>
+                                <dd>
+                                    <p><input id="sa3" type="checkbox" name="un-login"></p>
+                                    <p>李芸</p>
+                                    <p>女</p>
+                                    <p>10</p>
+                                    <p>金融理财师</p>
+                                    <p>VIP</p>
+                                    <p>10w</p>
+                                    <p>9</p>
+                                    <p>
+                                        <a class="chakan">查看</a>
+                                    </p>
+                                </dd>
+                                <dt>
+                                <p><input id="sa4" type="checkbox" name="un-login"></p>
+                                <p>李芸</p>
+                                <p>女</p>
+                                <p>10</p>
+                                <p>金融理财师</p>
+                                <p>VIP</p>
+                                <p>10w</p>
+                                <p>9</p>
+                                <p>
+                                    <a class="chakan">查看</a>
+                                </p>
+                                </dt>
+                                <dd>
+                                    <p><input id="sa5" type="checkbox" name="un-login"></p>
+                                    <p>李芸</p>
+                                    <p>女</p>
+                                    <p>10</p>
+                                    <p>金融理财师</p>
+                                    <p>VIP</p>
+                                    <p>10w</p>
+                                    <p>9</p>
+                                    <p>
+                                        <a class="chakan">查看</a>
+                                    </p>
+                                </dd>
+                                <dt>
+                                <p><input id="sa6" type="checkbox" name="un-login"></p>
+                                <p>李芸</p>
+                                <p>女</p>
+                                <p>10</p>
+                                <p>金融理财师</p>
+                                <p>VIP</p>
+                                <p>10w</p>
+                                <p>9</p>
+                                <p>
+                                    <a class="chakan">查看</a>
+                                </p>
+                                </dt>
+                                <dd>
+                                    <p><input id="sa7" type="checkbox" name="un-login"></p>
+                                    <p>李芸</p>
+                                    <p>女</p>
+                                    <p>10</p>
+                                    <p>金融理财师</p>
+                                    <p>VIP</p>
+                                    <p>10w</p>
+                                    <p>9</p>
+                                    <p>
+                                        <a class="chakan">查看</a>
+                                    </p>
+                                </dd>
+                                <dt>
+                                <p><input id="sa8" type="checkbox" name="un-login"></p>
+                                <p>李芸</p>
+                                <p>女</p>
+                                <p>10</p>
+                                <p>金融理财师</p>
+                                <p>VIP</p>
+                                <p>10w</p>
+                                <p>9</p>
+                                <p>
+                                    <a class="chakan">查看</a>
+                                </p>
+                                </dt>
+                            </dl>
+                            <!--实现全选与反选-->
+                            <script>
+                                $("#quana").click(function(){
+                                    if(this.checked){
+                                        $("#contenter-right-tb dl p :checkbox,#contenter-right-tb dd p :checkbox").prop("checked", true);
+                                    }else{
+                                        $("#contenter-right-tb dl p :checkbox,#contenter-right-tb dd p :checkbox").prop("checked", false);
+                                    }
+                                });
+                            </script>
+                            <div class="rwpop" id="rwpop">
+                                <a class="guani" id="guani"><img  src="image/clos.png"></a>
+                                <div class="rwname">
+                                    <div class="rwname-left">
+                                        <img src="image/m04.png" />
+                                    </div>
+                                    <div class="rwname-right">
+                                        <h1>基本资料</h1>
+                                        <div class="ziliao">
+                                            <span>赵萱</span>
+                                            <span>25岁</span>
+                                            <span>金融理财师</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="biaoqiana baosak">
+                                    <h4>标签</h4>
+                                    <ul>
+                                        <li>
+                                            <a class="gwy">金融理财师<span>x</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="gwy">金融理财师<span>x</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="gwy">金融理财师<span>x</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="gwy">金融理财师<span>x</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="gwy">自定义</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="biaoqiana">
+                                    <h4>消费水平</h4>
+                                        <div class="bars">
+                                            <div class="barlf">
+                                                <span>40%</span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="faqi" id="faqi">
+                                    发起营销
+                                </div>
+                            </div>
+
+                            <!--分页-->
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $("#Pagination").pagination("15");
+                                });
+                            </script>
+                            <div class="pages">
+                                <div id="Pagination"></div>
+                                <div class="searchPage">
+                                    <span class="page-sum">共<strong class="allPage">15</strong>页</span>
+                                    <span class="page-go">跳转<input type="text">页</span>
+                                    <a href="javascript:;" class="page-btn">GO</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+<!--日历选择初始化-->
+        <script>
+            $('#demo-1').fdatepicker();
+            $('#demo-2').fdatepicker({
+                format: 'yyyy-mm-dd hh:ii',
+                pickTime: true
+            });
+            $('#demo-3').fdatepicker();
+
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+            var checkin = $('#dpd1').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                if (ev.date.valueOf() > checkout.date.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.update(newDate);
+                }
+                checkin.hide();
+                $('#dpd2')[0].focus();
+            }).data('datepicker');
+            var checkout = $('#dpd2').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                checkout.hide();
+            }).data('datepicker');
+        </script>
+</body>
+</html>

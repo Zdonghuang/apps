@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>市区环境分析</title>
+    <meta name = "keywords" content = "" />
+    <meta name = "description" content = "" />
+    <meta name="viewport" content="">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script	src="js/lib/jquery-1.11.1.min.js" type="text/javascript" ></script>
+    <script	src="js/lib/echarts.min.js" type="text/javascript" ></script>
+    <script	src="js/china.js" type="text/javascript" ></script>
+    <script src="js/navbar.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="js/jQuery.rTabs.js"></script>
+
+</head>
+<body>
+<div class="flow_by">
+
+    <div class="municipal_content_a">
+        <div class="municipal_a">
+            <h1>张家口市</h1>
+            <h2>检测点数量</h2>
+            <dl>
+                <dt>地表水: <span>1000 个</span></dt>
+                <dt>农业用水: <span>1500 个</span></dt>
+                <dt>主要饮用水: <span>2300 个</span></dt>
+                <dt>污染源企业: <span>800 个</span></dt>
+            </dl>
+        </div>
+        <div class="municipal_b">
+            <div class="content_a_con" id="zjk"></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('zjk'));
+                var uploadedDataURL = "js/data/zjk.json";
+                function showProvince() {
+                    $.get(uploadedDataURL, function(geoJson) {
+                        echarts.registerMap(name, geoJson);
+                        myChart.setOption(option = {
+                            backgroundColor: '#3c3c3c',
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            visualMap: {
+                                min: 0,
+                                max: 100,
+                                left: '5%',
+                                bottom: '25%',
+                                text: ['高', '低'], // 文本，默认为数值文本
+                                calculable: true,
+                                textStyle: {
+                                    color: '#fff'
+                                },
+                                inRange:{
+                                    color: ['#f9c5ad','#f1844c', '#e3420b']
+                                }
+                            },
+                            "legend": {
+                                "orient": "vertical",
+                                "y": "80%",
+                                "x": "10%",
+                                "data": ["单位"],
+                                "itemWidth": 15,
+                                "itemHeight": 15,
+                                "textStyle": {
+                                    "color": "#fff"
+                                }
+                            },
+                            "geo": {
+                                "map": "张家口市",
+                                "layoutCenter": ["55%", "50%"],
+                                "layoutSize": "90%",
+                                "label": {
+                                    "emphasis": {
+                                        "show": true,
+                                        textStyle:{
+                                            color:'#ccc',
+                                        },
+                                    }
+                                },
+                                "roam": true,
+                                "mapLocation": {
+                                    "width": "95%",
+                                    "height": "97%"
+                                },
+                                "itemStyle": {
+                                    "normal": {
+                                        shadowBlur: 20,
+                                        shadowColor: 'rgba(0, 0, 0,0.8)',
+                                        "areaColor": "#004571",
+                                        "borderColor": "#6AC6E6"
+                                    },
+                                    "emphasis": {
+                                        "areaColor": "#00385E"
+                                    }
+                                }
+                            },
+                            series: [{
+                                "name": "单位",
+                                "type": "effectScatter",
+                                "coordinateSystem": "geo",
+                                data: [ {
+                                    "name": "宣化区",
+                                    "value": [115.106121,40.615633]
+                                }],
+                                "rippleEffect": {
+                                    "period": 4,
+                                    "scale":4,
+                                    "brushType": "stroke"
+                                },
+                                "label": {
+                                    "normal": {
+                                        "formatter": "{b}",
+                                        "position": "left",
+                                        "show": true,
+                                    },
+                                    "emphasis": {
+                                        "show": true,
+                                    }
+                                },
+                                "itemStyle": {
+                                    "normal": {
+                                        "color": "#FFD33D"
+                                    }
+                                }
+                            },{
+                                mapType: name,
+                                "type": "map",
+                                data: [{
+                                    name: '张家口市',
+                                    value: 80
+                                }]
+                            }]
+                        });
+                    });
+                }
+                var currentIdx = 0;
+                showProvince();
+            </script>
+        </div>
+        <div class="municipal_c">
+            <ul>
+                <li class="AU1">
+                    <div id="distribution_a">
+                        <script type="text/javascript">
+                            var distribution_a = echarts.init(document.getElementById('distribution_a'));
+                            option = {
+                                title: {
+                                    text: "地表水",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '10',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '地表水污染层级',
+                                    type: 'pie',
+                                    radius: ['10%', '60%'],
+                                    center: ['50%','60%'],
+                                    color: ['#fdecdc', '#f9c5ad', '#f5af7c', '#f1844c', '#ea5421'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 11,
+                                        name: 'I'
+                                    }, {
+                                        value: 15,
+                                        name: 'II'
+                                    }, {
+                                        value: 9,
+                                        name: 'III'
+                                    }, {
+                                        value: 4,
+                                        name: 'IV'
+                                    }, {
+                                        value: 2,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_a.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU2">
+                    <div id="distribution_b">
+                        <script type="text/javascript">
+                            var distribution_b = echarts.init(document.getElementById('distribution_b'));
+                            option = {
+                                title: {
+                                    text: "主要饮用水源地",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '10',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '主要饮用水源地层级',
+                                    type: 'pie',
+                                    radius: ['10%', '60%'],
+                                    center: ['50%','60%'],
+                                    color: ['#fdf69f', '#fff581', '#fed001', '#f7ab00', '#f18101'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 8,
+                                        name: 'I'
+                                    }, {
+                                        value: 12,
+                                        name: 'II'
+                                    }, {
+                                        value: 9,
+                                        name: 'III'
+                                    }, {
+                                        value: 6,
+                                        name: 'IV'
+                                    }, {
+                                        value: 3,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_b.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU3">
+                    <div id="distribution_c">
+                        <script type="text/javascript">
+                            var distribution_c = echarts.init(document.getElementById('distribution_c'));
+                            option = {
+                                title: {
+                                    text: "污染源企业",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '10',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '污染源企业层级',
+                                    type: 'pie',
+                                    radius: ['10%', '60%'],
+                                    center: ['50%','60%'],
+                                    color: ['#d8e7ae', '#bfdc99', '#9acc6d', '#49b249', '#15a83d'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 15,
+                                        name: 'I'
+                                    }, {
+                                        value: 10,
+                                        name: 'II'
+                                    }, {
+                                        value: 5,
+                                        name: 'III'
+                                    }, {
+                                        value: 3,
+                                        name: 'IV'
+                                    }, {
+                                        value: 1,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_c.setOption(option);
+                        </script>
+                    </div>
+                </li>
+                <li class="AU4">
+                    <div id="distribution_d">
+                        <script type="text/javascript">
+                            var distribution_d = echarts.init(document.getElementById('distribution_d'));
+                            option = {
+                                title: {
+                                    text: "农业用水",
+                                    subtext: "",
+                                    left: 'center',
+                                    top: '10',
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}:({d}%)"
+                                },
+                                series: [{
+                                    name: '农业用水层级',
+                                    type: 'pie',
+                                    radius: ['10%', '60%'],
+                                    center: ['50%','60%'],
+                                    color: ['#c2e6fb', '#a9dffc', '#7ecdf4', '#00a0ea', '#0180cd'],
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    data: [{
+                                        value: 13,
+                                        name: 'I'
+                                    }, {
+                                        value: 12,
+                                        name: 'II'
+                                    }, {
+                                        value: 10,
+                                        name: 'III'
+                                    }, {
+                                        value: 7,
+                                        name: 'IV'
+                                    }, {
+                                        value: 2,
+                                        name: 'V'
+                                    } ]
+                                }, {
+                                    name: '分组',
+                                    type: 'pie',
+                                    radius: ['54%', '72%'],
+                                    color: ['#a0dca0', '#60bbb6', '#f78db3', '#feadac', '#fae395','#91d4e5','#8eb3e8'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{b}\n{d}%'
+                                        }
+                                    },
+                                }]
+                            };
+                            distribution_d.setOption(option);
+                        </script>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="municipal_content_b">
+        <div class="municipal_d">
+            <div class="tab_list" id="tab">
+
+                <div class="tab-nav j-tab-nav">
+
+                    <a href="javascript:void(0);" class="current">地表水</a>
+
+                    <a href="javascript:void(0);">饮用水源地</a>
+
+                    <a href="javascript:void(0);">企业污染源</a>
+
+                    <a href="javascript:void(0);">农业用水</a>
+
+                        <input id="s_ipt" name="wd" class="s_ipt" value="" maxlength="255">
+                        <input type="submit" id="su" value="搜索" class="bg s_btn">
+
+                </div>
+
+                <div class="tab-con">
+
+                    <div class="j-tab-con">
+
+                        <div class="tab-con-item" style="display:block;">
+
+                           <table class="table table_hover table_border">
+                                  <thead>
+                                  <tr style="background:#313a48;">
+                                      <th>名称</th>
+                                      <th>PH</th>
+                                      <th>溶解氧</th>
+                                      <th>氨氮</th>
+                                      <th>高锰酸钾指数</th>
+                                      <th>总有机碳</th>
+                                      <th>时间</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr onclick="window.open('detail.html');">
+                                          <th>洋河1号桥</th>
+                                          <td style="color: #ff0000">8.36</td>
+                                          <td>8.13</td>
+                                          <td>0.25</td>
+                                          <td>4.26</td>
+                                          <td>4.5</td>
+                                          <td>2017-8-25 15:00</td>
+                                      </tr>
+                                      <tr>
+                                          <th>清水河3号桥</th>
+                                          <td>7.21</td>
+                                          <td style="color: #ff0000">9.05</td>
+                                          <td>1.24</td>
+                                          <td>3.16</td>
+                                          <td>5.7</td>
+                                          <td>2017-8-25 12:10</td>
+                                      </tr>
+                                      <tr>
+                                          <th>洋河2号桥</th>
+                                          <td>3.4</td>
+                                          <td>4.28</td>
+                                          <td>0.31</td>
+                                          <td>5.13</td>
+                                          <td>2.9</td>
+                                          <td>2017-8-25 13:20</td>
+                                      </tr>
+                                      <tr>
+                                          <th>清水河5号桥</th>
+                                          <td>3.16</td>
+                                          <td style="color: #ff0000">7.12</td>
+                                          <td>0.63</td>
+                                          <td>4.26</td>
+                                          <td>3.15</td>
+                                          <td>2017-8-25 18:23</td>
+                                      </tr>
+                                      <tr>
+                                          <th>洋河3号桥</th>
+                                          <td style="color: #ff0000">6.9</td>
+                                          <td>5.12</td>
+                                          <td>0.41</td>
+                                          <td>3.25</td>
+                                          <td>5.96</td>
+                                          <td>2017-8-25 17:05</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+
+                        </div>
+
+                        <div class="tab-con-item">
+
+                            <table class="table table_hover table_border">
+                                <thead>
+                                <tr style="background:#313a48;">
+                                    <th>名称</th>
+                                    <th>PH</th>
+                                    <th>溶解氧</th>
+                                    <th>氨氮</th>
+                                    <th>高锰酸钾指数</th>
+                                    <th>总有机碳</th>
+                                    <th>时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>洋河1号桥</th>
+                                    <td>4.31</td>
+                                    <td>5.12</td>
+                                    <td>1.25</td>
+                                    <td style="color: #ff0000">14.26</td>
+                                    <td>5.7</td>
+                                    <td>2017-8-26 11:10</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河3号桥</th>
+                                    <td>5.6</td>
+                                    <td>6.01</td>
+                                    <td style="color: #ff0000">11.02</td>
+                                    <td>5.37</td>
+                                    <td style="color: #ff0000">15.7</td>
+                                    <td>2017-8-25 13:30</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河2号桥</th>
+                                    <td>6.1</td>
+                                    <td style="color: #ff0000">7.21</td>
+                                    <td>3.31</td>
+                                    <td>5.13</td>
+                                    <td>2.9</td>
+                                    <td>2017-8-25 23:02</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河5号桥</th>
+                                    <td>3.16</td>
+                                    <td>7.12</td>
+                                    <td>0.63</td>
+                                    <td>4.26</td>
+                                    <td>3.15</td>
+                                    <td>2017-8-25 18:23</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河3号桥</th>
+                                    <td>6.9</td>
+                                    <td>5.12</td>
+                                    <td>0.41</td>
+                                    <td>3.25</td>
+                                    <td>5.96</td>
+                                    <td>2017-8-25 17:05</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tab-con-item">
+
+                            <table class="table table_hover table_border">
+                                <thead>
+                                <tr style="background:#313a48;">
+                                    <th>名称</th>
+                                    <th>PH</th>
+                                    <th>溶解氧</th>
+                                    <th>氨氮</th>
+                                    <th>高锰酸钾指数</th>
+                                    <th>总有机碳</th>
+                                    <th>时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>淮河8号桥</th>
+                                    <td>6.59</td>
+                                    <td>5.87</td>
+                                    <td>0.91</td>
+                                    <td>5.21</td>
+                                    <td style="color: #ff0000">14.15</td>
+                                    <td>2017-8-25 22:13</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河10号桥</th>
+                                    <td>1.98</td>
+                                    <td>2.01</td>
+                                    <td>3.21</td>
+                                    <td style="color: #ff0000">8.01</td>
+                                    <td>5.9</td>
+                                    <td>2017-8-25 19:37</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河7号桥</th>
+                                    <td style="color: #ff0000">13.9</td>
+                                    <td>2.21</td>
+                                    <td>1.24</td>
+                                    <td>6.15</td>
+                                    <td>2.86</td>
+                                    <td>2017-8-25 13:20</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河2号桥</th>
+                                    <td>3.16</td>
+                                    <td>7.12</td>
+                                    <td>1.63</td>
+                                    <td>4.26</td>
+                                    <td>2.15</td>
+                                    <td>2017-8-25 12:13</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河3号桥</th>
+                                    <td>6.1</td>
+                                    <td>7.12</td>
+                                    <td>2.41</td>
+                                    <td>5.23</td>
+                                    <td>5.96</td>
+                                    <td>2017-8-25 12:39</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tab-con-item">
+
+                            <table class="table table_hover table_border">
+                                <thead>
+                                <tr style="background:#313a48;">
+                                    <th>名称</th>
+                                    <th>PH</th>
+                                    <th>溶解氧</th>
+                                    <th>氨氮</th>
+                                    <th>高锰酸钾指数</th>
+                                    <th>总有机碳</th>
+                                    <th>时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>洋河9号桥</th>
+                                    <td>4.09</td>
+                                    <td>8.13</td>
+                                    <td>0.25</td>
+                                    <td>4.26</td>
+                                    <td>4.5</td>
+                                    <td>2017-8-25 14:20</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河6号桥</th>
+                                    <td>7.28</td>
+                                    <td style="color: #ff0000">14.12</td>
+                                    <td>2.35</td>
+                                    <td>3.09</td>
+                                    <td>4.1</td>
+                                    <td>2017-8-25 15:12</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河3号桥</th>
+                                    <td>3.4</td>
+                                    <td>4.28</td>
+                                    <td>0.31</td>
+                                    <td>5.13</td>
+                                    <td>2.9</td>
+                                    <td>2017-8-25 13:20</td>
+                                </tr>
+                                <tr>
+                                    <th>清水河2号桥</th>
+                                    <td>3.16</td>
+                                    <td>4.12</td>
+                                    <td style="color: #ff0000">11.23</td>
+                                    <td>6.26</td>
+                                    <td>3.15</td>
+                                    <td>2017-8-25 19:53</td>
+                                </tr>
+                                <tr>
+                                    <th>洋河1号桥</th>
+                                    <td>6.9</td>
+                                    <td>5.12</td>
+                                    <td>1.42</td>
+                                    <td style="color: #ff0000">13.25</td>
+                                    <td>6.21</td>
+                                    <td>2017-8-25 16:35</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="tab-con-item"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="municipal_e">
+            <h3>30天污染企业排名</h3>
+            <div id="news">
+                <a href="municipal.html"> . 张家口市宣化区五里台顺德浩嘉造纸企业<span>排污量128吨</span><span>达标率34.05%</span></a>
+                <a href="municipal.html"> . 张家口市桥东区雨花露香水企业<span>排污量213吨</span><span>达标率51.16%</span></a>
+                <a href="municipal.html"> . 张家口市桥西区康奇医药企业<span>排污量179吨</span><span>达标率44.51%</span></a>
+                <a href="municipal.html"> . 张家口市万全区晨华服装企业<span>排污量109吨</span><span>达标率31.09%</span></a>
+                <a href="municipal.html"> . 张家口市怀安区好吃点食品企业<span>排污量314吨</span><span>达标率24.18%</span></a>
+                <a href="municipal.html"> . 张家口市下花园区黄氏啤酒企业<span>排污量128吨</span><span>达标率34.05%</span></a>
+                <a href="municipal.html"> . 张家口市怀来县岩石钢铁企业<span>排污量257吨</span><span>达标率48.36%</span></a>
+                <a href="municipal.html"> . 张家口市张北县黑人牙膏生产企业<span>排污量221吨</span><span>达标率39.92%</span></a>
+                <a href="municipal.html"> . 张家口市兴和县撒锡汽车配件企业<span>排污量310吨</span><span>达标率20.18%</span></a>
+                <a href="municipal.html"> . 张家口市崇礼县国资设备保障企业<span>排污量174吨</span><span>达标率51.82%</span></a>
+            </div>
+            <script>
+
+                //排名滚动列表
+                var c, _ = Function;
+                with(o = document.getElementById("news")) {
+                    innerHTML += innerHTML;
+                    onmouseover = _("c=1");
+                    onmouseout = _("c=0");
+                }
+                (F = _("if(#%18||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%51?10:1500);".replace(/#/g, "o.scrollTop")))();
+
+
+
+                $(function() {
+                    //TAB列表
+                    $("#tab").rTabs({
+
+                        bind : 'click',
+
+                        animation : 'left'
+
+                    });
+
+                });
+            </script>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="lib/html5shiv.js"></script>
+    <script type="text/javascript" src="lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/portrait.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>校园预警</title>
+</head>
+<body>
+<div class="page-container" id="early_warning">
+    <div class="screen">
+        <span>预警筛选</span>
+        <select>
+            <option value ="volvo">全部预警</option>
+            <option value ="saab">已处理</option>
+            <option value="opel">未处理</option>
+        </select>
+
+        <span>预警类别</span>
+        <select>
+            <option value ="volvo">全部</option>
+            <option value ="saab">上网</option>
+            <option value ="saab">逃课</option>
+        </select>
+
+        <span>预警级别</span>
+        <select>
+            <option value ="volvo">全部</option>
+            <option value ="saab">一级</option>
+            <option value="opel">二级</option>
+            <option value="audi">三级</option>
+        </select>
+
+        <button type="button">搜索</button>
+    </div>
+    <table id="" class="table table-border table-bordered table-bg">
+        <thead>
+        <tr class="text-c">
+            <th>姓名</th>
+            <th>性别</th>
+            <th>学号</th>
+            <th>院系</th>
+            <th>预警类别</th>
+            <th>预警级别</th>
+            <th>预警描述</th>
+            <th>处理结果</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-c">
+            <td>吕桠桐</td>
+            <td>男</td>
+            <td>34732111401</td>
+            <td>数学系</td>
+            <td>挂科预警</td>
+            <td class="x">★★</td>
+            <td>期中考试低于60分</td>
+            <td><a href="trajectory_2.html">处理中</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>王嘉</td>
+            <td>男</td>
+            <td>13841983471</td>
+            <td>艺术学院</td>
+            <td>失联预警</td>
+            <td class="x">★★★</td>
+            <td>失联超过24小时</td>
+            <td><a href='trajectory_3.html'>处理中</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>孙铭予</td>
+            <td>女</td>
+            <td>43230943732</td>
+            <td>医学院</td>
+            <td>逃课预警</td>
+            <td class="x">★</td>
+            <td>本学期已逃课3次</td>
+            <td><a href='javascript:void(0)'>未处理</a></td>
+        </tr>
+
+        <tr class="text-c">
+            <td>李博</td>
+            <td>男</td>
+            <td>34735711477</td>
+            <td>化学系</td>
+            <td>网络沉迷预警</td>
+            <td class="x">★★</td>
+            <td>每天上网时间超过12小时</td>
+            <td><a href='javascript:void(0)'>处理中</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>吴莉</td>
+            <td>女</td>
+            <td>43735743734</td>
+            <td>物力学院</td>
+            <td>心理异常预警</td>
+            <td class="x">★</td>
+            <td>轻度抑郁</td>
+            <td><a href='javascript:void(0)'>处理中</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>王伟</td>
+            <td>男</td>
+            <td>13841983471</td>
+            <td>计算机系</td>
+            <td>低消预警</td>
+            <td class="x">★>★</td>
+            <td>日均消费低于5元</td>
+            <td><a href='javascript:void(0)'>未处理</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>李子遇</td>
+            <td>男</td>
+            <td>13841233470</td>
+            <td>社会学系</td>
+            <td>低分预警</td>
+            <td class="x">★</td>
+            <td>三门课程低于65分</td>
+            <td><a href='javascript:void(0)'>处理中</a></td>
+        </tr>
+        <tr class="text-c">
+            <td>孟洲</td>
+            <td>男</td>
+            <td>13841983471</td>
+            <td>管理学院</td>
+            <td>身体健康预警</td>
+            <td class="x">★</td>
+            <td>住院中</td>
+            <td><a href='javascript:void(0)'>已处理</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</div>
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+
+</body>
+</html>

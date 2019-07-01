@@ -1,0 +1,366 @@
+body{
+    background: #f5f5f5;
+}
+#Personal_information{
+    width: 95%;
+    height: 77%;
+    overflow: auto;
+}
+#Personal_information .left,#Personal_information .right{
+    float: left;
+    height: 100%;
+    background: #FFF;
+}
+#Personal_information .left{
+    width: 20%;
+    height: 100%;
+}
+#Personal_information .right{
+    width: 74%;
+    height: 100%;
+    margin-left: 1%;
+    padding: 2%;
+}
+#Personal_information #key_information_a{
+    width: 30%;
+}
+#Personal_information #key_information_b{
+    width: 64%;
+    padding: 0;
+}
+#Personal_information .left h3,#Personal_information .right h3{
+    line-height: 35px;
+    font-size: 24px;
+}
+#Personal_information .left ul{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f5f5f5;
+}
+#Personal_information .left ul li img{
+    width: 40%;
+    border-radius: 50%;
+}
+#Personal_information .left ul .img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+#Personal_information .left ul .bom{
+    margin-bottom: 10%;
+}
+#Personal_information .left ul li{
+    text-align: center;
+    margin: 1% 0;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+#Personal_information .left dl{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding-bottom: 5%;
+}
+#Personal_information .left dl dd{
+    line-height: 30px;
+    font-size: 16px;
+    margin: 3% 5%;
+}
+#Personal_information .left .biaoqian dt{
+    float: left;
+    line-height: 18px;
+    font-size: 14px;
+    padding: 5px 15px;
+    background: #e7340c;
+    text-align: center;
+    margin: 2%;
+    color: #fff;
+    border-radius: 2px;
+}
+
+#Personal_information .left ol{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+#Personal_information .left ol li{
+    line-height: 30px;
+    font-size: 16px;
+    text-align: left;
+    margin: 2% 5%;
+}
+
+
+
+
+/*--------------校园预警---------*/
+#early_warning{
+    background: #fff;
+    padding-bottom: 5%;
+}
+#early_warning .screen{
+    margin: 2% 0;
+}
+#early_warning .screen  span{
+    font-size: 20px;
+    margin-left: 2%;
+}
+.table .text-c .x{
+   color: #e7340c;
+    font-size: 20px;
+}
+#early_warning .screen select,#early_warning .screen .search{
+    border: 1px solid #ddd;
+    height: 30px;
+    padding: 0 20px;
+    margin-left: 8px;
+    border-radius: 3px;
+}
+#early_warning .screen button{
+    border: 1px solid #fff;
+    padding: 5px 35px;
+    border-radius: 5px;
+    background: #08c;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.table .text-c td a{
+    color: #F44336;cursor: pointer;
+}
+.course{ height:162px; background:#FFF;}
+.course_nr{height:162px; background:url(../images/ico9.gif) repeat-x center;width: 95%; margin: 0 auto;}
+.course_nr ul{margin-left: 21%;}
+.course_nr li{ float:left; background:url(../images/ico10.gif) no-repeat center top; padding-top:30px; width:300px; text-align:center; position:relative; margin-top:65px;}
+.shiji{ position:absolute; width:100%; left:0; top:-20px; display:none;}
+.shiji h1{ height:67px; line-height:67px; color:#F44336; font-weight:bold; background:url(../images/ico11.gif) no-repeat center top; margin-bottom:8px;font-size: 12px;  padding: 0;}
+.shiji p{ line-height:14px; color:#999;}
+
+
+
+
+#Personal_information .left .bom{
+    height: 684px;
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+#Personal_information .left #banji{
+    height: 594px;
+    border: none;
+}
+#Personal_information .left .bom dl dt{
+    color: #000;
+}
+#Personal_information .left .bom  .Student_portrait{
+    width: 100%;
+    height: 100%;
+}
+.Student_portrait dt{
+    width: 93%;
+    height: 20px;
+    padding-left: 0;
+    padding-top: 5%;
+}
+.Student_portrait dt span{
+    margin-right: 3%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.Student_portrait dt span i{
+    background: #2196F3;
+    padding: 1px 5px;
+    text-align: center;
+    color: #fff;
+    font-style: normal;
+}
+.Student_portrait dt span .n{
+    background: #ff6666;
+}
+.Student_portrait .portrait{
+    position: absolute;
+    top: 33%;
+    width: 95%;
+    height: 400px;
+}
+.Student_portrait #portraita{
+    top: 37%;
+}
+#student_portrait{
+    width: 100%;
+    height: 400px;
+}
+
+.shenhe{
+    width: 90%;
+    height: 60px;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+.shenhe .tilte{
+    font-size: 18px;
+    font-weight: bold;
+}
+.shenhe li{
+    list-style: none;
+    float: left;
+    font-size: 14px;
+    margin: 0 10px;
+}
+.shenhe li label{
+    margin: 0 5px;
+}
+.shenhe li input[type=submit]{
+    border: 1px #b5b5b5 solid;
+    border-radius: 3px;
+    height: 30px;
+    padding: 0 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    background: #b5b5b5;
+    color: #fff;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.12);
+}
+.shenhe li input[type=submit]:hover {
+    background-color: #949494;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+/*分页*/
+.pages {
+    width:720px;
+    margin:40px auto 0 auto;
+}
+.pages #Pagination {
+    float: left;
+    overflow: hidden;
+}
+.pages #Pagination .pagination {
+    height: 40px;
+    text-align: right;
+    font-family: \u5b8b\u4f53,Arial;
+}
+.pages #Pagination .pagination a,
+.pages #Pagination .pagination span {
+    float: left;
+    display: inline;
+    padding:6px 13px;
+    border: 1px solid #e6e6e6;
+    border-right: none;
+    background: #f6f6f6;
+    color: #666666;
+    font-family: \u5b8b\u4f53,Arial;
+    font-size: 14px;
+    cursor: pointer;
+}
+.pages #Pagination .pagination .current {
+    background: #ffac59;
+    color: #fff;
+}
+.pages #Pagination .pagination .prev,
+.pages #Pagination .pagination .next {
+    float: left;
+    padding: 6px 13px;
+    border: 1px solid #e6e6e6;
+    background: #f6f6f6;
+    color: #666666;
+    cursor: pointer;
+}
+.pages #Pagination .pagination .prev i,
+.pages #Pagination .pagination .next i {
+    display: inline-block;
+    width: 4px;
+    height: 11px;
+    margin-right: 5px;
+    background: url(../images/icon.fw.png) no-repeat;
+}
+.pages #Pagination .pagination .prev {
+    border-right: none;
+}
+.pages #Pagination .pagination .prev i {
+    background-position: -144px -1px;
+    *background-position: -144px -4px;
+}
+.pages #Pagination .pagination .next i {
+    background-position: -156px -1px;
+    *background-position: -156px -4px;
+}
+.pages #Pagination .pagination .pagination-break {
+    padding: 11px 5px;
+    border: none;
+    border-left: 1px solid #e6e6e6;
+    background: none;
+    cursor: default;
+}
+.pages .searchPage {
+    float: left;
+    padding: 8px 0;
+}
+.pages .searchPage .page-sum {
+    padding: 11px 13px;
+    color: #999999;
+    font-family: \u5b8b\u4f53,Arial;
+    font-size: 14px;
+}
+.pages .searchPage .page-go {
+    padding: 8px 0;
+    color: #999999;
+    font-family: \u5b8b\u4f53,Arial;
+    font-size: 14px;
+    padding: 10px 0\9;
+    *padding: 6px 0;
+}
+.pages .searchPage .page-go input {
+    width: 21px;
+    height: 20px;
+    margin: 0 5px;
+    padding-left: 5px;
+    border: 1px solid #e4e4e4;
+}
+.pages .searchPage .page-btn {
+    margin: 9px 0 5px 5px;
+    padding: 2px 5px;
+    background: #ffac59;
+    border-radius: 2px;
+    color: #ffffff;
+    font-family: Arial, 'Microsoft YaHei';
+    font-size: 14px;
+    text-decoration: none;
+}
+a,
+a:link {
+    text-decoration: none
+}
+
+a:active,
+a:hover {
+    text-decoration: none
+}
+
+a:focus {
+    outline: none
+}
+.fixed:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden
+}
+
+
+
+
+
+
+
+
+.footer{
+    clear: both;
+}

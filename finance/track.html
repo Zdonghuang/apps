@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>金融风险分析-贷后追踪</title>
+
+	<meta name = "keywords" content = "" />
+	<meta name = "description" content = "" />
+	<meta name="viewport" content="">
+
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script	src="js/lib/jquery-1.11.1.min.js" type="text/javascript" ></script>
+	<script	src="js/lib/echarts.min.js" type="text/javascript" ></script>
+
+</head>
+<body>
+	<div class="wrap ">
+		<div class="subMenu" >
+			<sapn class="subNavBtn">金融大数据风控管理平台</sapn>
+			<div class="inner">
+				<a href="pre_screening.html" class="subNavBtn">货前筛选</a>
+				<a href="potential_customer.html" class="subNavBtn">潜客触达</a>
+				<a href="track.html" class="subNavBtn active">货后追踪<i></i></a>
+				<a href="online_channel.html" class="subNavBtn">线上渠道分析</a>
+			</div>
+		</div>
+
+		<div class="section tracks1">
+			<div class="tracks1_left">
+				<a class="early_warning"><img src="image/track01.png" /> </a>
+				<h3>预警</h3>
+				<p>模型分持续变更预警,风险名单<br/> 变化预警设备换绑预警，地址定位预警<br/>  多头借贷预警，手机欠费</p>
+			</div>
+			<div class="tracks1_left">
+				<a class="early_warning early_top"><img src="image/track02.png" /> </a>
+				<h3>坏账</h3>
+				<p>连续欠账三个月的用户</p>
+			</div>
+			<div class="tracks1_left">
+				<a class="early_warning"><img src="image/track03.png" /> </a>
+				<h3>追缴</h3>
+				<p>本网其他号码追缴,常用<br/>联系人追缴,催款公司专业追缴</p>
+			</div>
+		</div>
+
+		<div class="section tracks2">
+			<div class="tracks2_content_ta tracks2_left">
+				<h4>正常用户分析</h4>
+				<div id="normal_user"></div>
+				<script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('normal_user'));
+                    option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: 'left',
+                            data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告'],
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+                        series: [
+                            {
+                                name:'访问来源',
+                                type:'pie',
+                                selectedMode: 'single',
+                                radius: [0, '30%'],
+
+                                label: {
+                                    normal: {
+                                        position: 'inner'
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+
+                            },
+                            {
+                                name:'访问来源',
+                                type:'pie',
+                                radius: ['40%', '55%'],
+
+                                data:[
+                                    {value:335, name:'直达'},
+                                    {value:310, name:'邮件营销'},
+                                    {value:234, name:'联盟广告'},
+                                    {value:135, name:'视频广告'},
+                                ]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option);
+				</script>
+			</div>
+			<div class="tracks2_content_tb tracks2_left">
+				<h4>异常用户月对比分析</h4>
+				<dl>
+					<dd class="tracks2_title_color">
+						<span>用户状态</span>
+						<span>9月</span>
+						<span>10月</span>
+						<span>11月</span>
+						<span>13月</span>
+						<span>&nbsp;</span>
+					</dd>
+					<dt>
+						<span>预警用户</span>
+						<span>0</span>
+						<span>0</span>
+						<span>0</span>
+						<span>125</span>
+						<span>6507</span>
+					</dt>
+					<dd>
+						<span>用户状态</span>
+						<span>9月</span>
+						<span>10月</span>
+						<span>11月</span>
+						<span>13月</span>
+						<span>&nbsp;</span>
+					</dd>
+					<dt>
+						<span>预警用户</span>
+						<span>0</span>
+						<span>0</span>
+						<span>0</span>
+						<span>125</span>
+						<span>6507</span>
+					</dt>
+				</dl>
+			</div>
+			<div class="tracks2_content_tc tracks2_left">
+				<h4>预警用户明细</h4>
+				<div id="warning_user"></div>
+				<script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('warning_user'));
+                    option = {
+                        color: ['#3398DB'],
+                        tooltip : {
+                            trigger: 'axis',
+                            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                data : ['首月逾期', '逾期1月', '逾期2月', '逾期3月'],
+                                axisTick: {
+                                    alignWithLabel: true
+                                },
+                                axisLabel: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLabel: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'直接访问',
+                                type:'bar',
+                                barWidth: '60%',
+                                data:[40, 60, 20, 30, 40, 50, 60,70]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option);
+				</script>
+			</div>
+		</div>
+
+
+		<div class="section tracks3">
+			<h4>常用户增长量分析(日增长量分析)</h4>
+			<div id="growth"></div>
+			<script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('growth'));
+                var option = {
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['预警用户','坏账用户','坏账已追'],
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['201312','201401','201402','201403','201404','201405','201406','201407','201408','201409','201410','201411','201412','201501','201502','201503','201504','201505','201506','201507','201508','201509','201510','201511','201512','201601','201602','201603','201604','201605','201606','201607','201608','201609','201610','201611','201612'],
+                        axisLabel: {
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    series: [
+                        {   name:'预警用户',
+                            type:'line',
+                            stack: '总量',
+                            data:[72,92,130,83,55,54,48,75,56,59,103,86,58,89,83,78,63,50,52,52,40,41,60,100,134,60,46,84,58,49,53,59,40,47,70,90,105]
+                        },
+                        {
+                            name:'坏账用户',
+                            type:'line',
+                            stack: '总量',
+                            data:[99,118,158,115,90,85,74,105,83,84,132,116,87,118,116,112,93,80,81,77,64,63,87,121,167,88,68,116,90,80,80,84,62,69,102,121,133]
+                        },
+                        {
+                            name:'坏账已追',
+                            type:'line',
+                            stack: '总量',
+                            data:[82,104,115,121,89,82,27,33,31,35,68,102,81,70,65,122,83,73,45,44,47,43,54,39,68,50,45,93,87,66,42,33,37,40,49,94,66]
+                        },
+
+                    ]
+                };
+                myChart.setOption(option);
+			</script>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

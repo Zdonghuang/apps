@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>factorySystem</title>
+	<link rel="stylesheet" href="css/reset.css">
+
+	<!-- <script type="text/javascript" src="jquery-easyui-1.2.4\jquery-1.6.min.js"></script> -->
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="echarts3/echarts.js" charset="utf-8"></script>
+	<script type="text/javascript" src="echarts3/macarons.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="js/getJsonJs.js"></script>
+	<script type="text/javascript" src="js/report.js"></script>
+	<script type="text/javascript" src="js/sportjson.js"></script>
+	<script type="text/javascript" src="js/sport.js"></script>
+	<link rel="stylesheet" href="css/detailLeft.css">
+	<link rel="stylesheet" href="css/detailRight.css">
+	<link rel="stylesheet" href="css/detailCenter.css">
+	<link rel="stylesheet" href="css/turn.css">
+	<style>
+		.change_echarts {
+			display: block;
+		}
+
+		.detail {
+			width: 3840px;
+			height: 100%;
+			position: relative;
+			background: -webkit-linear-gradient(#0B0B0D, #334463);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(#0B0B0D, #334463);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(#0B0B0D, #334463);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(#0B0B0D, #334463);
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="detail">
+		<section id="detailLeft">
+			<div class="left_top">
+				<div class="date">
+					<p class="date_top">10:11</p>
+					<p class="date_bottom">
+						<span class="time">2018年04月22日</span>
+						<span class="week">周日</span>
+					</p>
+				</div>
+				<div class="weather">
+					<p class="p_one"></p>
+					<p class="p_two">
+						<span>22/15</span>
+						<span>°C</span>
+					</p>
+				</div>
+				<div class="equipment_num">
+					<div class="equipment_left"></div>
+
+					<div class="equipment_center" id="num1">178</div>
+					<div class="equipment_right">
+						<p>/200</p>
+						<p>区域运行设备</p>
+					</div>
+				</div>
+				<div class="people">
+					<div class="people_left"></div>
+
+					<div class="people_center" id="num2">73</div>
+					<div class="people_right">
+						<p>/78</p>
+						<p>在岗生产人员</p>
+					</div>
+				</div>
+			</div>
+			<div class="left_center contaier">
+				<p class="title">电系统</p>
+				<div class="load">
+					<p class="p_one">
+						<span></span>
+						<i>当日累计用电量</i>
+					</p>
+					<p class="p_two">
+						<span id="electric_s">273,779</span>
+						<i>kW/h</i>
+					</p>
+				</div>
+				<div class="electric_change card" "report_one"="false">
+					<div class="electric face front">
+						<p class="p_one">
+							<span></span>
+							<i>实时负荷</i>
+						</p>
+						<p class="p_two">
+							<span id="electric_y">578</span>
+							<i>kW</i>
+						</p>
+					</div>
+					<div class="electric_echarts disappear face back">
+						<span class="span_one"></span>
+						<div id="electricReport" style="width:360px;height:155px;"></div>
+					</div>
+				</div>
+				<div class="costs_change card" "report_one"="false">
+					<div class="costs face front">
+						<div class="costs_one">
+							<p class="p_one"></p>
+							<p class="p_two" id="division_one">自动化控制部</p>
+							<p class="p_three">部门费用</p>
+						</div>
+						<div class="costs_two">
+							<div id="monthByCorp4" style="width:115px;height:115px;float:left;z-index:333"></div>
+							<span id="electric_c"></span>
+						</div>
+					</div>
+					<div class="costs_echarts disappear face back">
+						<span class="span_one" id="span_one"></span>
+						<div class="costEcharts">
+							<ul class="costEchartsData" id="costEchartsData_one">
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="energy_change card">
+					<div class="energy face front">
+						<div class="costs_one">
+							<p class="p_one"></p>
+							<p class="p_two" id="division_two">离心泵</p>
+							<p class="p_three">重点耗能设备</p>
+						</div>
+						<div class="costs_two">
+							<div id="monthByCorp5" style="width:115px;height:115px;float:left;z-index:333"></div>
+							<span id="electric_z"></span>
+						</div>
+					</div>
+					<div class="energy_echarts disappear face back">
+						<span class="span_one" id="span_two"></span>
+						<div class="costEcharts">
+							<ul class="costEchartsData" id="costEchartsData_two">
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="left_bottom">
+				<p class="title">水系统</p>
+				<div class="water_temperature">
+					<p class="p_one">
+						<span></span>
+						<i>温度-工艺冷却水</i>
+					</p>
+					<p class="p_two">
+						<span id="water_w">25</span>
+						<i>°C</i>
+					</p>
+				</div>
+				<div class="water_gage">
+					<p class="p_one">
+						<span></span>
+						<i>压力-工艺冷却水</i>
+					</p>
+					<p class="p_two">
+						<span id="water_y">4</span>
+						<i>bar</i>
+					</p>
+				</div>
+				<div class="Tsp_water_gage">
+					<p class="p_one">
+						<span></span>
+						<i>自来水压力</i>
+					</p>
+					<p class="p_two">
+						<span id="water_z">4</span>
+						<i>bar</i>
+					</p>
+				</div>
+				<div class="Total_amount">
+					<p class="p_one">
+						<span></span>
+						<i>日总用量</i>
+					</p>
+					<p class="p_two">
+						<span id="water_t">2811</span>
+						<i>m³</i>
+					</p>
+				</div>
+			</div>
+		</section>
+		<div class="detailCenter">
+			<div class="centerSafe">
+				<h1 class="centerNum">
+					<i class="center_day">543</i>	
+					<i class="centerDays">天</i>
+				</h1>
+				<span class="centerWork">安全运行</span>
+			</div>
+			<div class="centerFactory">
+				<div id="centerFactorimg"></div>
+				<p class="centerFactorysign centerFactorysign101" id="101"></p>
+				<p class="centerFactorysign centerFactorysign201" id="201"></p>
+				<p class="centerFactorysign centerFactorysign301" id="301"></p>
+				<p class="centerFactorysign centerFactorysign1A" id="1A"></p>
+				<p class="centerFactorysign centerFactorysign1B" id="1B"></p>
+				<p class="centerFactorysign centerFactorysign1C" id="1C"></p>
+				<p class="centerFactorysign centerFactorysign1D" id="1D"></p>
+				<p class="centerFactorysign centerFactorysign1E" id="1E"></p>
+			</div>
+			<!--<div class="centerFactorydata">点选建筑查看实时环境数据</div>-->
+		</div>
+		<section id="detailRight">
+			<div class="right_top">
+				<!-- <div class="out_warning"> -->
+				<div class="warning">
+					<p class="title">警告信息(
+						<span>7</span>) </p>
+					<div class="out_warning">
+						<div class="out_warning_one" style="height:230px;width:440px;">
+							<div class="warning_zero" style="height:218px;width:410px;">
+								<ul class="warning_one" style="height:218px;width:410px;color:yellow">
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- </div> -->
+				<div class="logo">
+					<div class="logo_one" id="logo_one">
+						<div id="demo_top"></div>
+					</div>
+					<div class="logo_two">
+						<div id="systemDiv">
+							<div id="p_all">
+								<p class="l_p_one" style="display:none">环保系统</p>
+								<p class="l_p_two" style="display:none">气体系统</p>
+								<p class="l_p_three"><a style="text-decoration:none;color:#FFFFFF" href="Fiber.html">供电系统</a></p>
+								<p class="l_p_four" style="display:none">工艺水系统</p>
+								<p class="l_p_five" style="display:none">动力系统</p>
+								<p class="l_p_six" style="display:none;font-size:30px;">安全生产系统</p>
+							</div>
+							<div id="span_all">
+								<span class="l_span_one "></span>
+								<span class="l_span_two"></span>
+								<span class="l_span_three"></span>
+								<span class="l_span_four"></span>
+								<span class="l_span_five"></span>
+								<span class="l_span_six"></span>
+							</div>
+							<div id="span_all_one">
+								<span class="span_one "></span>
+								<span class="span_two"></span>
+								<span class="span_three"></span>
+								<span class="span_four"></span>
+								<span class="span_five"></span>
+								<span class="span_six"></span>
+							</div>
+						</div>
+						<div>
+							<span class="I_span_seven"></span>
+							<span class="I_span_eight"></span>
+							<span class="I_span_nine"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right_center">
+				<div class="center_one">
+					<p class="title">气体系统</p>
+					<div class="electric">
+						<p class="p_one">
+							<span></span>
+							<i>压缩空气</i>
+						</p>
+						<p class="p_two">
+							<span id="gas_x" style="display:none;"></span>
+							<span id="gas_y">6.5</span>
+							<span id="gas_z" style="display:none;"></span>
+							<i>bar</i>
+						</p>
+						<ul class="tab_one">
+							<li>上月</li>
+							<li>本月</li>
+							<li>全年</li>
+						</ul>
+					</div>
+					<div class="nitrogen">
+						<p class="p_one">
+							<span></span>
+							<i>氮气</i>
+						</p>
+						<p class="p_two">
+
+							<span id="gas_d" style="display:none;">46600</span>
+							<span id="gas_d_one">531</span>
+							<span id="gas_d_two" style="display:none;">47800</span>
+							<i>Nm³/h</i>
+						</p>
+						<ul class="tab_two">
+							<li>上月</li>
+							<li>本月</li>
+							<li>全年</li>
+						</ul>
+					</div>
+				</div>
+				<div class="center_two">
+					<p class="title">暖通系统</p>
+					<div class="electrice_change card" "report_two"="false">
+						<div class="electric face front">
+							<p class="p_one">
+								<span></span>
+								<i>温度</i>
+							</p>
+							<p class="p_two">
+								<span id="hvac_w">18</span>
+								<i>°C</i>
+							</p>
+						</div>
+						<div class="electric_echarts disappear face back">
+							<span class="span"></span>
+							<div id="hvacTemperatureReport" style="width:330px;height:160px;"></div>
+						</div>
+					</div>
+					<div class="nitrogen_change card" "report_three"="false">
+						<div class="nitrogen face front">
+							<p class="p_one">
+								<span></span>
+								<i>湿度</i>
+							</p>
+							<p class="p_two">
+								<span id="hvac_s">35.68</span>
+								<i>%</i>
+							</p>
+						</div>
+						<div class="nitrogen_echarts disappear face back">
+							<span class="span"></span>
+							<div id="hvacHumidityReport" style="width:330px;height:160px;"></div>
+						</div>
+					</div>
+					<div class="helium_change helium_change_one card" "report_four"="false">
+						<div class="helium face front">
+							<p class="p_one">
+								<span></span>
+								<i>空气洁净度</i>
+							</p>
+							<p class="p_two">
+								<span id="hvac_k">1212</span>
+								<i>PC/ft³</i>
+							</p>
+						</div>
+						<div class="helium_echarts disappear face back">
+							<span class="span"></span>
+							<div id="hvacAcReport" style="width:330px;height:160px;"></div>
+						</div>
+					</div>
+
+				</div>
+				<div class="center_three">
+					<p class="title">环保</p>
+					<div class="electrice_change card">
+						<div class="electric face front">
+							<p class="p_one">
+								<span></span>
+								<i>废水总排量</i>
+							</p>
+							<p class="p_two">
+								<span id="ecosys_f">3235100</span>
+								<i>m³</i>
+							</p>
+						</div>
+						<div class="electric_echarts disappear face back">
+							<span class="span"></span>
+							<div id="ecosysReport" style="width:330px;height:160px;"></div>
+						</div>
+					</div>
+
+					<div class="helium">
+						<p class="p_one">
+							<span></span>
+							<i>总排pH值</i>
+						</p>
+						<p class="p_two">
+							<span id="ecosys_p">6.1</span>
+							<i>-</i>
+						</p>
+					</div>
+					<div class="nitrogen">
+						<p class="p_one">
+							<span></span>
+							<i>总排氟离子浓度</i>
+						</p>
+						<p class="p_two">
+							<span id="ecosys_z">8.68</span>
+							<i>mg/L</i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+<script>
+	var roomId = "";
+	var gas_y_index = "1";
+	$(function () {
+    InitializationReportFunction();
+		window.setTimeout(intervalFun0, 5000);
+		$(".centerFactorysign").click(function () {
+			var factoryId = $(this).attr("id");
+			roomId = factoryId
+			$("#centerFactorimg").removeClass().addClass("factoryimgActive" + factoryId);
+			console.log(factoryId)
+		})
+		//翻转
+		$(".card").click(function () {
+			$(this).toggleClass('card-flipped');
+			
+		})
+	})
+	$(".logo").click(function () {
+		roomId = "";
+		$("#centerFactorimg").removeClass("factoryimgActive101");
+		$("#centerFactorimg").removeClass("factoryimgActive201");
+		$("#centerFactorimg").removeClass("factoryimgActive301");
+	})
+	function initspan() {
+		$("#span_all span").eq(1).addClass("active_two")
+		$("#span_all span").eq(2).addClass("active_one")
+		$("#span_all span").eq(3).addClass("active_two")
+
+	}
+	$("#span_all_one span").mouseenter(function () {
+		var index = $(this).index()
+		console.log(index)
+		var oldIndex = $(".active_one").index();
+		$("#p_all p").eq(index).fadeIn(500).siblings().fadeOut(500)
+		if (index == 0) {
+			$(".active_one").removeClass("active_one");
+			$("#span_all span").eq(oldIndex + 1).removeClass("active_two");
+			$("#span_all span").eq(oldIndex - 1).removeClass("active_two");
+			$("#span_all span").eq(index).addClass("active_one")
+			$("#span_all span").eq(index + 1).addClass("active_two")
+		} else {
+			$(".active_one").removeClass("active_one");
+			$("#span_all span").eq(oldIndex + 1).removeClass("active_two")
+			$("#span_all span").eq(oldIndex - 1).removeClass("active_two")
+			$("#span_all span").eq(index).addClass("active_one")
+			$("#span_all span").eq(index + 1).addClass("active_two")
+			$("#span_all span").eq(index - 1).addClass("active_two")
+		}
+	}).mouseout(function () {
+
+	})
+	$('#detailRight .tab_one').find('li').click(function () {
+		var index = $(this).index();
+		if (index == 0) {
+			$("#gas_x").css("display", "block");
+			$("#gas_y,#gas_z").css("display", "none");
+		} else if (index == 1) {
+			$("#gas_y").css("display", "block");
+			$("#gas_x,#gas_z").css("display", "none");
+		} else if (index == 2) {
+			$("#gas_z").css("display", "block");
+			$("#gas_x,#gas_y").css("display", "none");
+		}
+		console.log(index)
+		$(this).addClass('active').siblings().removeClass('active');
+	})
+
+	$('#detailRight .tab_two').find('li').click(function () {
+		console.log(this)
+		var index = $(this).index();
+		if (index == 0) {
+			$("#gas_d").show()
+			$("#gas_d_one,#gas_d_two").hide();
+		} else if (index == 1) {
+			$("#gas_d_one").show();
+			$("#gas_d,#gas_d_two").hide();
+		} else if (index == 2) {
+			$("#gas_d_two").show();
+			$("#gas_d,#gas_d_one").hide();
+		}
+		console.log(index)
+		$(this).addClass('active').siblings().removeClass('active');
+
+	})
+	//上下滚动（无限滚动需要改变）
+	function warningList() {
+		var warningList = ""
+		var dateObjs = new Date();             //表示当前系统时间的Date对象 
+ 		var month = dateObjs.getMonth() + 1;       //当前系统时间的月份值 
+		var date = dateObjs.getDate();         //当前系统时间的月份中的日
+		var hour = dateObjs.getHours();              //当前系统时间的小时值 
+		var minute = dateObjs.getMinutes(); //当前系统时间的分钟值
+		var second = dateObjs.getSeconds();       //当前系统时间的秒钟值
+		var nowtimeOne = month + "/" + (date - 1) + " " + hour + ":" + minute;
+    var nowT = new Date().getTime();
+    var gg = new Date(nowT - 90000000).toLocaleDateString() + '/08:11';
+    var gg1 = new Date(nowT - 240000000).toLocaleDateString() + '/12:37';
+    var gg2 = new Date(nowT - 430000000).toLocaleDateString() + '/06:20';
+    var gg3 = new Date(nowT - 690000000).toLocaleDateString() + '/20:19';
+    var gg4 = new Date(nowT - 1000000000).toLocaleDateString() + '/15:45';
+		warningList ='<li >'+
+							'<p>'+
+								'<span class="span_one"></span>'+
+								'<span class="span_two">液压机554转速超出警戒值</span>'+
+							'</p >'+
+							'<span class="span_three">'+gg+'</span>'+
+						'</li>'
+						+'<li >'+
+							'<p>'+
+								'<span class="span_one"></span>'+
+								'<span class="span_two">PCVD#235温度超出警戒值</span>'+
+							'</p >'+
+							'<span class="span_three">'+gg1+'</span>'+
+						'</li>'
+						+'<li >'+
+							'<p>'+
+								'<span class="span_one"></span>'+
+								'<span class="span_two">110kv变电站3#变压器电流超出警戒值</span>'+
+							'</p >'+
+							'<span class="span_three">'+ gg2+'</span>'+
+						'</li>'
+						+'<li >'+
+							'<p>'+
+								'<span class="span_one"></span>'+
+								'<span class="span_two">办公区12#空调故障</span>'+
+							'</p >'+
+							'<span class="span_three">'+gg3+'</span>'+
+						'</li>'
+						+'<li >'+
+							'<p>'+
+								'<span class="span_one"></span>'+
+								'<span class="span_two">303建筑电闸检修未闭合</span>'+
+							'</p >'+
+							'<span class="span_three">'+gg4+'</span>'+
+						'</li>';
+
+		//for (var i = 0; i < 7; i++) {
+		//	warningList =warningList+ '<li >'+
+		//					'<p>'+
+		//						'<span class="span_one"></span>'+
+		//						'<span class="span_two">液压机554转速超出警戒值</span>'+
+		//					'</p >'+
+		//					'<span class="span_three">'+nowtimeOne+'</span>'+
+		//				'</li>'
+		//}
+		var warningOne = document.getElementsByClassName("warning_one")[0]
+		warningOne.innerHTML = warningList
+	}
+	//天气接口
+	function getweather() {
+		$.ajax({
+			url: "https://www.weather.com.cn/data/sk/101010100.html",
+			dataType: "jsonp",
+			type: "get",
+			callback: "jsonpCallback",
+			success: function (data) {
+				console.log(JSON.parse(data))
+				//  var $ul = $("<ul></ul>");
+				//  $.each(data, function (i, v) {
+				//      if (i=="success") {
+				//        console.log(data)
+				//      } else {
+				//         //  $("#dvWeather").html("weaid:" + v.weaid + "<br/>" + "days:" + v.days + "<br/>" + "week:" + v.week + "<br/>" + "cityno:" + v.cityno + "<br/>" + "citynm:" + v.citynm + "<br/>" + "cityid:" + v.cityid + "<br/>" + "temperature:" + v.temperature + "<br/>" + "humidity:" + v.humidity + "<br/>" + "weather:" + "<br/>" + "weather_icon:" + "<img src='http://211.159.172.203:8080/YOFC/&quot;&#32;+&#32;v.weather_icon&#32;+&#32;&quot;'></img>" + "<br/>" + "weather_icon1:" + "<img src='http://211.159.172.203:8080/YOFC/&quot;&#32;+&#32;v.weather_icon1&#32;+&#32;&quot;'></img><br/>" + "wind:" + v.wind + "<br/>" + "winp:" + v.winp + "<br/>" + "temp_high:" + v.temp_high + "<br/>temp_low:" + v.temp_low + "<br/>humi_high:" + v.humi_high + "<br/>humi_low:" + v.humi_low + "<br/>weatid:" + v.weatid + "<br/>weatid1" + v.weatid1 + "<br/>windid:" + v.windid + "<br/>winpid:" + v.winpid);
+				//      }
+
+				// });
+			},
+			error: function (responseText, textStatus, XMLHttpRequest) {
+				console.log(textStatus);
+			}
+		});
+	}
+	function getLangDate() {
+		var dateObj = new Date();             //表示当前系统时间的Date对象 
+		var year = dateObj.getFullYear();           //当前系统时间的完整年份值
+		var month = dateObj.getMonth() + 1;       //当前系统时间的月份值 
+		var date = dateObj.getDate();         //当前系统时间的月份中的日
+		var day = dateObj.getDay();    //当前系统时间中的星期值
+		var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+		var week = weeks[day];         //根据星期值，从数组中获取对应的星期字符串 
+		var hour = dateObj.getHours();              //当前系统时间的小时值 
+		var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+		var second = dateObj.getSeconds();       //当前系统时间的秒钟值
+		//如果月、日、小时、分、秒的值小于10，在前面补0
+		if (month < 10) {
+			month = "0" + month;
+		}
+		if (date < 10) {
+			date = "0" + date;
+		}
+		if (hour < 10) {
+			hour = "0" + hour;
+		}
+		if (minute < 10) {
+			minute = "0" + minute;
+		}
+		if (second < 10) {
+			second = "0" + second;
+		}
+		var newDate = year + "年" + month + "月" + date + "日"
+		var week = week
+		var time = hour + ":" + minute;
+		var timeOne = month + "/" + (date - 1) + " " + hour + ":" + minute;
+		$(".time").html(newDate)
+		$(".week").html(week)
+		$(".date_top").html(time)
+
+		//$("#detailRight .right_top .warning li .span_three").html(timeOne)
+		setTimeout("getLangDate()", 1000);//每隔1秒重新调用一次该函数 
+	}
+	//运行天数
+	function getOffsetDays(time1, time2) {
+		var offsetTime = Math.abs(time1 - time2);
+		return Math.floor(offsetTime / (3600 * 24 * 1e3));
+	}
+	// 获取相隔天数
+  $(".center_day").html(getOffsetDays(Date.now(), (new Date(2018, 0, 1)).getTime()));
+  var numarr = [];
+  var indexnum = 0;
+  function interval(){
+    var i = 0;
+    var num;
+    var arr = ['electric_c','electric_z','water_w','water_y','water_z','gas_y','hvac_w','ecosys_p','num1','num2'];
+    if(indexnum<10){
+      while(i<2){
+        num = Math.floor(Math.random()*(0 - 10) + 10);
+        if(numarr.indexOf(num)==-1){
+          numarr.push(num);
+          i++;
+        }
+      }
+      var doc = document.getElementById(arr[numarr[indexnum]]);
+      doc.style.color = '#000';
+      indexnum++;
+      var doc1 = document.getElementById(arr[numarr[indexnum]]);
+      doc1.style.color = '#000';
+      indexnum++;
+      setTimeout(() => {
+        doc.style.color = '#fff';
+        doc1.style.color = '#fff';
+      }, 200);
+    }else{
+      indexnum=0;
+      numarr = [];
+      while(i<2){
+        num = Math.floor(Math.random()*(0 - 10) + 10);
+        if(numarr.indexOf(num)==-1){
+          numarr.push(num);
+          i++;
+        }
+      }
+      var doc = document.getElementById(arr[numarr[indexnum]]);
+      doc.style.color = '#000';
+      indexnum++;
+      var doc1 = document.getElementById(arr[numarr[indexnum]]);
+      doc1.style.color = '#000';
+      indexnum++;
+      setTimeout(() => {
+        doc.style.color = '#fff';
+        doc1.style.color = '#fff';
+      }, 200);
+    }
+  }
+  //所有动态数据的赋值调用方法
+	function intervalFun0() {
+		electricFunction(roomId);
+		waterFunction(roomId);
+		hvacFunction2(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun1, 5000);
+  }
+  function intervalFun1() {
+		electricFunction1(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun2, 5000);
+  }
+  function intervalFun2() {
+		gasFunction(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun3, 5000);
+  }
+  function intervalFun3() {
+		gasFunction1(roomId);
+		ecosysFunction(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun4, 5000);
+  }
+  function intervalFun4() {
+		hvacFunction(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun5, 5000);
+  }
+  function intervalFun4() {
+		hvacFunction1(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		ecosysReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun5, 5000);
+  }
+  function intervalFun5() {
+		waterFunction(roomId);
+		hvacFunction2(roomId);
+		electricReportFunction(roomId);
+		hvacTemperatureReportFunction(roomId);
+		hvacHumidityReportFunction(roomId);
+		hvacAcReportFunction(roomId);
+		electricCorpsssFunction(roomId); //数据耗能设备饼图赋值方法
+		costsFunction(roomId); //部分费用饼图赋值方法
+		ulOneList() //
+    ulTwoList();
+    interval();
+    window.setTimeout(intervalFun0, 5000);
+	}
+	//初始化报表所需的东西
+	function InitializationReportFunction() {
+		electricReport();
+		hvacTemperatureReport();
+		hvacHumidityReport();
+		hvacAcReport();
+		ecosysReport();
+		costFunction()
+		getLangDate()
+		warningList() //警告部分
+		electricCorpFunction(); //数据耗能设备饼图初始化方法
+		ulOneList();
+		ulTwoList();
+		initspan()
+		getOffsetDays()
+		// getweather()
+	}
+</script>
+
+</html>

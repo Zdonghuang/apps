@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>维护任务管理</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/peration.css">
+</head>
+<body>
+<div class="back">
+    <!--顶条-->
+    <div class="top clearfix">
+        <p class="fl">风场CPS系统<i></i></p>
+        <a href="peration.html" class="fr top_icon"></a>
+    </div>
+    <!--中部content-->
+    <article class="clearfix">
+        <!--左侧边栏-->
+        <ul class="fl banner" >
+            <li>
+                <p></p>
+                <a href="index.html">
+                    <i class="fan_icon"></i>
+                    <em>风场状态概览</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="prod.html">
+                    <i class="fan_icon"></i>
+                    <em>生产管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="peration.html">
+                    <i class="fan_icon"></i>
+                    <em>维护管理</em>
+                </a>
+            </li>
+            <li  class="tool">
+                <p></p>
+                <a href="javascript:;">
+                    <i class="fan_icon"></i>
+                    <em>健康状态分析</em>
+                </a>
+            </li>
+        </ul>
+        <!--维护任务 maintain-->
+        <div class="fl main">
+            <div class="mai_menu">
+                <ul class="clearfix">
+                    <li class="selected fl"><a href="peration.html">维护任务管理</a></li>
+                    <li class="fl"><a href="resource.html">运维资源输入</a></li>
+                    <li class="fl"><a href="optimization.html">维护排程优化</a></li>
+                    <li class="fl"><a href="http://211.159.172.203:8080/CPS/result.html">结果方案透视</a></li>
+                </ul>
+            </div>
+            <div class="mai_box">
+                <div class="mai_box1">
+                    <p class="mai_p">维护需求</p>
+                    <div class="mai_tab">
+                        <table>
+                            <tr>
+                                <th class="tab_h">任务编码</th>
+                                <th class="tab_h" >风机编号</th>
+                                <th class="tab_h1">任务描述</th>
+                                <th class="tab_h3">预期维护时间</th>
+                                <th class="tab_h5">预期维护时长(分钟)</th>
+                                <th class="tab_h6">工人类型   (工人数量)</th>
+                                <th class="tab_h4">操作</th>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0001</td>
+                                <td>13</td>
+                                <td>更换齿轮箱滤芯</td>
+                                <td>2017年3月1日</td>
+                                <td>200</td>
+                                <td>机械(3) 电器(2)</td>
+                                <td><a href="javascript:;">添加到任务队列</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0002</td>
+                                <td>15</td>
+                                <td>滑环室巡检</td>
+                                <td>2017年3月1日</td>
+                                <td>30</td>
+                                <td>机械(1)</td>
+                                <td><a href="javascript:;">添加到任务队列</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0003</td>
+                                <td>17</td>
+                                <td>齿轮箱换油</td>
+                                <td>2017年3月1日</td>
+                                <td>45</td>
+                                <td>电器(2)</td>
+                                <td><a href="javascript:;">添加到任务队列</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0004</td>
+                                <td>14</td>
+                                <td>清理叶片</td>
+                                <td>2017年3月1日</td>
+                                <td>100</td>
+                                <td>机械(1) 电器(1)</td>
+                                <td><a href="javascript:;">添加到任务队列</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0005</td>
+                                <td>18</td>
+                                <td>齿轮箱改造</td>
+                                <td>2017年3月1日</td>
+                                <td>250</td>
+                                <td>
+                                    机械(2) 电器(3) IT(1)
+                                </td>
+                                <!--<td>
+                                    <div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">2</div>
+                                    <div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">3</div>
+                                    <div style="height: 33.33%;">1</div>
+                                </td>-->
+                                <td><a href="javascript:;">添加到任务队列</a></td>
+                            </tr>
+                        </table>
+                        <ul class="page clearfix">
+                            <li class="fl"> < </li>
+                            <li class="fl">1</li>
+                            <li class="fl">2</li>
+                            <li class="fl">...</li>
+                            <li class="fl"> > </li>
+                        </ul>
+                    </div>
+                    <p class="mai_pt">任务队列</p>
+                    <div class="mai_tab1">
+                        <table>
+                            <tr>
+                                <th class="tab_h">任务编码</th>
+                                <th class="tab_h" >风机编号</th>
+                                <th class="tab_h1">任务描述</th>
+                                <th class="tab_h3">预期维护时间</th>
+                                <th class="tab_h5">预期维护时长(分钟)</th>
+                                <th class="tab_h6">工人类型 (工人数量)</th>
+                                <th class="tab_h4">操作</th>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0001</td>
+                                <td>13</td>
+                                <td>更换齿轮箱滤芯</td>
+                                <td>2017年3月1日</td>
+                                <td>200</td>
+                                <td>
+                                    机械(3) 电器(2)
+                                    <!--<div style="height:50%;border-bottom: 1px solid rgba(255,255,255,0.1)">ME</div>
+                                    <div style="height:50%;">EE</div>-->
+
+                                </td>
+                                <!--
+                                <td>
+                                    <div style="height:50%;border-bottom: 1px solid rgba(255,255,255,0.1)">3</div>
+                                    <div style="height:50%;">2</div>
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0002</td>
+                                <td>15</td>
+                                <td>滑环室巡检</td>
+                                <td>2017年3月1日</td>
+                                <td>30</td>
+                                <td>机械(1)</td>
+                                <!--<td>1</td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0003</td>
+                                <td>17</td>
+                                <td>齿轮箱换油</td>
+                                <td>2017年3月1日</td>
+                                <td>45</td>
+                                <td>电器(2)</td>
+                                <!--<td>2</td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0004</td>
+                                <td>14</td>
+                                <td>清理叶片</td>
+                                <td>2017年3月1日</td>
+                                <td>100</td>
+                                <td>
+                                    机械(1) 电器(1)
+                                    <!--<div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">ME</div>
+                                    <div style="height: 50%;">EE</div>-->
+                                </td>
+                                <!--<td>
+                                    <div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">1</div>
+                                    <div style="height: 50%;">1</div>
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0005</td>
+                                <td>18</td>
+                                <td>齿轮箱改造</td>
+                                <td>2017年3月1日</td>
+                                <td>250</td>
+                                <td>
+                                    机械(2) 电器(3) IT(1)
+                                    <!--<div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">ME</div>
+                                    <div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">EE</div>
+                                    <div style="height: 33.33%;">IT</div>-->
+                                </td>
+                                <!--<td>
+                                    <div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">2</div>
+                                    <div style="height: 33.33%;border-bottom: 1px solid rgba(255,255,255,0.1)">3</div>
+                                    <div style="height: 33.33%;">1</div>
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0006</td>
+                                <td>19</td>
+                                <td>风轮锁定销失效</td>
+                                <td>2017年3月1日</td>
+                                <td>60</td>
+                                <td>电器(1)</td>
+                                <!--<td>1</td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0007</td>
+                                <td>20</td>
+                                <td>更换断路旋钮</td>
+                                <td>2017年3月1日</td>
+                                <td>40</td>
+                                <td>机械(2)</td>
+                                <!--<td>2</td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0008</td>
+                                <td>20</td>
+                                <td>轮毂油管脱落</td>
+                                <td>2017年3月1日</td>
+                                <td>30</td>
+                                <td>
+                                   机械(1) 电器(1)
+                                    <!--<div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">ME</div>
+                                    <div style="height: 50%;">EE</div>-->
+                                </td>
+                                <!--<td>
+                                    <div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">1</div>
+                                    <div style="height: 50%;">1</div>
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0009</td>
+                                <td>21</td>
+                                <td>滑环室巡检</td>
+                                <td>2017年3月1日</td>
+                                <td>60</td>
+                                <td>
+                                    IT(2) 机械(1)
+                                    <!--<div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">IT</div>
+                                    <div style="height: 50%;">ME</div>-->
+                                </td>
+                                <!--<td>
+                                    <div style="height: 50%;border-bottom: 1px solid rgba(255,255,255,0.1)">2</div>
+                                    <div style="height: 50%;">1</div>
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                            <tr>
+                                <td class="tab_r1">task0010</td>
+                                <td>23</td>
+                                <td>风速仪故障</td>
+                                <td>2017年3月1日</td>
+                                <td>30</td>
+                                <td>
+                                    机械(1)
+                                </td>
+                                <!--<td>
+                                    1
+                                </td>-->
+                                <td><a href="javascript:;">撤销到维护需求</a></td>
+                            </tr>
+                        </table>
+                        <div class="clearfix">
+                            <p class="mai_n fl">待办任务数量：<i>10</i>项</p>
+                            <ul class="page1 fr">
+                                <li class="fl"> < </li>
+                                <li class="fl">1</li>
+                                <li class="fl">2</li>
+                                <li class="fl">...</li>
+                                <li class="fl"> > </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mai_pop">人工需求（人*小时）： ME(机械) - <i>12</i> 项； EE(电器) - <i>10</i> 项； IT(其他) - <i>3</i> 项; 船：<i>2</i> 只；</div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+</body>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/peration.js"></script>
+</html>

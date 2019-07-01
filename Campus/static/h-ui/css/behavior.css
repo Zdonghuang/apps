@@ -1,0 +1,165 @@
+
+.content{
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    overflow: auto;
+}
+.content ul{
+    padding: 1%;
+    width: 98%;
+    height: 98%;
+    list-style: none;
+    overflow: auto;
+}
+.content ul .left{
+    width: 40%;
+    float: left;
+    height: 100%;
+}
+.content ul .right{
+    width: 59%;
+    float: right;
+    height: 100%;
+    margin-left: 1%;
+}
+.content ul li div{
+    background: #fff;
+}
+.content ul li .top{
+    height: 400px;
+    width: 100%;
+}
+.content ul li .bom{
+    height: 500px;
+    width: 100%;
+    margin-top: 15px;
+}
+.content ul li .top h1,.content ul li .bom h1{
+    font-size: 1.1em;
+    padding-left: 5%;
+    display: inline-block;
+    font-weight: normal;
+}
+.content ul li .top dl{
+    height: 50%;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+}
+.content ul li .top dl dd{
+    width: 49%;
+    height: 300px;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0;
+    float: left;
+}
+.content ul li .top dl dt{
+    width: 49%;
+    height: 300px;
+    font-size: 1em;
+    text-align: center;
+    margin: 0;
+    float: left;
+}
+.content ul li .top dl dd i{
+    font-style: normal;
+    color: #00abff;
+}
+.content ul li .top dl dt span{
+    width: 50%;
+    float: left;
+    display: block;
+    text-align: center;
+}
+#Gender,#Genderb{
+    width: 100%;
+    height: 300px;
+}
+#region,#arrangement{
+    width: 100%;
+    height: 400px;
+}
+
+.Student_portrait{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.Student_portrait dt{
+    width: 100%;
+    height: 35px;
+}
+.Student_portrait dt span{
+    margin: 0 3%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.Student_portrait dt span i{
+    background: #2196F3;
+    padding: 1px 5px;
+    text-align: center;
+    color: #fff;
+    font-style: normal;
+    margin: 0 1%;
+ }
+.Student_portrait dt span .n{
+    background: #ff6666;
+}
+.Student_portrait .student_portrait{
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    width: 65%;
+    height: 350px;
+}
+#student_portrait{
+    width: 100%;
+    height: 100%;
+}
+
+
+#news {
+    height: 102px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
+#news a{
+    width: 100%;
+    line-height: 33px;
+    display: block;
+    padding-left: 5%;
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    border-bottom: 1px dashed #aaa;
+    letter-spacing: 1px;
+}
+#news a span{
+    display: inline-block;
+    text-align: left;
+    margin-left: 10%;
+    width: 20%;
+}
+#news a:hover {
+    text-decoration:underline;
+    color: #f00;
+}
+
+.content .Student_situation{
+    width: 98%;
+    height: 220px;
+    margin-top: 1.5%;
+}
+.content .Student_situation li{
+    width: 49.5%;
+    height: 100%;
+    float: left;
+}
+#Surf_Internet,#School{
+    width: 100%;
+    height: 100%;
+}

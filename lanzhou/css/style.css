@@ -1,0 +1,247 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{ margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+img{ border:0;vertical-align: middle;}
+ol,ul,li {list-style:none;}
+li{vertical-align: middle;}
+h1,h2,h3,h4,h5,h6,em,b{font-size:100%;font-weight:normal;}
+input, button, select, textarea {  font-family: inherit;  font-size: inherit;  border-radius: 0;  }
+a{text-decoration:none;}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {  -webkit-appearance: none;  }
+a,a:visited{color:inherit;}
+img{max-width:100%;}
+body{font:normal 13px '"lucida Grande",Verdana,"Microsoft YaHei"';background-size: cover;}
+html,body{width:100%;height:99%;}
+.clear{clear:both;}
+
+.anchorBL{display: none;}
+
+.content{
+    max-width: 100%;
+    height: 100%;
+}
+.float{
+    float: left;
+    height: 100vh;
+    margin-right: 0.5%;
+}
+.map_bot{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: rgba(130, 0, 43, 0.8);
+    padding-bottom: 5%;
+}
+.lanzhou_ft{
+    position: absolute;
+    z-index: 99999999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 74, 136, 0.1);
+}
+.lanzhou_title{
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+}
+.lanzhou_title span{
+    float: left;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+}
+.lanzhou_title h1{
+    float: right;
+    text-align: left;
+    width:55%;
+    font-size: 35px;
+    padding-right: 5%;
+    letter-spacing: 4px;
+}
+.lanzhou_left{
+    width: 32%;
+    height: 100%;
+}
+.lanzhou_cont{
+    width: 33%;
+    height: 100%;
+}
+.lanzhou_right{
+    width: 33%;
+    height: 100%;
+}
+
+.shis{
+    width: 100%;
+    height: 300px;
+    margin-top: 5%;
+}
+.shis h2{
+    float: right;
+    text-align: center;
+    width: 100%;
+    height: 15%;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: #fff;
+}
+.shis ul{
+    width: 90%;
+    height: 85%;
+    background-color: rgba(60, 60, 60, 0.6);
+    clear: both;
+    margin: 5%;
+    border-radius: 2%;
+}
+.shis ul li{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.shis ul li span{
+    display: inline-block;
+    width: 30%;
+    font-size: 14px;
+    color: #49d3ed;
+    text-align: center;
+}.shis ul li .sp{
+     width: 35%;
+ }
+.shis ul li span i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #49d3ed;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.amount{
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 11%;
+}
+.amount span,.amount .flip{
+    float: left;
+}
+.amount span{
+    font-size: 28px;
+    color: #ffff00;
+}
+.amount p{
+    font-size: 26px;
+}
+.amount p b{
+    color: #49f6fd;
+    font-size: 42px;
+}
+.amount p i{
+    display: inline-block;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #49f6fd;
+    color: #000;
+    font-size: 32px;
+    font-style:normal;
+    animation-name: scale;
+    -webkit-animation-name: scale;
+    -moz-animation-name: scale;
+    -ms-animation-name: scale;
+    -o-animation-name: scale;
+    animation-duration: 1.2s;
+    -webkit-animation-duration: 1.2s;
+    -moz-animation-duration: 1.2s;
+    -ms-animation-duration: 1.2s;
+    -o-animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite
+}
+.ranking{
+    margin-top: 110%;
+}
+.ranking h2{
+    float: right;
+    text-align: center;
+    width: 100%;
+    height: 15%;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: #fff;
+}
+.ranking ul{
+    width: 80%;
+    margin: 0 auto;
+}
+.ranking ul li{
+    width: 100%;
+    line-height: 40px;
+    border-bottom: 1px solid #49d3ed;
+}
+.ranking ul li span{
+    font-size: 14px;
+    color: #fff;
+    margin-right: 5%;
+}
+
+#container {
+    background: black;
+    min-width: 600px;
+}
+
+.flip {
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    color: yellow;
+}
+
+.price-div {
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+}
+
+.price-div > div,
+.total-price > div {
+    float: left;
+    text-align: center;
+}
+
+.price-icon {
+    background: dimgrey;
+    width: 25px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.price-div .number {
+    background: dimgrey;
+    width: 32px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 43px;
+    font-weight: bold;
+    overflow: hidden;
+    margin-right: 1px;
+}
+
+.price-div .sign {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 68px;
+    height: 48px;
+}
